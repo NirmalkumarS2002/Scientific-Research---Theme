@@ -10,7 +10,11 @@
     integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Oldenburg&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Figtree:ital,wght@0,300..900;1,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Oldenburg&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&display=swap"
+    rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Figtree:ital,wght@0,300..900;1,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Oldenburg&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&display=swap"
     rel="stylesheet">
 </head>
 
@@ -21,18 +25,24 @@
     box-sizing: border-box;
   }
 
+  body {
+    overflow-x: hidden;
+  }
+
   .navigation {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
-    gap: 20px;
+    gap: 40px;
     padding-inline: 20px;
     padding-block: 10px;
-    background: red;
+    font-family: "Noto Sans", sans-serif;
+    width: 100%;
+    position: fixed;
   }
 
   .navigation img {
-    width: clamp(160px, 18vw, 200px);
+    width: 200px;
+    z-index: 1;
   }
 
 
@@ -45,24 +55,27 @@
 
   .menus {
     display: flex;
-
-    gap: 20px;
+    justify-content: space-between;
+    gap: 40px;
   }
 
   .menus li {
     list-style: none;
   }
-    .menus li a{
-      text-decoration: none;
-      color: white;
-      font-size: 18px;
-    }
+
+  .menus li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-size: 16px;
+  }
 
 
 
   .bar2 {
     display: flex;
-    gap: 20px;
+    gap: 50px;
+    justify-content: flex-end;
     align-items: center;
 
   }
@@ -72,18 +85,18 @@
     gap: 15px;
   }
 
-  .footer-icon{
+  .nav-icon {
     border: 1px outset gray;
-    height: 45px;
-    width: 45px;
+    height: 40px;
+    width: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
   }
 
-  .footer-icon i{
-    font-size: 26px;
+  .nav-icon i {
+    font-size: 20px;
     color: white;
   }
 
@@ -91,15 +104,220 @@
     display: none;
   }
 
-  .menus .sublogin{
+  .menus .sublogin {
     display: none;
   }
 
-  .nav-btn{
-    padding: 10px 30px;
-    border-radius: 5px;
+  .nav-btn {
+    padding: 15px 40px;
     border: none;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #02086A;
+    background: #05C9F5;
+  }
+
+  @media (max-width:1160px) {
+    .menus {
+      display: none;
+      position: absolute;
+      flex-direction: column;
+      justify-content: flex-start;
+      top: 0px;
+      left: 0px;
+      padding: 100px 25px;
+      background: blue;
+      height: 100vh;
+      width: 70%;
+    }
+
+    .menus .sublogin {
+      display: block;
+      padding: 10px 40px;
+      border-radius: 5px;
+      border: none;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .menus a {
+      text-decoration: none;
+    }
+
+    .navigation {
+      justify-content: center;
+    }
+
+    .bar2 {
+      width: 100%;
+    }
+
+    .bar3 {
+      display: flex;
+    }
+
+    .menu-btn {
+      display: block;
+      color: white;
+      font-size: 26px;
+    }
+
+    .close-btn {
+      display: none;
+      color: white;
+      font-size: 26px;
+    }
+
+  }
+
+  @media (max-width:740px) {
+    .bar2 {
+      display: none;
+    }
+
+    .navigation {
+      padding-inline: 10px;
+    }
+
+    .navigation img {
+      width: 160px;
+    }
+  }
+
+  /*hero section*/
+
+  .hero-section {
+    background: url("./src/home-bg1.webp");
+    font-family: "Inter", sans-serif;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    height: inherit;
+    width: fit-content;
+    position: absolute;
+    left: 50px;
+    top: -50px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(30px, 6vw, 80px);
+    line-height: 1.1;
+    color: white;
+  }
+
+  .hero-content p {
+    font-size: clamp(14px, 1.6vw, 18px);
+    max-width: clamp(250px, 50vw, 700px);
+    width: 100%;
+    color: white;
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .hero-btn {
+    padding: 15px 50px;
+    font-size: clamp(14px, 1.6vw, 17px);
+    border: none;
+    font-weight: 600;
+    width: fit-content;
+    color: #02086A;
+    background: #05C9F5;
+  }
+
+  .hero-count {
+    position: absolute;
+    display: flex;
+    gap: 40px;
+    right: 50px;
+    bottom: 50px;
+  }
+
+  .counts h2 {
+    font-size: clamp(35px, 6vw, 80px);
+    color: white;
+    margin-bottom: 5px;
+  }
+
+  .counts p {
+    color: white;
+    max-width: 200px;
+    line-height: 1.5;
+    font-size: clamp(14px, 1.6vw, 17px);
+  }
+
+  .side-btn {
+    position: absolute;
+    right: 0;
+    top: 40%;
+    transform: translateZ(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .side-btn div {
+    height: clamp(35px, 4vw, 50px);
+    width: clamp(35px, 4vw, 50px);
+    background: #05C9F5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .side-btn div span {
+    font-size: clamp(15px, 2vw, 25px);
+    color: #02086A;
+  }
+
+  @media (max-width:900px) {
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      height: inherit;
+      width: 100%;
+      position: block;
+      left: 0px;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .hero-content p{
+      text-align: center;
+    }
+
+    
+  .hero-count{
+    position: block;
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    gap: 20px;
+    right: 0px;
+    bottom: 40px;
+  }
+
+   .hero-count p{
+    font-size: 13px;
+  }
+
+     .hero-section{
+        background-position: 65% center; /* face visible */
+    }
+
+
   }
 </style>
 
@@ -115,22 +333,20 @@
         <li><a href="index.html">Blog</a></li>
         <li><a href="index.html">Contact Us</a></li>
 
-        <a href="login.html" class="sublogin"><button>Login</button></a>
+        <a href="login.html"><button class="sublogin">Login</button></a>
       </ul>
 
 
       <div class="bar2">
 
         <div class="sotial-icons">
-          <div class="footer-icon errorpage"><i class="fa-brands fa-whatsapp errorpage"></i></div>
-          <div class="footer-icon errorpage"><i class="fa-brands fa-instagram errorpage"></i></div>
-          <div class="footer-icon errorpage"><i class="fa-brands fa-x-twitter errorpage"></i></div>
-          <div class="footer-icon errorpage"><i class="fa-brands fa-facebook errorpage"></i></div>
+          <div class="nav-icon errorpage"><i class="fa-brands fa-whatsapp"></i></div>
+          <div class="nav-icon errorpage"><i class="fa-brands fa-instagram"></i></div>
+          <div class="nav-icon errorpage"><i class="fa-brands fa-x-twitter"></i></div>
+          <div class="nav-icon errorpage"><i class="fa-brands fa-facebook"></i></div>
         </div>
 
         <a href="login.html"><button class="nav-btn">Login</button></a>
-      </div>
-
 
     </nav>
 
@@ -139,6 +355,74 @@
       <span class="material-symbols-outlined close-btn">close</span>
     </div>
   </section>
+
+  <section class="hero-section">
+
+    <div class="hero-content">
+      <h1>Innovative <br>
+        solutions for health <br>progress & growth</h1>
+
+      <p>Advance patient care and science with Pharma’s trusted lab and pharmacy expertise for better outcomes. Ideal
+        for
+        partners seeking innovation.</p>
+
+      <button class="hero-btn">Learn More</button>
+
+    </div>
+
+
+    <div class="hero-count">
+      <div class="counts">
+        <h2>95%</h2>
+        <p>Results achieved <br> through work</p>
+      </div>
+
+      <div class="counts">
+        <h2>20+</h2>
+        <p>Years of bright ideas <br> and real results</p>
+      </div>
+    </div>
+
+    <div class="side-btn">
+      <div><span class="material-symbols-outlined">add_shopping_cart</span></div>
+      <div><span class="material-symbols-outlined">image</span></div>
+      <div><span class="material-symbols-outlined">news</span></div>
+    </div>
+  </section>
+
+  <script>
+    //navbar
+
+    let menus = document.querySelector(".menus")
+    let menubtn = document.querySelector('.menu-btn')
+    let closebtn = document.querySelector('.close-btn')
+
+    menubtn.addEventListener("click", () => {
+      menubtn.style.display = "none"
+      closebtn.style.display = "block"
+      menus.style.display = "flex"
+    })
+
+    closebtn.addEventListener("click", () => {
+      menubtn.style.display = "block"
+      closebtn.style.display = "none"
+      menus.style.display = "none"
+    })
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 1160) {
+        menubtn.style.display = "block"
+        closebtn.style.display = "block"
+        menus.style.display = "flex"
+      }
+      else {
+        menubtn.style.display = "block"
+        closebtn.style.display = "none"
+        menus.style.display = "none"
+      }
+    })
+
+  </script>
 </body>
 
 </html>
