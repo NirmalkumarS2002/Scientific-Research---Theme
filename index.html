@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scientific Research - Theme</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Oldenburg&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&display=swap"
+    rel="stylesheet">
+</head>
+
+<style>
+  * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+
+  .navigation {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    padding-inline: 20px;
+    padding-block: 10px;
+    background: red;
+  }
+
+  .navigation img {
+    width: clamp(160px, 18vw, 200px);
+  }
+
+
+  .menubar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .menus {
+    display: flex;
+
+    gap: 20px;
+  }
+
+  .menus li {
+    list-style: none;
+  }
+    .menus li a{
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+    }
+
+
+
+  .bar2 {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+  }
+
+  .sotial-icons {
+    display: flex;
+    gap: 15px;
+  }
+
+  .footer-icon{
+    border: 1px outset gray;
+    height: 45px;
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+  }
+
+  .footer-icon i{
+    font-size: 26px;
+    color: white;
+  }
+
+  .bar3 {
+    display: none;
+  }
+
+  .menus .sublogin{
+    display: none;
+  }
+
+  .nav-btn{
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+  }
+</style>
+
+<body>
+  <section class="navigation">
+    <img src="./src/logo.webp" alt="company Logo">
+
+    <nav class="menubar">
+      <ul class="menus">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html">about</a></li>
+        <li><a href="index.html">Pages</a></li>
+        <li><a href="index.html">Blog</a></li>
+        <li><a href="index.html">Contact Us</a></li>
+
+        <a href="login.html" class="sublogin"><button>Login</button></a>
+      </ul>
+
+
+      <div class="bar2">
+
+        <div class="sotial-icons">
+          <div class="footer-icon errorpage"><i class="fa-brands fa-whatsapp errorpage"></i></div>
+          <div class="footer-icon errorpage"><i class="fa-brands fa-instagram errorpage"></i></div>
+          <div class="footer-icon errorpage"><i class="fa-brands fa-x-twitter errorpage"></i></div>
+          <div class="footer-icon errorpage"><i class="fa-brands fa-facebook errorpage"></i></div>
+        </div>
+
+        <a href="login.html"><button class="nav-btn">Login</button></a>
+      </div>
+
+
+    </nav>
+
+    <div class="bar3">
+      <span class="material-symbols-outlined menu-btn">menu</span>
+      <span class="material-symbols-outlined close-btn">close</span>
+    </div>
+  </section>
+</body>
+
+</html>
