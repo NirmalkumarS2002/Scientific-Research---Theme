@@ -609,179 +609,193 @@ input[type="password"]::-webkit-textfield-decoration-container {
 
 <script>
 
-  /* CUSTOM DROPDOWN */
+/* CUSTOM DROPDOWN */
 
-  const customSelect =
-    document.querySelector(".custom-select");
+const customSelect =
+document.querySelector(".custom-select");
 
-  const selectBtn =
-    document.getElementById("selectBtn");
+const selectBtn =
+document.getElementById("selectBtn");
 
-  const selectedText =
-    document.getElementById("selectedText");
+const selectedText =
+document.getElementById("selectedText");
 
-  const options =
-    document.querySelectorAll(".option");
+const options =
+document.querySelectorAll(".option");
 
-  let selectedRole = "";
+let selectedRole = "";
 
-  /* OPEN */
+/* OPEN */
 
-  selectBtn.addEventListener("click", () => {
+selectBtn.addEventListener("click", () => {
 
     customSelect.classList.toggle("active");
 
-  });
+});
 
-  /* SELECT */
+/* SELECT */
 
-  options.forEach((option) => {
+options.forEach((option) => {
 
     option.addEventListener("click", () => {
 
-      selectedText.innerText =
+        selectedText.innerText =
         option.innerText;
 
-      selectedRole =
+        selectedRole =
         option.dataset.value;
 
-      customSelect.classList.remove("active");
+        customSelect.classList.remove("active");
 
     });
 
-  });
+});
 
-  /* OUTSIDE CLICK */
+/* OUTSIDE CLICK */
 
-  document.addEventListener("click", (e) => {
+document.addEventListener("click", (e) => {
 
     if(!customSelect.contains(e.target)){
 
-      customSelect.classList.remove("active");
+        customSelect.classList.remove("active");
 
     }
 
-  });
+});
 
-  // GET FORM ELEMENTS
+// GET FORM ELEMENTS
 
-  const emailInput =
-    document.querySelector('input[type="email"]');
+const emailInput =
+document.querySelector('input[type="email"]');
 
-  const passwordInput =
-    document.getElementById("password");
+const passwordInput =
+document.getElementById("password");
 
-  const loginBtn =
-    document.querySelector(".login-btn");
+const loginBtn =
+document.querySelector(".login-btn");
 
-  // LOGIN BUTTON CLICK
+// LOGIN BUTTON CLICK
 
-  loginBtn.addEventListener("click", (e) => {
+loginBtn.addEventListener("click", (e) => {
 
     e.preventDefault();
 
     const role =
-      selectedRole;
+    selectedRole;
 
     const email =
-      emailInput.value.trim();
+    emailInput.value.trim();
 
     const password =
-      passwordInput.value.trim();
+    passwordInput.value.trim();
 
     // ROLE VALIDATION
 
     if(role === ""){
 
-      alert("Please select role");
+        alert("Please select role");
 
-      return;
+        return;
     }
 
     // EMAIL VALIDATION
 
     if(email === ""){
 
-      alert("Please enter email address");
+        alert("Please enter email address");
 
-      emailInput.focus();
+        emailInput.focus();
 
-      return;
+        return;
     }
 
     const emailPattern =
-      /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
     if(!email.match(emailPattern)){
 
-      alert("Please enter valid email");
+        alert("Please enter valid email");
 
-      emailInput.focus();
+        emailInput.focus();
 
-      return;
+        return;
     }
 
     // PASSWORD VALIDATION
 
     if(password === ""){
 
-      alert("Please enter password");
+        alert("Please enter password");
 
-      passwordInput.focus();
+        passwordInput.focus();
 
-      return;
+        return;
     }
 
     if(password.length < 6){
 
-      alert("Password must be minimum 6 characters");
+        alert("Password must be minimum 6 characters");
 
-      passwordInput.focus();
+        passwordInput.focus();
 
-      return;
+        return;
     }
+
+    // SAVE EMAIL FOR DASHBOARD
+
+    localStorage.setItem(
+        "userEmail",
+        email
+    );
 
     // ROLE BASED REDIRECT
 
     if(role === "Admin"){
 
-      localStorage.setItem(
-        "adminEmail",
-        email
-      );
-
-      window.location.href =
+        window.location.href =
         "admin.html";
+
     }
 
     else if(role === "Client"){
 
-      localStorage.setItem(
-        "adminEmail",
-        email
-      );
-
-      window.location.href =
+        window.location.href =
         "client.html";
+
     }
 
-    
-  });
+});
 
+// PASSWORD SHOW / HIDE
 
-  // PASSWORD SHOW / HIDE
-const eyepass = document.getElementById("password");
-const togglePassword = document.getElementById("togglePassword");
-const eyeIcon = togglePassword.querySelector("i");
+const eyepass =
+document.getElementById("password");
+
+const togglePassword =
+document.getElementById("togglePassword");
+
+const eyeIcon =
+togglePassword.querySelector("i");
 
 togglePassword.addEventListener("click", () => {
 
     if (eyepass.type === "password") {
+
         eyepass.type = "text";
-        eyeIcon.classList.replace("fa-eye-slash", "fa-eye");
+
+        eyeIcon.classList.replace(
+            "fa-eye-slash",
+            "fa-eye"
+        );
+
     } else {
+
         eyepass.type = "password";
-        eyeIcon.classList.replace("fa-eye", "fa-eye-slash");
+
+        eyeIcon.classList.replace(
+            "fa-eye",
+            "fa-eye-slash"
+        );
     }
 
 });
