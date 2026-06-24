@@ -1,353 +1,793 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
 
-body{
-    overflow-x:hidden;
-}
+  <meta charset="UTF-8" />
 
-.login-section{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-    font-family:"Inter",sans-serif;
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0" />
 
-    background:
-    linear-gradient(
-        rgba(2,8,106,.85),
-        rgba(2,8,106,.75)
-    ),
-    url("./src/home-bg1.webp");
+  <title>Scientific-Research Login</title>
 
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-}
+  <!-- GOOGLE FONT -->
 
-.login-card{
-    width:100%;
-    max-width:450px;
+  <link rel="preconnect"
+    href="https://fonts.googleapis.com">
 
-    background:rgba(255,255,255,.08);
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- FONT AWESOME -->
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+
+      font-family:'Poppins', sans-serif;
+
+      min-height:100vh;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+
+      padding:10px;
+
+      overflow:auto;
+      background: linear-gradient(135deg,rgba(1, 1, 104, 0.603),rgba(0, 255, 234, 0.452)),url('./src/blog4.webp');
+
+      background-size:cover;
+      background-position:center;
+
+      position:relative;
+    }
+
+    body::before{
+
+      content:"";
+
+      position:absolute;
+
+      width:100%;
+      height:100%;
+
+      backdrop-filter:blur(3px);
+    }
+
+    /* LOGIN CARD */
+
+.login-box{
+
+    width:340px;
+
+    padding:20px 30px;
+
+    border-radius:20px;
+
+    background:rgba(8,16,60,.65);
+
+    border:1px solid rgba(18,199,245,.25);
+
     backdrop-filter:blur(12px);
     -webkit-backdrop-filter:blur(12px);
 
-    border:1px solid rgba(5,201,245,.2);
-    border-radius:20px;
+    box-shadow:
+    0 0 20px rgba(0,0,0,.45),
+    0 0 15px rgba(18,199,245,.12);
 
-    padding:40px 35px;
-
-    box-shadow:0 20px 50px rgba(0,0,0,.25);
+    position:relative;
+    z-index:10;
 }
 
-.login-header{
+    /* COMPANY LOGO */
+
+    .logowrap{
+
+      display:flex;
+      justify-content:center;
+      margin-top: 10px;
+    }
+
+    .companylogo{
+
+      width:210px;
+      margin-bottom: 10px;
+      object-fit:contain;
+    }
+
+
+
+    /* SUBTITLE */
+
+.subtitle{
+
     text-align:center;
-    margin-bottom:30px;
-}
 
-.login-header img{
-    width:180px;
-    max-width:100%;
-    height:auto;
-    margin-bottom:20px;
-}
-
-.login-header h2{
-    color:#fff;
-    font-size:34px;
-    margin-bottom:10px;
-}
-
-.login-header p{
     color:rgba(255,255,255,.75);
-    line-height:1.6;
+
+    font-size:12px;
+
+    margin-bottom:16px;
+
+    line-height:1.5;
 }
 
-.form-group{
-    margin-bottom:18px;
+/* INPUT BOX */
+
+.input-box{
+
+    margin-bottom:14px;
 }
 
-.form-group label{
+.input-box label{
+
     display:block;
-    color:#fff;
-    margin-bottom:8px;
-    font-size:14px;
+
+    color:#12C7F5;
+
+    margin-bottom:6px;
+
+    font-size:13px;
+
+    font-weight:600;
 }
 
-.form-group input,
-.form-group select{
-    width:100%;
-    padding:15px;
+.input-field{
 
-    border:1px solid rgba(5,201,245,.2);
-    border-radius:10px;
-
-    background:rgba(255,255,255,.1);
-    color:#fff;
-
-    outline:none;
-    transition:.3s;
-}
-
-.form-group select{
-    appearance:none;
-    -webkit-appearance:none;
-    -moz-appearance:none;
-    cursor:pointer;
-}
-
-.form-group option{
-    background:#02086A;
-    color:#fff;
-}
-
-.form-group input::placeholder{
-    color:rgba(255,255,255,.6);
-}
-
-.form-group input:focus,
-.form-group select:focus{
-    border-color:#05C9F5;
-    box-shadow:0 0 15px rgba(5,201,245,.25);
-}
-
-.password-wrap{
     position:relative;
 }
 
-.eye-btn{
+/* LEFT ICON */
+
+.input-field i.left-icon{
+
     position:absolute;
-    right:15px;
-    top:43px;
 
-    color:#05C9F5;
-    cursor:pointer;
-    user-select:none;
+    left:16px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#12C7F5;
+
+    font-size:14px;
 }
 
-.login-btn{
+/* INPUTS */
+
+.input-field input{
+
     width:100%;
-    padding:15px;
 
-    border:none;
-    border-radius:10px;
+    height:46px;
 
-    background:#05C9F5;
-    color:#02086A;
+    border-radius:12px;
 
-    font-size:16px;
-    font-weight:700;
+    border:1px solid rgba(18,199,245,.35);
 
-    cursor:pointer;
-    transition:.4s;
-}
+    background:rgba(255,255,255,.08);
 
-.login-btn:hover{
-    background:#fff;
-    transform:translateY(-2px);
-}
+    color:white;
 
-.login-links{
-    text-align:right;
-    margin-top:15px;
-}
+    font-size:13px;
 
-.login-links a{
-    color:#05C9F5;
-    text-decoration:none;
+    padding-left:45px;
+    padding-right:40px;
+
+    outline:none;
+
     transition:.3s;
 }
 
-.login-links a:hover{
-    color:#fff;
+.input-field input::placeholder{
+
+    color:rgba(255,255,255,.55);
 }
 
-.signup-link{
-    text-align:center;
-    margin-top:25px;
-    color:#fff;
-    line-height:1.6;
+.input-field input:focus{
+
+    border-color:#12C7F5;
+
+    box-shadow:
+    0 0 12px rgba(18,199,245,.25);
 }
 
-.signup-link a{
-    color:#05C9F5;
-    text-decoration:none;
+
+    input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear,
+input[type="password"]::-webkit-textfield-decoration-container {
+    display: none !important;
+}
+    /* CUSTOM DROPDOWN */
+
+    .custom-select{
+      position:relative;
+    }
+
+    .select-btn{
+
+    width:100%;
+
+    height:46px;
+
+    border-radius:12px;
+
+    border:1px solid rgba(18,199,245,.35);
+
+    background:rgba(255,255,255,.08);
+
+    padding:0 16px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.select-btn:hover{
+
+    border-color:#12C7F5;
+
+    box-shadow:
+    0 0 12px rgba(18,199,245,.25);
+}
+
+.select-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+}
+
+.select-left i{
+
+    color:#12C7F5;
+
+    font-size:14px;
+}
+
+.select-left span{
+
+    color:white;
+
+    font-size:13px;
+}
+
+.arrow{
+
+    color:#12C7F5;
+
+    font-size:12px;
+
+    transition:.3s;
+}
+
+.custom-select.active .arrow{
+    transform:rotate(180deg);
+}
+
+    .custom-select.active .arrow{
+
+      transform:rotate(180deg);
+    }
+
+    /* OPTIONS */
+/* SELECT OPTIONS */
+
+.select-options{
+
+    position:absolute;
+
+    top:54px;
+    left:0;
+
+    width:100%;
+
+    background:#07113f;
+
+    border:1px solid rgba(18,199,245,.35);
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    display:none;
+
+    z-index:100;
+
+    box-shadow:
+    0 10px 20px rgba(0,0,0,.35);
+}
+
+.custom-select.active .select-options{
+    display:block;
+}
+
+/* OPTION */
+
+.option{
+
+    padding:13px 16px;
+
+    color:#12C7F5;
+
+    font-size:13px;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.option:hover{
+
+    background:#12C7F5;
+
+    color:#02086A;
+}
+
+/* EYE BUTTON */
+
+.eye-btn{
+
+    position:absolute;
+
+    right:14px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#12C7F5;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    transition:.3s;
+}
+
+.eye-btn:hover{
+    color:#5BE4FF;
+}
+
+    /* LOGIN BUTTON */
+.login-btn{
+
+    width:100%;
+    height:46px;
+
+    border:none;
+    border-radius:12px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #12C7F5,
+        #05A9D6
+    );
+
+    color:#02086A;
+
+    font-size:14px;
     font-weight:700;
+
+    cursor:pointer;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    gap:8px;
+
+    transition:.3s;
+
+    margin-top:2px;
+    margin-bottom:20px;
 }
 
-.signup-link a:hover{
-    color:#fff;
+.login-btn:hover{
+
+    background:
+    linear-gradient(
+        135deg,
+        #1ED7FF,
+        #12C7F5
+    );
+
+    transform:translateY(-2px);
+
+    box-shadow:
+    0 8px 20px rgba(18,199,245,.35);
 }
+    /* FOOTER */
 
-/* Tablet */
+    .footer-text{
 
-@media (max-width:768px){
+      text-align:center;
 
-    .login-card{
-        max-width:420px;
-        padding:35px 25px;
+      color:#bdbdbd;
+
+      font-size:12px;
     }
 
-    .login-header img{
-        width:150px;
+    .footer-text a{
+
+      color: #12C7F5;
+
+      text-decoration:none;
+
+      font-weight:600;
+      padding-left: 5px;
     }
 
-    .login-header h2{
-        font-size:28px;
-    }
-}
+    /* MOBILE */
 
-/* Mobile */
+    @media(max-width:768px){
 
-@media (max-width:576px){
+      .login-box{
 
-    .login-section{
-        padding:15px;
-    }
+        width:100%;
 
-    .login-card{
-        max-width:100%;
-        padding:30px 20px;
-        border-radius:16px;
-    }
+        max-width:320px;
 
-    .login-header{
-        margin-bottom:25px;
-    }
+        padding:12px 16px;
+      }
 
-    .login-header img{
-        width:120px;
-    }
+      .login-here-text{
 
-    .login-header h2{
-        font-size:24px;
-    }
-
-    .login-header p{
         font-size:14px;
+      }
+
     }
 
-    .form-group label{
-        font-size:13px;
+    .forget{
+      text-align: center;
+    }
+    .forget a{
+      text-decoration: none;
+        text-align:center;
+
+      color:#bdbdbd;
+
+      font-size:12px;
     }
 
-    .form-group input,
-    .form-group select{
-        padding:13px;
-        font-size:14px;
-    }
+    /* =========================
+   PHARMA GREEN THEME
+========================= */
 
-    .login-btn{
-        padding:13px;
-        font-size:15px;
-    }
+  </style>
 
-    .eye-btn{
-        top:41px;
-        right:12px;
-        font-size:22px;
-    }
+</head>
 
-    .signup-link,
-    .login-links{
-        font-size:14px;
-    }
-}
-
-/* Small Mobile */
-
-@media (max-width:360px){
-
-    .login-card{
-        padding:25px 15px;
-    }
-
-    .login-header img{
-        width:100px;
-    }
-
-    .login-header h2{
-        font-size:22px;
-    }
-
-    .login-header p{
-        font-size:13px;
-    }
-
-    .form-group input,
-    .form-group select{
-        padding:12px;
-    }
-
-    .login-btn{
-        padding:12px;
-    }
-}
-</style>
 <body>
-    
-<section class="login-section">
+<div class="login-box">
 
-    <div class="login-card">
+    <!-- LOGO -->
+    <div class="logowrap">
+        <a href="login.html">
+            <img src="./src/logo.webp"
+                alt="Scientific Research Logo"
+                class="companylogo">
+        </a>
+    </div>
 
-        <div class="login-header">
-            <img src="./src/logo.webp" alt="Logo">
-            <h2>Welcome Back</h2>
-            <p>Access your research dashboard and resources.</p>
-        </div>
+    <!-- SUBTITLE -->
+    <p class="subtitle">
+        Secure access for Researchers, Scientists, Project Coordinators, and Research Partners
+    </p>
 
-        <form class="login-form">
+    <!-- ROLE -->
+    <div class="input-box">
 
-            <div class="form-group">
-                <label>Role</label>
-                <select id="role">
-                    <option value="">Select Role</option>
-                    <option>Admin</option>
-                    <option>Client</option>
-                </select>
+        <label>Select User Role</label>
+
+        <div class="custom-select">
+
+            <!-- BUTTON -->
+            <div class="select-btn" id="selectBtn">
+
+                <div class="select-left">
+
+                    <i class="fa-solid fa-flask"></i>
+
+                    <span id="selectedText">
+                        Select User Role
+                    </span>
+
+                </div>
+
+                <i class="fa-solid fa-chevron-down arrow"></i>
+
             </div>
 
-            <div class="form-group">
-                <label>Email Address</label>
-                <input type="email" id="email" placeholder="Enter Email Address">
+            <!-- OPTIONS -->
+            <div class="select-options" id="selectOptions">
+
+                <div class="option" data-value="Admin">
+                    Research Admin
+                </div>
+
+                <div class="option" data-value="Client">
+                    Researcher
+                </div>
+
             </div>
 
-            <div class="form-group password-wrap">
-                <label>Password</label>
-                <input type="password" id="password" placeholder="Enter Password">
-
-                <span class="material-symbols-outlined eye-btn" onclick="togglePassword()">visibility</span>
-            </div>
-
-            <button type="submit" class="login-btn">
-                Login
-            </button>
-
-        </form>
-
-        <div class="login-links">
-            <a href="#">Forgot Password?</a>
-        </div>
-
-        <div class="signup-link">
-            New to the platform?
-            <a href="register.html">Register Account</a>
         </div>
 
     </div>
 
-</section>
+    <!-- EMAIL -->
+    <div class="input-box">
+
+        <label>Email Address</label>
+
+        <div class="input-field">
+
+            <i class="fa-solid fa-envelope left-icon"></i>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email address">
+
+        </div>
+
+    </div>
+
+    <!-- PASSWORD -->
+    <div class="input-box">
+
+        <label>Password</label>
+
+        <div class="input-field">
+
+            <i class="fa-solid fa-lock left-icon"></i>
+
+            <input
+                type="password"
+                placeholder="Enter your password"
+                id="password">
+
+            <span
+                class="eye-btn"
+                id="togglePassword">
+
+                <i class="fa-solid fa-eye-slash"></i>
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <!-- LOGIN BUTTON -->
+    <button class="login-btn">
+
+        <i class="fa-solid fa-microscope"></i>
+
+        Access Research Portal
+
+    </button>
+
+    <!-- FOOTER -->
+
+    <div class="footer-text">
+
+        Create an Account
+
+        <a href="sign.html">
+            Register Account
+        </a>
+
+    </div>
+
+    <div class="forget">
+        <a href="404.html">
+            Forgot Password?
+        </a>
+    </div>
+
+</div>  
+
+<script>
+
+  /* CUSTOM DROPDOWN */
+
+  const customSelect =
+    document.querySelector(".custom-select");
+
+  const selectBtn =
+    document.getElementById("selectBtn");
+
+  const selectedText =
+    document.getElementById("selectedText");
+
+  const options =
+    document.querySelectorAll(".option");
+
+  let selectedRole = "";
+
+  /* OPEN */
+
+  selectBtn.addEventListener("click", () => {
+
+    customSelect.classList.toggle("active");
+
+  });
+
+  /* SELECT */
+
+  options.forEach((option) => {
+
+    option.addEventListener("click", () => {
+
+      selectedText.innerText =
+        option.innerText;
+
+      selectedRole =
+        option.dataset.value;
+
+      customSelect.classList.remove("active");
+
+    });
+
+  });
+
+  /* OUTSIDE CLICK */
+
+  document.addEventListener("click", (e) => {
+
+    if(!customSelect.contains(e.target)){
+
+      customSelect.classList.remove("active");
+
+    }
+
+  });
+
+  // GET FORM ELEMENTS
+
+  const emailInput =
+    document.querySelector('input[type="email"]');
+
+  const passwordInput =
+    document.getElementById("password");
+
+  const loginBtn =
+    document.querySelector(".login-btn");
+
+  // LOGIN BUTTON CLICK
+
+  loginBtn.addEventListener("click", (e) => {
+
+    e.preventDefault();
+
+    const role =
+      selectedRole;
+
+    const email =
+      emailInput.value.trim();
+
+    const password =
+      passwordInput.value.trim();
+
+    // ROLE VALIDATION
+
+    if(role === ""){
+
+      alert("Please select role");
+
+      return;
+    }
+
+    // EMAIL VALIDATION
+
+    if(email === ""){
+
+      alert("Please enter email address");
+
+      emailInput.focus();
+
+      return;
+    }
+
+    const emailPattern =
+      /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if(!email.match(emailPattern)){
+
+      alert("Please enter valid email");
+
+      emailInput.focus();
+
+      return;
+    }
+
+    // PASSWORD VALIDATION
+
+    if(password === ""){
+
+      alert("Please enter password");
+
+      passwordInput.focus();
+
+      return;
+    }
+
+    if(password.length < 6){
+
+      alert("Password must be minimum 6 characters");
+
+      passwordInput.focus();
+
+      return;
+    }
+
+    // ROLE BASED REDIRECT
+
+    if(role === "Admin"){
+
+      localStorage.setItem(
+        "adminEmail",
+        email
+      );
+
+      window.location.href =
+        "admin.html";
+    }
+
+    else if(role === "Client"){
+
+      localStorage.setItem(
+        "adminEmail",
+        email
+      );
+
+      window.location.href =
+        "client.html";
+    }
+
+    
+  });
+
+
+  // PASSWORD SHOW / HIDE
+const eyepass = document.getElementById("password");
+const togglePassword = document.getElementById("togglePassword");
+const eyeIcon = togglePassword.querySelector("i");
+
+togglePassword.addEventListener("click", () => {
+
+    if (eyepass.type === "password") {
+        eyepass.type = "text";
+        eyeIcon.classList.replace("fa-eye-slash", "fa-eye");
+    } else {
+        eyepass.type = "password";
+        eyeIcon.classList.replace("fa-eye", "fa-eye-slash");
+    }
+
+});
+</script>
+
 </body>
-</html>
+
+</html> 
