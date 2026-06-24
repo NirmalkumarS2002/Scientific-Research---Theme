@@ -27,6 +27,519 @@
       color: #1a1a2e;
     }
 
+  .navigation {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding-inline: 20px;
+    padding-block: 10px;
+    font-family: "Noto Sans", sans-serif;
+    width: 100%;
+    position: fixed;
+    z-index: 10000;
+  }
+
+  .navigation img {
+    position: relative;
+    width: 200px;
+    z-index: 10001;
+  }
+
+
+  .menubar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .menus {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .menus li {
+    list-style: none;
+  }
+
+  .menus li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-size: 16px;
+  }
+
+  .navlink.active {
+    color: #05C9F5;
+  }
+
+
+  .bar2 {
+    display: flex;
+    gap: 50px;
+    justify-content: flex-end;
+    align-items: center;
+
+  }
+
+  .sotial-icons {
+    display: flex;
+    gap: 15px;
+  }
+
+  .nav-icon {
+    border: 1px outset gray;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: rgba(185, 185, 185, 0.274);
+    border: none;
+  }
+
+  .navigation.scrolled {
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .12);
+  }
+
+  .navigation.scrolled .navlink.active {
+    color: #05C9F5;
+  }
+
+  .navigation.scrolled .menus li a {
+    color: #111;
+  }
+
+  .navigation.scrolled .menu-btn,
+  .navigation.scrolled .close-btn {
+    color: #111;
+  }
+
+  .navigation.scrolled .nav-icon {
+    background: rgba(0, 0, 0, .05);
+  }
+
+  .navigation.scrolled .nav-icon i {
+    color: #111;
+  }
+
+  .nav-icon i {
+    font-size: 20px;
+    color: white;
+  }
+
+  .bar3 {
+    display: none;
+  }
+
+  .menus .sublogin {
+    display: none;
+  }
+
+  .nav-btn {
+    padding: 15px 40px;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: #02086A;
+    background: #05C9F5;
+  }
+
+
+  @media (max-width:1160px) {
+    .menus {
+      display: none;
+      position: absolute;
+      flex-direction: column;
+      justify-content: flex-start;
+      top: 0px;
+      left: 0px;
+      padding: 100px 25px;
+      background: white;
+      height: 100vh;
+      width: 70%;
+      z-index: 9999;
+    }
+
+
+    .menus li a {
+      color: #02086A;
+    }
+
+    .menus .sublogin {
+      display: block;
+      padding: 10px 40px;
+  
+    }
+
+    .menus a {
+      text-decoration: none;
+    }
+
+    .navigation {
+      justify-content: center;
+    }
+
+    .bar2 {
+      width: 100%;
+    }
+
+    .bar3 {
+      display: flex;
+    }
+
+    .menu-btn {
+      display: block;
+      color: white;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    .close-btn {
+      display: none;
+      color: white;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+  }
+
+  @media (max-width:740px) {
+    .bar2 {
+      display: none;
+    }
+
+    .navigation {
+      padding-inline: 10px;
+    }
+
+    .navigation img {
+      width: 160px;
+    }
+  }
+
+
+    /**/
+    .menus li a {
+        position: relative;
+        transition: .4s;
+    }
+
+    .menus li a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 0;
+        height: 3px;
+        background: #05C9F5;
+        border-radius: 10px;
+        transition: .4s;
+    }
+
+    .menus li a:hover {
+        color: #05C9F5;
+    }
+
+    .menus li a:hover::after {
+        width: 100%;
+    }
+
+    .nav-icon {
+        transition: .4s;
+        cursor: pointer;
+    }
+
+    .nav-icon:hover {
+        background: #05C9F5;
+        transform: translateY(-6px) rotate(360deg);
+        box-shadow: 0 0 25px #05C9F5;
+    }
+
+    .nav-icon:hover i {
+        color: #02086A;
+    }
+
+    .nav-btn{
+        position: relative;
+        overflow: hidden;
+        transition: .4s;
+        cursor: pointer;
+    }
+
+    .nav-btn::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.445);
+        transform: skewX(-0deg);
+        transition: .6s;
+    }
+
+    .nav-btn:hover::before,
+    .hero-btn:hover::before {
+        left: 120%;
+    }
+
+    .nav-btn:hover{
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px rgba(5, 201, 245, .5);
+    }
+
+    /* Footer */
+
+    .footer {
+        background: linear-gradient(125deg, rgba(2, 16, 92, 0.747), rgba(5, 100, 138, 0.61)), url('./src/home-bg.webp');
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        overflow: hidden;
+        padding-top: 80px;
+        font-family: "Inter", sans-serif;
+    }
+
+    .footer::before {
+        content: "";
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background: rgba(5, 201, 245, .08);
+        border-radius: 50%;
+        top: -250px;
+        right: -150px;
+    }
+
+    .footer-container {
+        width: min(1300px, 90%);
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 50px;
+        padding-bottom: 60px;
+    }
+
+    .footer-logo {
+        width: 180px;
+        margin-bottom: 20px;
+    }
+
+    .footer-col p {
+        color: rgba(255, 255, 255, .8);
+        line-height: 1.8;
+        font-size: 15px;
+    }
+
+    .footer-col h3 {
+        color: white;
+        margin-bottom: 25px;
+        font-size: 22px;
+        position: relative;
+    }
+
+    .footer-col h3::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        width: 50px;
+        height: 3px;
+    }
+
+    .footer-col ul {
+        list-style: none;
+    }
+
+    .footer-col ul li {
+        margin-bottom: 14px;
+    }
+
+    .footer-col ul li a {
+        text-decoration: none;
+        color: rgba(255, 255, 255, .8);
+        transition: .4s;
+    }
+
+    .footer-col ul li a:hover {
+        color: #05C9F5;
+        padding-left: 8px;
+    }
+
+    .footer-social {
+        display: flex;
+        gap: 15px;
+        margin-top: 25px;
+    }
+
+    .footer-social a {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border: 1px solid rgba(5, 201, 245, 0.25);
+        border-radius: 12px;
+
+        background: rgba(5, 201, 245, 0.08);
+        color: #05C9F5;
+
+        transition: .4s;
+        text-decoration: none;
+    }
+
+    .footer-social a:hover {
+        background: #ffffff;
+        color: #02086A;
+
+        transform: translateY(-5px);
+
+        border-color: #05C9F5;
+        box-shadow: 0 0 20px rgba(5, 201, 245, .35);
+    }
+
+    .footer-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .footer-form input {
+        padding: 15px;
+        border: 1px solid rgba(5, 201, 245, 0.25);
+        background: rgba(255, 255, 255, 0.9);
+        color: #02086A;
+    }
+
+    .footer-form input:focus {
+        background: rgba(5, 201, 245, 0.274);
+        border-color: #05C9F5;
+        box-shadow: 0 0 15px rgba(5, 201, 245, 0.25);
+        outline: none;
+    }
+
+    .footer-form input:hover {
+        border-color: #05C9F5;
+        box-shadow: 0 0 20px rgba(5, 201, 245, 0.18);
+    }
+
+    .footer-form input::placeholder {
+        color: #7d88b3;
+    }
+
+
+    .footer-form button {
+        padding: 15px;
+        border: none;
+
+        background: #05C9F5;
+        color: #02086A;
+
+        font-weight: 700;
+        cursor: pointer;
+        transition: .4s;
+    }
+
+    .footer-form button:hover {
+        background: #02086A;
+        color: #ffffff;
+
+        box-shadow: 0 10px 25px rgba(2, 8, 106, .35);
+    }
+
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, .1);
+        text-align: center;
+        padding: 25px;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .footer-bottom p {
+        color: rgba(255, 255, 255, .7);
+        font-size: 14px;
+    }
+
+
+    .footer-bottom a {
+        text-decoration: none;
+        color: white;
+
+    }
+
+    .footer-bottom div {
+        display: flex;
+        gap: 30px;
+
+    }
+
+    .footer-col span {
+        font-size: 17px;
+    }
+
+    .footer-details a {
+        display: flex;
+        gap: 10px;
+        align-content: center;
+        color: red;
+    }
+
+    .footer-bottom a {
+        color: rgba(255, 255, 255, .7);
+        font-size: 14px;
+    }
+
+    .footer-bottom a:hover {
+        color: #05C9F5;
+
+    }
+
+    #emailMsg {
+        margin-top: 10px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+
+
+    @media(max-width:768px) {
+
+        .footer {
+            text-align: center;
+        }
+
+        .footer-col h3::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .footer-social {
+            justify-content: center;
+        }
+
+        .footer-bottom {
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-details a {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-content: center;
+            color: red;
+        }
+    }
+
+
     /* ── SHARED ── */
     .container {
       width: min(1200px, 90%);
@@ -104,7 +617,7 @@
        SECTION 1 — CONTACT HERO BANNER
     ══════════════════════════════════════════ */
     .about-hero {
-      min-height: 60vh;
+      min-height: 70vh;
       background: linear-gradient(135deg, rgba(2, 8, 106, 0.88) 0%, rgba(2, 8, 106, 0.60) 60%, rgba(5, 201, 245, 0.30) 100%),
         url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1600&q=80') center/cover no-repeat;
       display: flex;
@@ -862,7 +1375,39 @@
 </head>
 
 <body>
+    <section class="navigation">
+        <a href="index.html"><img src="./src/logo.webp" alt="company Logo"></a>
 
+        <nav class="menubar">
+            <ul class="menus">
+                <li><a href="index.html" class="navlink">Home</a></li>
+                <li><a href="about.html" class="navlink">about</a></li>
+                <li><a href="page.html" class="navlink">Pages</a></li>
+                <li><a href="blog.html" class="navlink active">Blog</a></li>
+                <li><a href="contact.html" class="navlink">Contact Us</a></li>
+
+                <a href="login.html"><button class="nav-btn sublogin">Login</button></a>
+            </ul>
+
+
+            <div class="bar2">
+
+                <div class="sotial-icons">
+                    <div class="nav-icon errorpage"><i class="fa-brands fa-whatsapp"></i></div>
+                    <div class="nav-icon errorpage"><i class="fa-brands fa-instagram"></i></div>
+                    <div class="nav-icon errorpage"><i class="fa-brands fa-x-twitter"></i></div>
+                    <div class="nav-icon errorpage"><i class="fa-brands fa-facebook"></i></div>
+                </div>
+
+                <a href="login.html"><button class="nav-btn">Login</button></a>
+            </div>
+        </nav>
+
+        <div class="bar3">
+            <span class="material-symbols-outlined menu-btn">menu</span>
+            <span class="material-symbols-outlined close-btn">close</span>
+        </div>
+    </section>
   <!-- ══════════════════════════════════════════
        SECTION 1 — CONTACT HERO BANNER
   ══════════════════════════════════════════ -->
@@ -1199,8 +1744,160 @@
     </div>
   </section>
 
+     <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-col">
+                <a href="index.html"> <img src="./src/logo.webp" alt="Logo" class="footer-logo"></a>
+
+                <p>
+                    Advancing healthcare through innovative research,
+                    laboratory excellence, and trusted pharmaceutical
+                    solutions worldwide.
+                </p>
+
+                <div class="footer-social">
+                    <a href="404.html"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="404.html"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="404.html"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="404.html"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="page.html">Page</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col footer-details">
+                <h3>Services</h3>
+
+                <ul>
+                    <li><a href="404.html"><span class="material-symbols-outlined">
+                                call
+                            </span>+91 1234567890</a></li>
+                    <li><a href="404.html"><span class="material-symbols-outlined">
+                                mail
+                            </span>research@gmail.com</a></li>
+                    <li><a href="404.html"><span class="material-symbols-outlined">
+                                location_on
+                            </span>chennai,Tamilnadu</a></li>
+
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Newsletter</h3>
+
+                <p>
+                    Subscribe to receive the latest research
+                    updates and healthcare innovations.
+                </p>
+
+                <form class="footer-form">
+                    <input type="email" id="newsletterEmail" placeholder="Enter Email Address">
+                    <button type="submit">Subscribe</button>
+                </form>
+
+                <p id="emailMsg"></p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                © 2026 Stackly. All Rights Reserved.
+            </p>
+
+            <div>
+                <a href="404.html">Privacy Policy</a>
+                <a href="404.html">Terms @ Conditons</a>
+            </div>
+        </div>
+    </footer>
+
 
   <script>
+
+    //navbar
+
+        const menus = document.querySelector(".menus");
+        const menubtn = document.querySelector(".menu-btn");
+        const closebtn = document.querySelector(".close-btn");
+
+        menubtn.addEventListener("click", () => {
+            menubtn.style.display = "none";
+            closebtn.style.display = "block";
+            menus.style.display = "flex";
+        });
+
+        closebtn.addEventListener("click", () => {
+            menubtn.style.display = "block";
+            closebtn.style.display = "none";
+            menus.style.display = "none";
+        });
+
+        window.addEventListener("resize", (() => {
+            if (window.innerWidth > 1160) {
+                menubtn.style.display = "none";
+                closebtn.style.display = "none";
+                menus.style.display = "flex";
+            } else {
+                menubtn.style.display = "block";
+                closebtn.style.display = "none";
+                menus.style.display = "none";
+            }
+        }));
+
+        //scroll
+        const navbar = document.querySelector(".navigation")
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled")
+            }
+
+            else {
+                navbar.classList.remove("scrolled")
+            }
+        })
+
+        //footer
+
+        const footerForm = document.querySelector(".footer-form");
+        const emailInput = document.getElementById("newsletterEmail");
+        const emailMsg = document.getElementById("emailMsg");
+
+        footerForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const email = emailInput.value.trim();
+
+            const emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (email === "") {
+                emailMsg.textContent = "Please enter your email address";
+                emailMsg.style.color = "red";
+                return;
+            }
+
+            if (!emailPattern.test(email)) {
+                emailMsg.textContent = "Please enter a valid email address";
+                emailMsg.style.color = "red";
+                return;
+            }
+
+            emailMsg.textContent = "Subscribed successfully!";
+            emailMsg.style.color = "#05C9F5";
+
+            emailInput.value = "";
+        });
     // Scroll reveal
     const revEls = document.querySelectorAll('.reveal, .reveal-l, .reveal-r');
     const obs = new IntersectionObserver((entries) => {
