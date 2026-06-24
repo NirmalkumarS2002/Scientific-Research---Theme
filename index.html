@@ -1986,7 +1986,7 @@
         for
         partners seeking innovation.</p>
 
-      <button class="hero-btn">Learn More</button>
+      <button class="hero-btn errorpage">Learn More</button>
 
     </div>
 
@@ -2068,7 +2068,7 @@
         </div>
       </div>
 
-      <a href="#" class="about-cta">Our Full Story <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="404.html" class="about-cta">Our Full Story <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </section>
 
@@ -2092,7 +2092,7 @@
           <h3>Laboratory Analysis</h3>
           <p>State-of-the-art diagnostic and analytical testing with the highest standards of accuracy and global
             compliance.</p>
-          <a href="#" class="srv-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="404.html" class="srv-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
 
@@ -2107,7 +2107,7 @@
           <h3>Pharmaceutical R&D</h3>
           <p>Developing next-generation drug compounds through rigorous scientific methodology and advanced synthesis.
           </p>
-          <a href="#" class="srv-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="404.html" class="srv-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
 
@@ -2122,7 +2122,7 @@
           <h3>Genomics Research</h3>
           <p>Unlocking the human genome to identify disease markers, hereditary patterns, and targeted gene therapies.
           </p>
-          <a href="#" class="srv-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="404.html" class="srv-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
 
@@ -2137,7 +2137,7 @@
           <h3>Clinical Trials</h3>
           <p>Conducting Phase I–IV trials with rigorous protocols ensuring patient safety, ethics, and data integrity.
           </p>
-          <a href="#" class="srv-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="404.html" class="srv-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
 
@@ -2175,7 +2175,7 @@
             <p>Decoding the human genome to uncover disease markers and personalised therapies.</p>
             <div class="r-card-footer">
               <span>14 active studies</span>
-              <div class="r-card-arrow">→</div>
+              <div class="r-card-arrow errorpage">→</div>
             </div>
           </div>
         </div>
@@ -2191,7 +2191,7 @@
             <p>Understanding cognitive disorders through advanced neuroimaging and biomarkers.</p>
             <div class="r-card-footer">
               <span>9 active studies</span>
-              <div class="r-card-arrow">→</div>
+              <div class="r-card-arrow errorpage">→</div>
             </div>
           </div>
         </div>
@@ -2636,7 +2636,16 @@
         }
       });
     }, { threshold: 0.3 });
-    obs.observe(document.querySelector('.stats-section'));
+
+
+    //errorpage
+
+    let errorpage=document.querySelectorAll(".errorpage")
+    errorpage.forEach((item)=>{
+      item.addEventListener("click",()=>{
+        window.location.href="404.html"
+      })
+    })
   </script>
 </body>
 
