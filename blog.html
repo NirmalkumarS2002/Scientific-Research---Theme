@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Scientific Research</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,body {
+      font-family: "Inter", sans-serif;
+      overflow-x: hidden;
+      color: #1a1a2e;
+    }
+
+    /* ── SHARED ── */
+    .container {
+      width: min(1200px, 90%);
+      margin: auto;
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #05C9F5;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: "Roboto Slab", serif;
+      font-size: clamp(26px, 3.8vw, 46px);
+      line-height: 1.2;
+      color: #02086A;
+      margin-bottom: 18px;
+    }
+
+    .section-desc {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #555;
+      max-width: 600px;
+    }
+
+    .cyan-line {
+      width: 55px;
+      height: 4px;
+      background: #05C9F5;
+      border-radius: 10px;
+      margin-bottom: 22px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 4px 14px;
+      background: rgba(5, 201, 245, 0.12);
+      color: #02086A;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border-radius: 2px;
+    }
+
+    /* scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-l {
+      opacity: 0;
+      transform: translateX(-44px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal-l.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-r {
+      opacity: 0;
+      transform: translateX(44px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal-r.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+
+    /* ══════════════════════════════════════════
+       SECTION 1 — BLOG HERO BANNER
+    ══════════════════════════════════════════ */
+    .about-hero {
+      min-height: 60vh;
+      background: linear-gradient(135deg, rgba(2, 8, 106, 0.88) 0%, rgba(2, 8, 106, 0.60) 60%, rgba(5, 201, 245, 0.30) 100%),
+        url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1600&q=80') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+
+
+    .about-hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .breadcrumb {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 24px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .breadcrumb a:first-child {
+      color: rgba(231, 231, 231, 0.74);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:last-child {
+      color: #05C9F5;
+      text-decoration: none;
+    }
+
+
+
+    .about-hero h1 {
+      font-family: "Roboto Slab", serif;
+      font-size: clamp(36px, 6vw, 72px);
+      color: white;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .about-hero h1 span {
+      color: #05C9F5;
+    }
+
+    .about-hero p {
+      font-size: clamp(15px, 1.6vw, 18px);
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.8;
+      max-width: 600px;
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+
+    /* ══════════════════════════════════════════
+       SECTION 2 — FEATURED ARTICLE
+    ══════════════════════════════════════════ */
+    .featured-section {
+      background: #f4f8ff;
+      padding: 100px 0;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .featured-img-wrap {
+      position: relative;
+    }
+
+    .featured-img-wrap img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      background: #05C9F5;
+      color: #02086A;
+      padding: 6px 18px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .featured-read-time {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      background: rgba(2, 8, 106, 0.85);
+      color: white;
+      padding: 8px 16px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .featured-content {
+      padding: 10px 0;
+    }
+
+    .featured-meta {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .featured-meta span {
+      font-size: 13px;
+      color: #888;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .featured-meta span i {
+      color: #05C9F5;
+      font-size: 12px;
+    }
+
+    .featured-content h2 {
+      font-family: "Roboto Slab", serif;
+      font-size: clamp(22px, 2.8vw, 34px);
+      color: #02086A;
+      line-height: 1.3;
+      margin-bottom: 18px;
+    }
+
+    .featured-content p {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .read-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 36px;
+      background: #02086A;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: .4s;
+      border: 2px solid #02086A;
+    }
+
+    .read-btn:hover {
+      background: transparent;
+      color: #02086A;
+    }
+
+    .read-btn span {
+      font-size: 18px;
+      transition: .3s;
+    }
+
+    .read-btn:hover span {
+      transform: translateX(5px);
+    }
+
+      .author-row {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 24px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid rgba(2, 8, 106, 0.1);
+      }
+
+      .author-row div{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .author-row img {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #05C9F5;
+      }
+
+      .author-row div h4 {
+        font-size: 14px;
+        color: #02086A;
+        font-weight: 700;
+      }
+
+      .author-row div p {
+        font-size: 12px;
+        color: #888;
+      }
+
+
+    /* ══════════════════════════════════════════
+       SECTION 3 — BLOG GRID (Latest Articles)
+    ══════════════════════════════════════════ */
+    .blog-grid-section {
+      background: white;
+      padding: 100px 0;
+    }
+
+    .blog-grid-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .blog-grid-head .section-desc {
+      font-size: 15px;
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .filter-tab {
+      padding: 8px 20px;
+      border: 1.5px solid #dde4f0;
+      background: transparent;
+      color: #555;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: .3s;
+      font-family: "Inter", sans-serif;
+    }
+
+    .filter-tab.active,
+    .filter-tab:hover {
+      background: #02086A;
+      color: white;
+      border-color: #02086A;
+    }
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.article-card {
+  border: 1px solid #eef1f8;
+  transition: .4s;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.article-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(2, 8, 106, 0.1);
+  border-color: transparent;
+}
+
+.article-card-img {
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.article-card-img img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: .5s;
+  display: block;
+}
+
+.article-card:hover .article-card-img img {
+  transform: scale(1.06);
+}
+
+.article-card-img .tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+.article-card-body {
+  padding: 26px 24px;
+
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.article-meta {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.article-meta span {
+  font-size: 12px;
+  color: #999;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.article-meta span i {
+  color: #05C9F5;
+}
+
+.article-card-body h3 {
+  font-family: "Roboto Slab", serif;
+  font-size: 18px;
+  color: #02086A;
+  line-height: 1.4;
+  margin-bottom: 12px;
+
+  min-height: 46px; /* title alignment */
+}
+
+.article-card-body p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 20px;
+
+  flex-grow: 1; /* pushes footer down */
+}
+
+.article-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 18px;
+  border-top: 1px solid #eef1f8;
+  margin-top: auto;
+}
+
+.article-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.article-author img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #05C9F5;
+}
+
+.article-author span {
+  font-size: 13px;
+  color: #444;
+  font-weight: 600;
+}
+
+.article-link {
+  font-size: 13px;
+  color: #05C9F5;
+  font-weight: 700;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: .3s;
+}
+
+.article-link:hover {
+  color: #02086A;
+  gap: 10px;
+}
+
+/* Responsive */
+
+@media (max-width: 992px) {
+  .articles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .article-card-body h3 {
+    min-height: auto;
+  }
+} 
+    /* ══════════════════════════════════════════
+       SECTION 4 — TOPICS / CATEGORIES
+    ══════════════════════════════════════════ */
+    .topics-section {
+      background: linear-gradient(135deg, #f4f8ff 0%, #e8f4ff 100%);
+      padding: 100px 0;
+    }
+
+    .topics-head {
+      text-align: center;
+      margin-bottom: 65px;
+    }
+
+    .topics-head .cyan-line {
+      margin: 0 auto 22px;
+    }
+
+    .topics-head .section-desc {
+      margin: 0 auto;
+    }
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.topic-card {
+  background: white;
+  padding: 38px 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: .4s;
+  border-bottom: 3px solid transparent;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  min-height: 240px;
+}
+
+.topic-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #05C9F5;
+  transform: scaleX(0);
+  transition: .4s;
+  transform-origin: left;
+}
+
+.topic-card:hover {
+  transform: translateY(-6px);
+  border-bottom-color: #05C9F5;
+  box-shadow: 0 16px 40px rgba(2, 8, 106, 0.1);
+}
+
+.topic-card:hover::before {
+  transform: scaleX(1);
+}
+
+.topic-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(5, 201, 245, 0.1);
+  margin: 0 auto 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .4s;
+}
+
+.topic-card:hover .topic-icon {
+  background: #02086A;
+}
+
+.topic-icon span {
+  font-size: 30px;
+  color: #02086A;
+  transition: .4s;
+}
+
+.topic-card:hover .topic-icon span {
+  color: #05C9F5;
+}
+
+.topic-card h3 {
+  font-family: "Roboto Slab", serif;
+  font-size: 17px;
+  color: #02086A;
+  margin-bottom: 12px;
+  line-height: 1.4;
+
+  min-height: 18px; /* title alignment */
+}
+
+.topic-card p {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.7;
+  margin-bottom: 18px;
+
+  flex-grow: 1; /* pushes count to bottom */
+}
+
+.topic-count {
+  font-size: 12px;
+  font-weight: 700;
+  color: #05C9F5;
+  letter-spacing: 1px;
+  margin-top: auto;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .topics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .topics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topic-card {
+    min-height: auto;
+  }
+
+  .topic-card h3 {
+    min-height: auto;
+  }
+}
+
+
+    /* ══════════════════════════════════════════
+       SECTION 5 — NEWSLETTER CTA
+    ══════════════════════════════════════════ */
+    .newsletter-section {
+      background: white;
+      padding: 110px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .newsletter-section::before {
+      content: "";
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      border: 1px solid rgba(5, 201, 245, 0.08);
+      top: -250px;
+      right: -150px;
+    }
+
+    .newsletter-section::after {
+      content: "";
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: rgba(5, 201, 245, 0.04);
+      bottom: -120px;
+      left: -80px;
+    }
+
+    .newsletter-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .newsletter-content .section-title {
+      color:  #02086A;
+    }
+
+    .newsletter-content .section-label {
+      color: #05C9F5;
+    }
+
+    .newsletter-content p {
+      font-size: 16px;
+      color: black;
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    .newsletter-perks {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .newsletter-perks li {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-size: 15px;
+      color: black;
+    }
+
+    .newsletter-perks li span.material-symbols-outlined {
+      font-size: 20px;
+      color: #05C9F5;
+      flex-shrink: 0;
+    }
+
+    .newsletter-form-wrap {
+      border: 1px solid rgb(5, 72, 134);
+      padding: 48px 44px;
+    }
+
+    .newsletter-form-wrap h3 {
+      font-family: "Roboto Slab", serif;
+      font-size: 24px;
+      color:  #02086A;
+      margin-bottom: 8px;
+    }
+
+    .newsletter-form-wrap p {
+      font-size: 14px;
+      color: gray;
+      margin-bottom: 28px;
+    }
+
+    .nl-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .nl-form input {
+      padding: 15px 15px;
+      border: 1px solid rgb(1, 81, 156);
+      background: rgba(255, 255, 255, 0.07);
+      color: black;
+      font-size: 15px;
+      font-family: "Inter", sans-serif;
+      outline: none;
+      transition: .3s;
+    }
+
+    .nl-form input::placeholder {
+      color: gray;
+      font-size: 13px;
+    }
+
+    .nl-form input:focus {
+      border-color: #05C9F5;
+      background: rgba(5, 201, 245, 0.08  );
+    }
+
+    .nl-form button {
+      padding: 16px;
+      background: #05C9F5;
+      color: #02086A;
+      border: none;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: "Inter", sans-serif;
+      cursor: pointer;
+      transition: .4s;
+    }
+
+    .nl-form button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(5, 201, 245, 0.4);
+    }
+
+    .nl-note {
+      font-size: 12px;
+      color: black  ;
+      margin-top: 4px;
+    }
+
+    .recent-posts {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .recent-post {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .recent-post img {
+      width: 68px;
+      height: 68px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .recent-post-info h4 {
+      font-size: 14px;
+      color: black;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 4px;
+    }
+
+    .recent-post-info span {
+      font-size: 12px;
+      color: gray;
+    }
+
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .topics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .featured-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .newsletter-inner {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .articles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .blog-grid-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .newsletter-form-wrap {
+        padding: 32px 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .topics-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 1 — BLOG HERO BANNER
+  ══════════════════════════════════════════ -->
+  <section class="about-hero">
+    <div class="about-hero-inner">
+
+      <h1 class="reveal">
+        Explore <span>Scientific</span><br>
+        Articles & Discoveries
+      </h1>
+
+      <p class="reveal">
+        From cutting-edge laboratory research to clinical advancements, explore
+        stories, publications, and expert insights driving progress in modern
+        science and medicine.
+      </p> 
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <a href="about.html">blogs</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       SECTION 2 — FEATURED ARTICLE
+  ══════════════════════════════════════════ -->
+  <section class="featured-section">
+    <div class="container">
+      <p class="section-label reveal">Editor's Pick</p>
+      <div class="cyan-line reveal"></div>
+
+      <div class="featured-grid">
+        <div class="featured-img-wrap reveal-l">
+          <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=900&q=80"
+            alt="CRISPR gene editing research">
+          <div class="featured-badge">Featured</div>
+          <div class="featured-read-time">
+            <span class="material-symbols-outlined" style="font-size:15px;">schedule</span>
+            8 min read
+          </div>
+        </div>
+
+        <div class="featured-content reveal-r">
+          <div class="tag" style="margin-bottom:18px;">Genomics</div>
+          <div class="author-row">
+            <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=100&q=80" alt="Dr. Arjun Mehta">
+            <div>
+              <h4>Dr. Arjun Mehta</h4>
+              <p>Chief Science Officer · June 12, 2026</p>
+            </div>
+          </div>
+          <div class="featured-meta">
+            <span><i class="fa-regular fa-clock"></i> 8 min read</span>
+            <span><i class="fa-regular fa-eye"></i> 14,200 views</span>
+            <span><i class="fa-regular fa-comment"></i> 38 comments</span>
+          </div>
+          <h2>CRISPR-Cas9 Breakthroughs: Rewriting the Future of Genetic Disease Treatment</h2>
+          <p>Our latest Phase II trial demonstrates a 91% reduction in off-target edits using next-generation guide RNA
+            design. This changes the safety calculus for therapeutic gene editing in ways the field has been
+            anticipating for a decade.</p>
+          <a href="#" class="read-btn">
+            Read Full Article
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       SECTION 3 — BLOG GRID (Latest Articles)
+  ══════════════════════════════════════════ -->
+  <section class="blog-grid-section">
+    <div class="container">
+      <div class="blog-grid-head">
+        <div class="reveal">
+          <p class="section-label">Latest Articles</p>
+          <div class="cyan-line"></div>
+          <h2 class="section-title">Fresh from our laboratories</h2>
+          <p class="section-desc">Peer-reviewed summaries, field notes, and expert opinion pieces — published as our
+            research evolves.</p>
+        </div>
+        <div class="reveal">
+          <div class="filter-tabs">
+            <button class="filter-tab active">All</button>
+            <button class="filter-tab">Genomics</button>
+            <button class="filter-tab">Clinical</button>
+            <button class="filter-tab">Pharma</button>
+            <button class="filter-tab">AI & Data</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="articles-grid">
+
+        <div class="article-card reveal">
+          <div class="article-card-img">
+            <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=600&q=80"
+              alt="mRNA vaccine research">
+            <span class="tag">Pharma</span>
+          </div>
+          <div class="article-card-body">
+            <div class="article-meta">
+              <span><i class="fa-regular fa-calendar"></i> June 18, 2026</span>
+              <span><i class="fa-regular fa-clock"></i> 5 min</span>
+            </div>
+            <h3>Next-Generation mRNA Platforms: Beyond COVID-19 Vaccines</h3>
+            <p>How our lipid nanoparticle delivery system is being repurposed for oncology, rare disease, and
+              personalised immunotherapy.</p>
+            <div class="article-footer">
+              <div class="article-author">
+                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&q=80" alt="Dr. Priya Nair">
+                <span>Dr. Priya Nair</span>
+              </div>
+              <a href="#" class="article-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="article-card reveal" style="transition-delay:.1s">
+          <div class="article-card-img">
+            <img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?w=600&q=80" alt="AI drug discovery">
+            <span class="tag">AI & Data</span>
+          </div>
+          <div class="article-card-body">
+            <div class="article-meta">
+              <span><i class="fa-regular fa-calendar"></i> June 14, 2026</span>
+              <span><i class="fa-regular fa-clock"></i> 7 min</span>
+            </div>
+            <h3>AlphaFold 3 in Clinical Practice: A One-Year Review</h3>
+            <p>Integrating structure-prediction AI into our drug discovery workflow reduced compound screening time by
+              60% without sacrificing specificity.</p>
+            <div class="article-footer">
+              <div class="article-author">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80"
+                  alt="Dr. Samuel Okafor">
+                <span>Dr. Samuel Okafor</span>
+              </div>
+              <a href="#" class="article-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="article-card reveal" style="transition-delay:.2s">
+          <div class="article-card-img">
+            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80" alt="clinical trial lab">
+            <span class="tag">Clinical</span>
+          </div>
+          <div class="article-card-body">
+            <div class="article-meta">
+              <span><i class="fa-regular fa-calendar"></i> June 9, 2026</span>
+              <span><i class="fa-regular fa-clock"></i> 6 min</span>
+            </div>
+            <h3>Phase III Results: Targeted Therapy for Triple-Negative Breast Cancer</h3>
+            <p>Our 840-patient trial shows a statistically significant 34% improvement in progression-free survival for
+              TNBC patients receiving our lead candidate.</p>
+            <div class="article-footer">
+              <div class="article-author">
+                <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=100&q=80" alt="Dr. Mei Lin">
+                <span>Dr. Mei Lin</span>
+              </div>
+              <a href="#" class="article-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="article-card reveal" style="transition-delay:.1s">
+          <div class="article-card-img">
+            <img src="https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=600&q=80"
+              alt="microbiome research">
+            <span class="tag">Genomics</span>
+          </div>
+          <div class="article-card-body">
+            <div class="article-meta">
+              <span><i class="fa-regular fa-calendar"></i> June 5, 2026</span>
+              <span><i class="fa-regular fa-clock"></i> 4 min</span>
+            </div>
+            <h3>The Gut-Brain Axis: New Genomic Evidence for Mental Health Links</h3>
+            <p>Metagenomic sequencing of 3,200 participants reveals distinct microbiome signatures strongly correlated
+              with depression and anxiety disorders.</p>
+            <div class="article-footer">
+              <div class="article-author">
+                <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=100&q=80"
+                  alt="Dr. Arjun Mehta">
+                <span>Dr. Arjun Mehta</span>
+              </div>
+              <a href="#" class="article-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="article-card reveal" style="transition-delay:.2s">
+          <div class="article-card-img">
+            <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80" alt="lab microscope">
+            <span class="tag">Pharma</span>
+          </div>
+          <div class="article-card-body">
+            <div class="article-meta">
+              <span><i class="fa-regular fa-calendar"></i> May 29, 2026</span>
+              <span><i class="fa-regular fa-clock"></i> 5 min</span>
+            </div>
+            <h3>Antimicrobial Resistance: Our New Peptide-Based Candidate Shows Promise</h3>
+            <p>A synthetic peptide compound demonstrates bactericidal activity against seven WHO-listed
+              critical-priority resistant pathogens in vitro.</p>
+            <div class="article-footer">
+              <div class="article-author">
+                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&q=80" alt="Dr. Priya Nair">
+                <span>Dr. Priya Nair</span>
+              </div>
+              <a href="#" class="article-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="article-card reveal" style="transition-delay:.3s">
+          <div class="article-card-img">
+            <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=600&q=80" alt="blood sample analysis">
+            <span class="tag">Clinical</span>
+          </div>
+          <div class="article-card-body">
+            <div class="article-meta">
+              <span><i class="fa-regular fa-calendar"></i> May 22, 2026</span>
+              <span><i class="fa-regular fa-clock"></i> 6 min</span>
+            </div>
+            <h3>Liquid Biopsy as an Early Cancer Detection Tool: A 5-Year Cohort Study</h3>
+            <p>Circulating tumour DNA detection in peripheral blood samples achieves 87% sensitivity for stage I
+              colorectal cancer — a potential game-changer for screening programmes.</p>
+            <div class="article-footer">
+              <div class="article-author">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80"
+                  alt="Dr. Samuel Okafor">
+                <span>Dr. Samuel Okafor</span>
+              </div>
+              <a href="#" class="article-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       SECTION 4 — TOPICS / CATEGORIES
+  ══════════════════════════════════════════ -->
+  <section class="topics-section">
+    <div class="container">
+      <div class="topics-head reveal">
+        <p class="section-label">Explore by Topic</p>
+        <div class="cyan-line"></div>
+        <h2 class="section-title">What area interests you?</h2>
+        <p class="section-desc">Browse our full library of articles by research discipline — from molecular biology to
+          global health policy.</p>
+      </div>
+
+      <div class="topics-grid">
+        <div class="topic-card reveal">
+          <div class="topic-icon"><span class="material-symbols-outlined">biotech</span></div>
+          <h3>Genomics & Gene Therapy</h3>
+          <p>CRISPR, epigenetics, rare disease, and the future of heritable condition treatment.</p>
+          <div class="topic-count">24 Articles</div>
+        </div>
+        <div class="topic-card reveal" style="transition-delay:.1s">
+          <div class="topic-icon"><span class="material-symbols-outlined">science</span></div>
+          <h3>Pharmaceutical Research</h3>
+          <p>Drug discovery pipelines, regulatory science, and candidate compound development.</p>
+          <div class="topic-count">31 Articles</div>
+        </div>
+        <div class="topic-card reveal" style="transition-delay:.2s">
+          <div class="topic-icon"><span class="material-symbols-outlined">monitor_heart</span></div>
+          <h3>Clinical Trials & Evidence</h3>
+          <p>Phase I–III results, patient outcomes, and translational medicine findings.</p>
+          <div class="topic-count">18 Articles</div>
+        </div>
+        <div class="topic-card reveal" style="transition-delay:.3s">
+          <div class="topic-icon"><span class="material-symbols-outlined">hub</span></div>
+          <h3>AI & Computational Biology</h3>
+          <p>Machine learning, protein structure prediction, and large-scale biological datasets.</p>
+          <div class="topic-count">22 Articles</div>
+        </div>
+        <div class="topic-card reveal" style="transition-delay:.1s">
+          <div class="topic-icon"><span class="material-symbols-outlined">microbiology</span></div>
+          <h3>Microbiology & Immunology</h3>
+          <p>Vaccine platforms, antimicrobial resistance, and host-pathogen interaction studies.</p>
+          <div class="topic-count">16 Articles</div>
+        </div>
+        <div class="topic-card reveal" style="transition-delay:.2s">
+          <div class="topic-icon"><span class="material-symbols-outlined">public</span></div>
+          <h3>Global Health</h3>
+          <p>Neglected tropical diseases, health equity research, and low-resource setting innovations.</p>
+          <div class="topic-count">12 Articles</div>
+        </div>
+        <div class="topic-card reveal" style="transition-delay:.3s">
+          <div class="topic-icon"><span class="material-symbols-outlined">labs</span></div>
+          <h3>Laboratory Science</h3>
+          <p>Analytical techniques, instrument innovation, and protocol development.</p>
+          <div class="topic-count">20 Articles</div>
+        </div>
+        <div class="topic-card reveal" style="transition-delay:.4s">
+          <div class="topic-icon"><span class="material-symbols-outlined">psychology</span></div>
+          <h3>Neuroscience</h3>
+          <p>Brain-gut axis, neurodegeneration, mental health biomarkers, and CNS drug targets.</p>
+          <div class="topic-count">14 Articles</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       SECTION 5 — NEWSLETTER + RECENT POSTS
+  ══════════════════════════════════════════ -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-inner">
+
+        <div class="newsletter-content reveal-l">
+          <p class="section-label">Stay Informed</p>
+          <div class="cyan-line"></div>
+          <h2 class="section-title">Get research delivered to your inbox</h2>
+          <p>Join 28,000+ clinicians, researchers, and science professionals who receive our bi-weekly digest — curated,
+            concise, and always evidence-based.</p>
+          <ul class="newsletter-perks">
+            <li>
+              <span class="material-symbols-outlined">check_circle</span>
+              Exclusive early access to pre-publication findings
+            </li>
+            <li>
+              <span class="material-symbols-outlined">check_circle</span>
+              Monthly deep-dives from our senior researchers
+            </li>
+            <li>
+              <span class="material-symbols-outlined">check_circle</span>
+              Conference summaries and grant opportunity alerts
+            </li>
+            <li>
+              <span class="material-symbols-outlined">check_circle</span>
+              No advertisements. Unsubscribe anytime.
+            </li>
+          </ul>
+
+          <div class="recent-posts" style="margin-top:40px;">
+            <p
+              style="font-size:13px;color: #02086A;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">
+              Recent Posts</p>
+            <div class="recent-post">
+              <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=200&q=80" alt="CRISPR article">
+              <div class="recent-post-info">
+                <h4>CRISPR-Cas9 Breakthroughs in Genetic Disease Treatment</h4>
+                <span>June 12, 2026</span>
+              </div>
+            </div>
+            <div class="recent-post">
+              <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=200&q=80" alt="mRNA article">
+              <div class="recent-post-info">
+                <h4>Next-Generation mRNA Platforms Beyond COVID-19</h4>
+                <span>June 18, 2026</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="newsletter-form-wrap reveal-r">
+          <h3>Subscribe to our Research Digest</h3>
+          <p>Free. Bi-weekly. Unsubscribe anytime.</p>
+          <div class="nl-form">
+            <input type="text" placeholder="Your Full Name">
+            <input type="email" placeholder="Your Email Address">
+            <input type="text" placeholder="Organisation / Institution (optional)">
+            <button type="button">Subscribe Now</button>
+          </div>
+          <p class="nl-note" style="margin-top:14px;">By subscribing you agree to our Privacy Policy. We never share
+            your data.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Scroll reveal
+    const revEls = document.querySelectorAll('.reveal, .reveal-l, .reveal-r');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    revEls.forEach(el => obs.observe(el));
+
+    // Filter tabs (UI only)
+    document.querySelectorAll('.filter-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+</body>
+
+</html>

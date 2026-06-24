@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Scientific Research</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      font-family: "Inter", sans-serif;
+      overflow-x: hidden;
+      color: #1a1a2e;
+    }
+
+    /* ── SHARED ── */
+    .container {
+      width: min(1200px, 90%);
+      margin: auto;
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #05C9F5;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: "Roboto Slab", serif;
+      font-size: clamp(23px, 3.8vw, 46px);
+      line-height: 1.2;
+      color: #02086A;
+      margin-bottom: 18px;
+    }
+
+    .section-desc {
+      font-size: 14px;
+      line-height: 1.8;
+      color: #555;
+      max-width: 600px;
+    }
+
+    .cyan-line {
+      width: 55px;
+      height: 4px;
+      background: #05C9F5;
+      border-radius: 10px;
+      margin-bottom: 22px;
+    }
+
+    /* scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-l {
+      opacity: 0;
+      transform: translateX(-44px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal-l.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-r {
+      opacity: 0;
+      transform: translateX(44px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal-r.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+
+    /* ══════════════════════════════════════════
+       SECTION 1 — CONTACT HERO BANNER
+    ══════════════════════════════════════════ */
+    .about-hero {
+      min-height: 60vh;
+      background: linear-gradient(135deg, rgba(2, 8, 106, 0.88) 0%, rgba(2, 8, 106, 0.60) 60%, rgba(5, 201, 245, 0.30) 100%),
+        url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1600&q=80') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+
+
+    .about-hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .breadcrumb {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 24px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .breadcrumb a:first-child {
+      color: rgba(231, 231, 231, 0.74);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:last-child {
+      color: #05C9F5;
+      text-decoration: none;
+    }
+
+
+
+    .about-hero h1 {
+      font-family: "Roboto Slab", serif;
+      font-size: clamp(36px, 6vw, 72px);
+      color: white;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .about-hero h1 span {
+      color: #05C9F5;
+    }
+
+    .about-hero p {
+      font-size: clamp(15px, 1.6vw, 18px);
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.8;
+      max-width: 600px;
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    /* ══════════════════════════════════════════
+       SECTION 2 — CONTACT CARDS (Info)
+    ══════════════════════════════════════════ */
+    .contact-info-section {
+      background: white;
+      padding: 100px 0;
+    }
+
+    .contact-info-head {
+      text-align: center;
+      margin-bottom: 65px;
+    }
+
+    .contact-info-head .cyan-line {
+      margin: 0 auto 22px;
+    }
+
+    .contact-info-head .section-desc {
+      margin: 0 auto;
+    }
+.info-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.info-card {
+  padding: 44px 30px;
+  text-align: center;
+  border: 1px solid #eef1f8;
+  transition: .4s;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  min-height: 380px;
+}
+
+.info-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #05C9F5;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: .4s;
+}
+
+.info-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(2, 8, 106, 0.1);
+  border-color: transparent;
+}
+
+.info-card:hover::after {
+  transform: scaleX(1);
+}
+
+.info-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(5, 201, 245, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  transition: .4s;
+}
+
+.info-card:hover .info-icon {
+  background: #02086A;
+  box-shadow: 0 0 30px rgba(2, 8, 106, 0.3);
+}
+
+.info-icon span {
+  font-size: 30px;
+  color: #02086A;
+  transition: .4s;
+}
+
+.info-card:hover .info-icon span {
+  color: #05C9F5;
+}
+
+.info-card h3 {
+  font-family: "Roboto Slab", serif;
+  font-size: 18px;
+  color: #02086A;
+  margin-bottom: 12px;
+}
+
+.info-card p {
+  font-size: 14px;
+  color: #777;
+  line-height: 1.7;
+
+
+  flex-grow: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  max-width: 240px;
+}
+
+.info-card a {
+  font-size: 12px;
+  font-weight: 700;
+  color: #05C9F5;
+  text-decoration: none;
+  transition: .3s;
+  display: block;
+  line-height: 1.7;
+  text-wrap: nowrap;
+}
+
+.info-card a:hover {
+  color: #02086A;
+}
+
+/* Tablet */
+
+@media (max-width: 992px) {
+  .info-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .info-card {
+    min-height: 380px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 576px) {
+  .info-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-card {
+    min-height: auto;
+    padding: 35px 20px;
+  }
+}
+
+    /* ══════════════════════════════════════════
+       SECTION 3 — CONTACT FORM + IMAGE
+    ══════════════════════════════════════════ */
+    .contact-form-section {
+      background: #f4f8ff;
+      padding: 100px 0;
+    }
+
+    .contact-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .form-image-wrap {
+      position: relative;
+    }
+
+    .form-image-wrap img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .form-img-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(transparent, rgba(2, 8, 106, 0.88));
+      padding: 40px 32px 32px;
+    }
+
+    .form-img-overlay h3 {
+      font-family: "Roboto Slab", serif;
+      font-size: 20px;
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .form-img-overlay p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 18px;
+    }
+
+    .overlay-hours {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .overlay-hours div {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.75);
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .overlay-hours div span:last-child {
+      color: #05C9F5;
+      font-weight: 600;
+    }
+
+    .form-wrap .section-desc {
+      margin-bottom: 36px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #02086A;
+      letter-spacing: .5px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 14px 18px;
+      border: 1.5px solid #dde4f0;
+      font-size: 14px;
+      font-family: "Inter", sans-serif;
+      color: #1a1a2e;
+      outline: none;
+      background: white;
+      transition: .3s;
+      -webkit-appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #05C9F5;
+      box-shadow: 0 0 0 3px rgba(5, 201, 245, 0.12);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    .form-group select {
+      cursor: pointer;
+    }
+
+    .submit-btn {
+      padding: 17px 44px;
+      background: #02086A;
+      color: white;
+      border: 2px solid #02086A;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: "Inter", sans-serif;
+      cursor: pointer;
+      transition: .4s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+    }
+
+    .submit-btn:hover {
+      background: transparent;
+      color: #02086A;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(2, 8, 106, 0.2);
+    }
+
+    .submit-btn span {
+      font-size: 18px;
+      transition: .3s;
+    }
+
+    .submit-btn:hover span {
+      transform: translateX(5px);
+    }
+
+
+    /* ══════════════════════════════════════════
+       SECTION 4 — MAP + LOCATIONS
+    ══════════════════════════════════════════ */
+    .locations-section {
+      background: white;
+      padding: 100px 0;
+    }
+
+    .locations-head {
+      text-align: center;
+      margin-bottom: 65px;
+    }
+
+    .locations-head .cyan-line {
+      margin: 0 auto 22px;
+    }
+
+    .locations-head .section-desc {
+      margin: 0 auto;
+    }
+
+    .locations-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 28px;
+      margin-bottom: 60px;
+    }
+
+    .location-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .location-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      transition: .5s;
+      filter: brightness(.85);
+    }
+
+    .location-card:hover img {
+      transform: scale(1.06);
+      filter: brightness(.6);
+    }
+
+    .location-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 28px 24px;
+      background: linear-gradient(transparent 30%, rgba(2, 8, 106, 0.85));
+    }
+
+    .location-tag {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      background: #05C9F5;
+      color: #02086A;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+    }
+
+    .location-overlay h3 {
+      font-family: "Roboto Slab", serif;
+      font-size: 20px;
+      color: white;
+      margin-bottom: 6px;
+    }
+
+    .location-overlay p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.5;
+    }
+
+    .location-detail {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-top: 10px;
+      font-size: 12px;
+      color: #05C9F5;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: .4s;
+    }
+
+    .location-card:hover .location-detail {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .location-detail span {
+      font-size: 15px;
+    }
+
+    .map-wrap {
+      width: 100%;
+      height: 420px;
+      position: relative;
+      overflow: hidden;
+      border: 4px solid #f4f8ff;
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: grayscale(20%) contrast(1.05);
+    }
+
+    .map-label {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #02086A;
+      color: white;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .map-label span {
+      color: #05C9F5;
+      font-size: 16px;
+    }
+
+
+    /* ══════════════════════════════════════════
+       SECTION 5 — FAQ + CTA BANNER
+    ══════════════════════════════════════════ */
+    .faq-section {
+      background: #F4F8FF;
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .faq-section::before {
+      content: "";
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      border: 1px solid rgba(5, 201, 245, 0.07);
+      top: -250px;
+      right: -150px;
+    }
+
+    .faq-section::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(5, 201, 245, 0.04);
+      bottom: -100px;
+      left: -60px;
+    }
+
+    .faq-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: flex-start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .faq-left .section-title {
+      color: #02086A;
+    }
+
+    .faq-left .section-label {
+      color: #05C9F5;
+    }
+
+    .faq-left .section-desc {
+      color: gray;
+      margin-bottom: 40px;
+    }
+
+    .faq-cta-box {
+      background: rgba(5, 201, 245, 0.08);
+      border: 1px solid rgba(5, 201, 245, 0.2);
+      padding: 36px 32px;
+    }
+
+    .faq-cta-box h3 {
+      font-family: "Roboto Slab", serif;
+      font-size: 22px;
+      color: black  ;
+      margin-bottom: 12px;
+    }
+
+    .faq-cta-box p {
+      font-size: 14px;
+      color: gray;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .faq-cta-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .cta-btn-primary {
+      padding: 14px 32px;
+      background: #05C9F5;
+      color: #02086A;
+      border: none;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      font-family: "Inter", sans-serif;
+      transition: .4s;
+    }
+
+    .cta-btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(5, 201, 245, 0.4);
+    }
+
+    .cta-btn-outline {
+      padding: 14px 32px;
+      background: transparent;
+      color: #02086A;
+      border: 1.5px solid #05C9F5;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      font-family: "Inter", sans-serif;
+      transition: .4s;
+    }
+
+    .cta-btn-outline:hover {
+      border-color: #05C9F5;
+      color: #05C9F5;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 0;
+      cursor: pointer;
+      gap: 16px;
+    }
+
+    .faq-question h4 {
+      font-size: 16px;
+      color: black;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .faq-toggle {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .3s;
+    }
+
+    .faq-toggle span {
+      font-size: 20px;
+      color: #05C9F5;
+      transition: .3s;
+    }
+
+    .faq-item.open .faq-toggle {
+      background: #05C9F5;
+      border-color: #05C9F5;
+    }
+
+    .faq-item.open .faq-toggle span {
+      color: #02086A;
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease;
+    }
+
+    .faq-answer p {
+      font-size: 14px;
+      color: gray;
+      line-height: 1.8;
+      padding-bottom: 20px;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 200px;
+    }
+
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .info-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-form-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+       .form-image-wrap img{
+ object-position:10% top;
+       }
+
+      .form-image-wrap {
+        max-width: 100%;
+                       
+      }
+
+      .locations-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .faq-inner {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .info-cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .locations-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-contact-chips {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .map-wrap {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 1 — CONTACT HERO BANNER
+  ══════════════════════════════════════════ -->
+  <section class="about-hero">
+    <div class="about-hero-inner">
+
+      <h1 class="reveal">
+        Connect With Our <span>Research</span><br>
+        Experts & Support Team
+      </h1>
+
+      <p class="reveal">
+        Have questions about our research programs, clinical collaborations,
+        laboratory services, or partnership opportunities? Our team is ready
+        to provide the information and support you need.
+      </p>
+
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <a href="contact.html">Contact</a>
+      </div>
+
+    </div>
+  </section>  
+
+
+  <!-- ══════════════════════════════════════════
+       SECTION 2 — CONTACT INFO CARDS
+  ══════════════════════════════════════════ -->
+  <section class="contact-info-section">
+    <div class="container">
+      <div class="contact-info-head reveal">
+        <p class="section-label">Get In Touch</p>
+        <div class="cyan-line"></div>
+        <h2 class="section-title">Multiple ways to reach us</h2>
+        <p class="section-desc">We respond to all enquiries within one business day. Choose the channel that works best
+          for you.</p>
+      </div>
+
+      <div class="info-cards-grid">
+        <div class="info-card reveal">
+          <div class="info-icon"><span class="material-symbols-outlined">call</span></div>
+          <h3>Phone</h3>
+          <p>Our team is available during business hours for immediate assistance.</p>
+          <a href="tel:+911234567890">+91 1234 567 890</a>
+          <a href="tel:+911234567891" style="margin-top:4px;">+91 1234 567 891</a>
+        </div>
+
+        <div class="info-card reveal" style="transition-delay:.1s">
+          <div class="info-icon"><span class="material-symbols-outlined">mail</span></div>
+          <h3>Email</h3>
+          <p>Send us your enquiry and we will connect you with the right department.</p>
+          <a href="mailto:research@pharmalab.com">research@pharmalab.com</a>
+          <a href="mailto:partnerships@pharmalab.com" style="margin-top:4px;">partnerships@pharmalab.com</a>
+        </div>
+
+        <div class="info-card reveal" style="transition-delay:.2s">
+          <div class="info-icon"><span class="material-symbols-outlined">location_on</span></div>
+          <h3>Head Office</h3>
+          <p>Visit our primary research campus for meetings, tours, and collaboration discussions.</p>
+          <a href="#">14, Life Sciences Park,<br>Chennai, Tamil Nadu — 600 001</a>
+        </div>
+
+        <div class="info-card reveal" style="transition-delay:.3s">
+          <div class="info-icon"><span class="material-symbols-outlined">schedule</span></div>
+          <h3>Working Hours</h3>
+          <p>Our laboratories operate extended hours to support global research partnerships.</p>
+          <a href="#" style="color:#02086A; cursor:default;">Mon – Fri: 8 AM – 7 PM IST</a>
+          <a href="#" style="color:#888; font-weight:400; cursor:default; margin-top:4px;">Saturday: 9 AM – 2 PM IST</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       SECTION 3 — CONTACT FORM
+  ══════════════════════════════════════════ -->
+  <section class="contact-form-section">
+    <div class="container">
+      <div class="contact-form-grid">
+
+        <div class="form-image-wrap reveal-l">
+          <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=900&q=80"
+            alt="Research lab team in discussion">
+          <div class="form-img-overlay">
+            <h3>Laboratory Operating Hours</h3>
+            <p>Our research facilities maintain these schedules for planned visits and consultations.</p>
+            <div class="overlay-hours">
+              <div><span>Monday – Friday</span><span>8:00 AM – 7:00 PM</span></div>
+              <div><span>Saturday</span><span>9:00 AM – 2:00 PM</span></div>
+              <div><span>Sunday</span><span>Closed</span></div>
+              <div><span>Emergency Research Line</span><span>24 / 7</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-wrap reveal-r">
+          <p class="section-label">Send Us a Message</p>
+          <div class="cyan-line"></div>
+          <h2 class="section-title">Tell us what you need</h2>
+          <p class="section-desc">Fill out the form below and the most relevant member of our team will respond within
+            one business day.</p>
+
+          <div class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" placeholder="Dr. Arjun">
+              </div>
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" placeholder="Mehta">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="arjun@hospital.com">
+              </div>
+              <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" placeholder="+91 98765 43210">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Organisation / Institution</label>
+              <input type="text" placeholder="Apollo Hospitals, IIT Madras...">
+            </div>
+
+            <div class="form-group">
+              <label>Nature of Enquiry</label>
+              <select>
+                <option value="" disabled selected>Select a category</option>
+                <option>Research Partnership</option>
+                <option>Clinical Trial Participation</option>
+                <option>Pharmaceutical Collaboration</option>
+                <option>Lab Services & Testing</option>
+                <option>Media & Press</option>
+                <option>General Enquiry</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Your Message</label>
+              <textarea
+                placeholder="Please describe your enquiry in detail — the more context you provide, the better we can direct your message..."></textarea>
+            </div>
+
+            <button class="submit-btn" type="button">
+              Send Message
+              <span class="material-symbols-outlined">send</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       SECTION 4 — LOCATIONS + MAP
+  ══════════════════════════════════════════ -->
+  <section class="locations-section">
+    <div class="container">
+      <div class="locations-head reveal">
+        <p class="section-label">Our Locations</p>
+        <div class="cyan-line"></div>
+        <h2 class="section-title">Find us around the world</h2>
+        <p class="section-desc">Three research campuses across India and a global network of clinical partners in 12
+          countries.</p>
+      </div>
+
+      <div class="locations-grid">
+        <div class="location-card reveal">
+          <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=700&q=80" alt="Chennai head office">
+          <div class="location-overlay">
+            <span class="location-tag">Head Office</span>
+            <h3>Chennai, Tamil Nadu</h3>
+            <p>14, Life Sciences Park, Taramani<br>Chennai — 600 113</p>
+            <div class="location-detail">
+              <span class="material-symbols-outlined">directions</span>
+              Get Directions
+            </div>
+          </div>
+        </div>
+
+        <div class="location-card reveal" style="transition-delay:.1s">
+          <img src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=700&q=80"
+            alt="Bangalore research centre">
+          <div class="location-overlay">
+            <span class="location-tag">Research Centre</span>
+            <h3>Bengaluru, Karnataka</h3>
+            <p>Plot 22, Electronic City Phase 1<br>Bengaluru — 560 100</p>
+            <div class="location-detail">
+              <span class="material-symbols-outlined">directions</span>
+              Get Directions
+            </div>
+          </div>
+        </div>
+
+        <div class="location-card reveal" style="transition-delay:.2s">
+          <img src="https://images.unsplash.com/photo-1529253355930-ddbe423a2ac7?w=700&q=80" alt="Mumbai clinical lab">
+          <div class="location-overlay">
+            <span class="location-tag">Clinical Lab</span>
+            <h3>Mumbai, Maharashtra</h3>
+            <p>BKC, Bandra Kurla Complex<br>Mumbai — 400 051</p>
+            <div class="location-detail">
+              <span class="material-symbols-outlined">directions</span>
+              Get Directions
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-wrap reveal">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.0!2d80.2707!3d13.0827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1718000000000!5m2!1sen!2sin"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div class="map-label">
+          <span class="material-symbols-outlined">location_on</span>
+          Chennai Head Office — Tamil Nadu, India
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       SECTION 5 — FAQ + CTA
+  ══════════════════════════════════════════ -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="faq-inner">
+
+        <div class="faq-left reveal-l">
+          <p class="section-label">Common Questions</p>
+          <div class="cyan-line"></div>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-desc">Answers to the most common enquiries we receive from partners, patients, and
+            institutions.</p>
+
+          <div class="faq-cta-box">
+            <h3>Can't find your answer?</h3>
+            <p>Our research liaison team handles complex enquiries daily. Send us a detailed message and we will connect
+              you with the right expert within 24 hours.</p>
+            <div class="faq-cta-actions">
+              <button class="cta-btn-primary">Email Us Directly</button>
+              <button class="cta-btn-outline">Call Our Office</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-list reveal-r">
+          <div class="faq-item open">
+            <div class="faq-question">
+              <h4>How can our hospital partner with your research institute?</h4>
+              <div class="faq-toggle"><span class="material-symbols-outlined">add</span></div>
+            </div>
+            <div class="faq-answer">
+              <p>We actively seek clinical partners to participate in ongoing and upcoming trials. Submit a partnership
+                enquiry via our contact form selecting "Research Partnership" and our collaborations team will reach out
+                within two business days to discuss scope, ethics approvals, and data sharing agreements.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h4>Can patients or individuals enrol directly in clinical trials?</h4>
+              <div class="faq-toggle"><span class="material-symbols-outlined">add</span></div>
+            </div>
+            <div class="faq-answer">
+              <p>Patient recruitment is managed through our registered hospital partners. Please speak with your
+                physician and ask them to contact us on your behalf. We ensure every participant receives full informed
+                consent documentation and ongoing medical support throughout any trial.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h4>What laboratory testing services are available to external clients?</h4>
+              <div class="faq-toggle"><span class="material-symbols-outlined">add</span></div>
+            </div>
+            <div class="faq-answer">
+              <p>Our ISO-certified labs offer genomic sequencing, mass spectrometry, proteomics profiling, ELISA assays,
+                and pharmaceutical stability testing. Send your requirements to research@pharmalab.com and we will
+                provide a quote and turnaround timeline within 48 hours.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h4>Do you accept international research collaboration proposals?</h4>
+              <div class="faq-toggle"><span class="material-symbols-outlined">add</span></div>
+            </div>
+            <div class="faq-answer">
+              <p>Absolutely. We currently maintain active collaborations with institutions across 12 countries.
+                International proposals should be submitted to partnerships@pharmalab.com with a one-page brief, your
+                institution's credentials, and a proposed scope of work.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h4>How quickly will I receive a response to my enquiry?</h4>
+              <div class="faq-toggle"><span class="material-symbols-outlined">add</span></div>
+            </div>
+            <div class="faq-answer">
+              <p>All enquiries submitted through the contact form receive an automated acknowledgement immediately. A
+                human response from the relevant department follows within one business day (Mon–Fri, 9 AM – 6 PM IST).
+                Urgent clinical matters can call our direct line.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h4>Are your research findings publicly accessible?</h4>
+              <div class="faq-toggle"><span class="material-symbols-outlined">add</span></div>
+            </div>
+            <div class="faq-answer">
+              <p>We are committed to open-access publishing. The majority of our completed studies are available via
+                PubMed and our website's research library. Pre-publication summaries are shared exclusively with
+                newsletter subscribers before wider release.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <script>
+    // Scroll reveal
+    const revEls = document.querySelectorAll('.reveal, .reveal-l, .reveal-r');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    revEls.forEach(el => obs.observe(el));
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
+</body>
+
+</html>

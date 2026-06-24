@@ -94,6 +94,30 @@
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    background: rgba(233, 233, 233, 0.171);
+    border: none;
+  }
+
+  .navigation.scrolled {
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .12);
+  }
+
+  .navigation.scrolled .menus li a {
+    color: #111;
+  }
+
+  .navigation.scrolled .menu-btn,
+  .navigation.scrolled .close-btn {
+    color: #111;
+  }
+
+  .navigation.scrolled .nav-icon {
+    background: rgba(0, 0, 0, .05);
+  }
+
+  .navigation.scrolled .nav-icon i {
+    color: #111;
   }
 
   .nav-icon i {
@@ -195,6 +219,7 @@
   /*hero section*/
 
   .hero-section {
+    overflow-x: hidden;
     background: url("./src/home-bg1.webp");
     font-family: "Inter", sans-serif;
     background-position: top center;
@@ -326,7 +351,8 @@
       /* face visible */
     }
   }
-/*
+
+  /*
   .navigation {
     backdrop-filter: blur(12px);
     transition: all .4s ease;
@@ -401,8 +427,8 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, .3);
-    transform: skewX(-30deg);
+    background: rgba(255, 255, 255, 0.445);
+    transform: skewX(-0deg);
     transition: .6s;
   }
 
@@ -522,7 +548,7 @@
   /* Footer */
 
   .footer {
-    background: linear-gradient(125deg,rgba(2, 67, 71, 0.596),rgba(5, 111, 138, 0.61)),url('./src/home-bg.webp');
+    background: linear-gradient(125deg, rgba(2, 16, 92, 0.747), rgba(5, 100, 138, 0.61)), url('./src/home-bg.webp');
     background-position: top center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -577,7 +603,6 @@
     bottom: -10px;
     width: 50px;
     height: 3px;
-    background: #05C9F5;
   }
 
   .footer-col ul {
@@ -634,24 +659,35 @@
 
   .footer-form input {
     padding: 15px;
-    border: none;
-    border-radius: 10px;
-    outline: none;
+    border: 1px solid #010540;
+    background: rgba(51, 51, 51, 0.123);
   }
+
+  
+  .footer-form input:hover {
+     box-shadow: 0 0 20px rgba(5, 201, 245, .5);
+  }
+
+   .footer-form input::placeholder{
+    color: rgb(219, 219, 219);
+   }
+
+
 
   .footer-form button {
     padding: 15px;
     border: none;
-    border-radius: 10px;
-    background: #05C9F5;
-    color: #02086A;
+    background: #12186C;
+    color: white;
     font-weight: 700;
     cursor: pointer;
     transition: .4s;
   }
 
   .footer-form button:hover {
-    transform: translateY(-4px);
+
+      background: #05C9F5;
+      color: #010540;
     box-shadow: 0 10px 25px rgba(5, 201, 245, .5);
   }
 
@@ -675,32 +711,33 @@
 
   }
 
-    .footer-bottom div {
+  .footer-bottom div {
     display: flex;
     gap: 30px;
 
   }
 
-  .footer-col span{
-      font-size: 17px;
+  .footer-col span {
+    font-size: 17px;
   }
 
-  .footer-details a{
+  .footer-details a {
     display: flex;
     gap: 10px;
-    align-content: center ;
+    align-content: center;
     color: red;
   }
 
-     .footer-bottom a{
-      color: rgba(255, 255, 255, .7);
-        font-size: 14px;
-     }
-   .footer-bottom a:hover{
-   color: #05C9F5;
-   
+  .footer-bottom a {
+    color: rgba(255, 255, 255, .7);
+    font-size: 14px;
   }
-   
+
+  .footer-bottom a:hover {
+    color: #05C9F5;
+
+  }
+
 
 
   @media(max-width:768px) {
@@ -718,422 +755,1119 @@
       justify-content: center;
     }
 
-      .footer-bottom {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
+    .footer-bottom {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
 
-       .footer-details a{
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    align-content: center ;
-    color: red;
-  }
+    .footer-details a {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-content: center;
+      color: red;
+    }
   }
 
 
   /**/
-:root{
-   --navy:#02086A;
-  --cyan:#05C9F5;
-  --dark:#010540;
-  --white:#ffffff;
-  --light:#f4f8ff;
-  --glass:rgba(255,255,255,0.06);
-  --font-head:'Space Grotesk',sans-serif;
-  --font-body:'Inter',sans-serif;
-}
-html{scroll-behavior:smooth;}
-  
- 
-/* ─── SCROLL REVEAL BASE ─── */
-.reveal{opacity:0;transform:translateY(50px);transition:opacity 0.8s ease,transform 0.8s ease;}
-.reveal.active{opacity:1;transform:translateY(0);}
-.reveal-left{opacity:0;transform:translateX(-60px);transition:opacity 0.8s ease,transform 0.8s ease;}
-.reveal-left.active{opacity:1;transform:translateX(0);}
-.reveal-right{opacity:0;transform:translateX(60px);transition:opacity 0.8s ease,transform 0.8s ease;}
-.reveal-right.active{opacity:1;transform:translateX(0);}
-.delay-1{transition-delay:0.15s;}
-.delay-2{transition-delay:0.3s;}
-.delay-3{transition-delay:0.45s;}
-.delay-4{transition-delay:0.6s;}
- 
-/* ─── SECTION LABEL ─── */
-.sec-label{font-size:12px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:14px;display:block;}
-.sec-title{font-family:var(--font-head);font-size:clamp(28px,4vw,50px);font-weight:700;line-height:1.15;color:var(--navy);}
-.sec-title--white{color:#fff;}
- 
-/* ══════════════════════════════════
+  :root {
+    --navy: #02086A;
+    --cyan: #05C9F5;
+    --dark: #010540;
+    --white: #ffffff;
+    --light: #f4f8ff;
+    --glass: rgba(255, 255, 255, 0.06);
+    --font-head: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+
+  /* ─── SECTION LABEL ─── */
+  .sec-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .sec-title {
+    font-family: var(--font-head);
+    font-size: clamp(28px, 4vw, 50px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--navy);
+  }
+
+  .sec-title--white {
+    color: #fff;
+  }
+
+  /* ══════════════════════════════════
    SECTION 1 — ABOUT
 ══════════════════════════════════ */
-#about{
-  padding:110px 6vw;
-  background:#fff;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:80px;
-  align-items:center;
-}
-.about-img-wrap{position:relative;}
-.about-img-main{
-  width:100%;
-  height:480px;
-  object-fit:cover;
-  display:block;
-  clip-path:polygon(0 0,92% 0,100% 8%,100% 100%,8% 100%,0 92%);
-}
-.about-badge{
-  position:absolute;
-  bottom:30px;
-  right:-20px;
-  background:var(--navy);
-  color:#fff;
-  padding:24px 28px;
-  font-family:var(--font-head);
-  text-align:center;
-  box-shadow:0 20px 60px rgba(2,8,106,0.35);
-}
-.about-badge strong{display:block;font-size:42px;color:var(--cyan);line-height:1;}
-.about-badge span{font-size:13px;opacity:0.8;margin-top:4px;display:block;}
-.about-line{width:60px;height:4px;background:var(--cyan);margin:22px 0;}
-.about-text p{color:#4a5568;line-height:1.85;font-size:15.5px;margin-bottom:20px;}
-.about-stats{display:flex;gap:35px;margin-top:30px;}
-.astat h3{font-family:var(--font-head);font-size:36px;font-weight:700;color:var(--navy);}
-.astat h3 span{color:var(--cyan);}
-.astat p{font-size:13px;color:#718096;}
-.about-cta{
-  display:inline-flex;align-items:center;gap:10px;
-  margin-top:32px;padding:15px 38px;
-  background:var(--navy);color:#fff;
-  font-size:15px;font-weight:600;
-  border:2px solid var(--navy);
-  cursor:pointer;transition:.35s;text-decoration:none;
-}
-.about-cta:hover{background:var(--cyan);color:var(--navy);border-color:var(--cyan);}
- 
-/* ══════════════════════════════════
+  #about {
+    padding: 110px 6vw;
+    background: #fff;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-img-wrap {
+    position: relative;
+  }
+
+  .about-img-main {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    display: block;
+    clip-path: polygon(0 0, 92% 0, 100% 8%, 100% 100%, 8% 100%, 0 92%);
+  }
+
+  .about-badge {
+    position: absolute;
+    bottom: 30px;
+    right: -20px;
+    background: var(--navy);
+    color: #fff;
+    padding: 24px 28px;
+    font-family: var(--font-head);
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(2, 8, 106, 0.35);
+  }
+
+  .about-badge strong {
+    display: block;
+    font-size: 42px;
+    color: var(--cyan);
+    line-height: 1;
+  }
+
+  .about-badge span {
+    font-size: 13px;
+    opacity: 0.8;
+    margin-top: 4px;
+    display: block;
+  }
+
+  .about-line {
+    width: 60px;
+    height: 4px;
+    background: var(--cyan);
+    margin: 22px 0;
+  }
+
+  .about-text p {
+    color: #4a5568;
+    line-height: 1.85;
+    font-size: 15.5px;
+    margin-bottom: 20px;
+  }
+
+  .about-stats {
+    display: flex;
+    gap: 35px;
+    margin-top: 30px;
+  }
+
+  .astat h3 {
+    font-family: var(--font-head);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .astat h3 span {
+    color: var(--cyan);
+  }
+
+  .astat p {
+    font-size: 13px;
+    color: #718096;
+  }
+
+  .about-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 32px;
+    padding: 15px 38px;
+    background: var(--navy);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    border: 2px solid var(--navy);
+    cursor: pointer;
+    transition: .35s;
+    text-decoration: none;
+  }
+
+  .about-cta:hover {
+    background: var(--cyan);
+    color: var(--navy);
+    border-color: var(--cyan);
+  }
+
+  /* ══════════════════════════════════
    SECTION 2 — SERVICES
 ══════════════════════════════════ */
-#services{padding:110px 6vw;background:var(--light);}
-.services-head{text-align:center;margin-bottom:70px;}
-.services-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
-  gap:28px;
-  max-width:1280px;margin:auto;
+  #services {
+    padding: 110px 6vw;
+    background: var(--light);
+  }
+
+  .services-head {
+    text-align: center;
+    margin-bottom: 70px;
+  }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 28px;
+  max-width: 1280px;
+  margin: auto;
+  align-items: stretch;
 }
-.srv-card{
-  background:#fff;
-  overflow:hidden;
-  position:relative;
-  transition:.4s;
-  border-bottom:4px solid transparent;
-  box-shadow:0 4px 24px rgba(2,8,106,.07);
+
+.srv-card {
+  background: #fff;
+  overflow: hidden;
+  position: relative;
+  transition: .4s;
+  border-bottom: 4px solid transparent;
+  box-shadow: 0 4px 24px rgba(2, 8, 106, .07);
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
-.srv-card:hover{transform:translateY(-10px);border-bottom-color:var(--cyan);box-shadow:0 20px 55px rgba(2,8,106,.15);}
-.srv-img{
-  width:100%;height:200px;object-fit:cover;display:block;
-  transition:.5s;
+
+.srv-card:hover {
+  transform: translateY(-10px);
+  border-bottom-color: var(--cyan);
+  box-shadow: 0 20px 55px rgba(2, 8, 106, .15);
 }
-.srv-card:hover .srv-img{transform:scale(1.06);}
-.srv-img-wrap{overflow:hidden;}
-.srv-body{padding:28px 25px;}
-.srv-icon{
-  width:50px;height:50px;
-  background:var(--light);
-  display:flex;align-items:center;justify-content:center;
-  margin-bottom:16px;
-  border-left:3px solid var(--cyan);
+
+.srv-img-wrap {
+  overflow: hidden;
 }
-.srv-icon i{color:var(--navy);font-size:22px;}
-.srv-body h3{font-family:var(--font-head);font-size:19px;color:var(--navy);margin-bottom:10px;}
-.srv-body p{color:#718096;font-size:14.5px;line-height:1.75;}
-.srv-link{
-  display:inline-flex;align-items:center;gap:6px;
-  margin-top:16px;font-size:13px;font-weight:600;
-  color:var(--navy);text-decoration:none;
-  border-bottom:2px solid var(--cyan);padding-bottom:2px;
-  transition:.3s;
+
+.srv-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: .5s;
 }
-.srv-link:hover{color:var(--cyan);}
- 
-/* ══════════════════════════════════
-   SECTION 3 — RESEARCH AREAS
-══════════════════════════════════ */
-#research{
-  padding:110px 6vw;
-  background:var(--navy);
-  position:relative;
-  overflow:hidden;
+
+.srv-card:hover .srv-img {
+  transform: scale(1.06);
 }
-#research::before{
-  content:'';position:absolute;
-  width:600px;height:600px;
-  background:radial-gradient(circle,rgba(5,201,245,.12) 0%,transparent 70%);
-  top:-200px;right:-200px;
-  border-radius:50%;
+
+.srv-body {
+  padding: 28px 25px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
-#research::after{
-  content:'';position:absolute;
-  width:400px;height:400px;
-  background:radial-gradient(circle,rgba(5,201,245,.08) 0%,transparent 70%);
-  bottom:-100px;left:-100px;
-  border-radius:50%;
+
+.srv-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  border-left: 3px solid var(--cyan);
 }
-.research-head{text-align:center;margin-bottom:70px;position:relative;z-index:2;}
-.research-head p{color:rgba(255,255,255,.65);max-width:560px;margin:16px auto 0;font-size:15.5px;line-height:1.7;}
-.research-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:24px;
-  max-width:1280px;margin:auto;
-  position:relative;z-index:2;
+
+.srv-icon i {
+  color: var(--navy);
+  font-size: 22px;
 }
-.res-card{
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.1);
-  padding:0;
-  overflow:hidden;
-  transition:.4s;
-  cursor:default;
+
+.srv-body h3 {
+  font-family: var(--font-head);
+  font-size: 19px;
+  color: var(--navy);
+  margin-bottom: 12px;
+  line-height: 1.4;
 }
-.res-card:hover{
-  background:rgba(5,201,245,.1);
-  border-color:var(--cyan);
-  transform:translateY(-6px);
+
+.srv-body p {
+  color: #718096;
+  font-size: 14.5px;
+  line-height: 1.8;
+  flex-grow: 1;   /* important */
 }
-.res-img{width:100%;height:190px;object-fit:cover;display:block;filter:brightness(.75);transition:.5s;}
-.res-card:hover .res-img{filter:brightness(.9);transform:scale(1.04);}
-.res-img-wrap{overflow:hidden;position:relative;}
-.res-num{
-  position:absolute;bottom:14px;left:18px;
-  font-family:var(--font-head);font-size:44px;font-weight:800;
-  color:rgba(5,201,245,.5);line-height:1;
+
+.srv-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+  width: fit-content;
+
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+  border-bottom: 2px solid var(--cyan);
+  padding-bottom: 2px;
+  transition: .3s;
 }
-.res-body{padding:25px 22px;}
-.res-body h3{font-family:var(--font-head);font-size:18px;color:#fff;margin-bottom:10px;}
-.res-body p{color:rgba(255,255,255,.6);font-size:14px;line-height:1.75;}
-.res-tag{
-  display:inline-block;margin-top:14px;
-  padding:5px 14px;background:rgba(5,201,245,.15);
-  color:var(--cyan);font-size:12px;font-weight:600;letter-spacing:1px;
+
+.srv-link:hover {
+  color: var(--cyan);
 }
- 
-/* ══════════════════════════════════
+
+
+  /* ══════════════════════════════════
    SECTION 4 — TEAM
 ══════════════════════════════════ */
-#team{padding:110px 6vw;background:#fff;}
-.team-head{text-align:center;margin-bottom:70px;}
-.team-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:30px;max-width:1280px;margin:auto;
-}
-.team-card{
-  position:relative;overflow:hidden;
-  box-shadow:0 4px 24px rgba(2,8,106,.08);
-  transition:.4s;
-  background:#fff;
-}
-.team-card:hover{transform:translateY(-10px);box-shadow:0 24px 60px rgba(2,8,106,.18);}
-.team-photo{width:100%;height:300px;object-fit:cover;display:block;transition:.5s;}
-.team-card:hover .team-photo{transform:scale(1.05);}
-.team-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(2,8,106,.92) 0%,transparent 55%);
-  display:flex;flex-direction:column;
-  justify-content:flex-end;padding:25px 22px;
-  transition:.4s;
-}
-.team-overlay h3{font-family:var(--font-head);font-size:19px;color:#fff;font-weight:700;}
-.team-overlay span{font-size:13px;color:var(--cyan);margin-top:4px;display:block;}
-.team-socials{
-  display:flex;gap:10px;margin-top:14px;
-  transform:translateY(15px);opacity:0;transition:.4s;
-}
-.team-card:hover .team-socials{opacity:1;transform:translateY(0);}
-.team-socials a{
-  width:35px;height:35px;
-  background:var(--cyan);
-  display:flex;align-items:center;justify-content:center;
-  color:var(--navy);font-size:14px;
-  text-decoration:none;transition:.3s;
-}
-.team-socials a:hover{background:#fff;}
- 
-/* ══════════════════════════════════
+  #team {
+    padding: 110px 6vw;
+    background: #fff;
+  }
+
+  .team-head {
+    text-align: center;
+    margin-bottom: 70px;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+    max-width: 1280px;
+    margin: auto;
+  }
+
+  .team-card {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(2, 8, 106, .08);
+    transition: .4s;
+    background: #fff;
+  }
+
+  .team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 24px 60px rgba(2, 8, 106, .18);
+  }
+
+  .team-photo {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    transition: .5s;
+  }
+
+  .team-card:hover .team-photo {
+    transform: scale(1.05);
+  }
+
+  .team-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(2, 8, 106, .92) 0%, transparent 55%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 25px 22px;
+    transition: .4s;
+  }
+
+  .team-overlay h3 {
+    font-family: var(--font-head);
+    font-size: 19px;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .team-overlay span {
+    font-size: 13px;
+    color: var(--cyan);
+    margin-top: 4px;
+    display: block;
+  }
+
+  .team-socials {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+    transform: translateY(15px);
+    opacity: 0;
+    transition: .4s;
+  }
+
+  .team-card:hover .team-socials {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .team-socials a {
+    width: 35px;
+    height: 35px;
+    background: var(--cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--navy);
+    font-size: 14px;
+    text-decoration: none;
+    transition: .3s;
+  }
+
+  .team-socials a:hover {
+    background: #fff;
+  }
+
+  /* ══════════════════════════════════
    SECTION 5 — TESTIMONIALS
 ══════════════════════════════════ */
-#testimonials{
-  padding:110px 6vw;
-  background:var(--light);
-  position:relative;overflow:hidden;
+  #testimonials {
+    padding: 110px 6vw;
+    background: var(--light);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .testi-head {
+    text-align: center;
+    margin-bottom: 70px;
+  }
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
+  max-width: 1280px;
+  margin: auto;
+  align-items: stretch;
 }
-.testi-head{text-align:center;margin-bottom:70px;}
-.testi-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:28px;max-width:1280px;margin:auto;
+
+.testi-card {
+  background: #fff;
+  padding: 38px 32px;
+  border-top: 4px solid transparent;
+  box-shadow: 0 4px 24px rgba(2, 8, 106, .07);
+  position: relative;
+  transition: .4s;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
-.testi-card{
-  background:#fff;
-  padding:38px 32px;
-  border-top:4px solid transparent;
-  box-shadow:0 4px 24px rgba(2,8,106,.07);
-  position:relative;transition:.4s;
+
+.testi-card:hover {
+  border-top-color: var(--cyan);
+  box-shadow: 0 20px 55px rgba(2, 8, 106, .13);
+  transform: translateY(-6px);
 }
-.testi-card:hover{border-top-color:var(--cyan);box-shadow:0 20px 55px rgba(2,8,106,.13);transform:translateY(-6px);}
-.testi-quote{font-size:72px;color:var(--cyan);opacity:.2;font-family:Georgia;line-height:.8;margin-bottom:16px;}
-.testi-stars{color:var(--cyan);font-size:15px;margin-bottom:18px;letter-spacing:2px;}
-.testi-card p{color:#4a5568;line-height:1.85;font-size:15px;font-style:italic;margin-bottom:28px;}
-.testi-author{display:flex;align-items:center;gap:15px;}
-.testi-avatar{
-  width:52px;height:52px;object-fit:cover;
-  border-radius:50%;border:3px solid var(--cyan);
+
+.testi-quote {
+  font-size: 72px;
+  color: var(--cyan);
+  opacity: .2;
+  font-family: Georgia;
+  line-height: .8;
+  margin-bottom: 16px;
 }
-.testi-author h4{font-family:var(--font-head);color:var(--navy);font-size:16px;}
-.testi-author span{font-size:13px;color:#718096;}
- 
-/* ══════════════════════════════════
+
+.testi-stars {
+  color: var(--cyan);
+  font-size: 15px;
+  margin-bottom: 18px;
+  letter-spacing: 2px;
+}
+
+.testi-card p {
+  color: #4a5568;
+  line-height: 1.85;
+  font-size: 15px;
+  font-style: italic;
+
+  flex-grow: 1;   /* important */
+  margin-bottom: 30px;
+}
+
+.testi-author {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  margin-top: auto; /* important */
+}
+
+.testi-avatar {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--cyan);
+}
+
+.testi-author h4 {
+  font-family: var(--font-head);
+  color: var(--navy);
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.testi-author span {
+  font-size: 13px;
+  color: #718096;
+  line-height: 1.4;
+}
+  /* ══════════════════════════════════
    SECTION 6 — BLOG
 ══════════════════════════════════ */
-#blog{padding:110px 6vw;background:#fff;}
-.blog-head{text-align:center;margin-bottom:70px;}
-.blog-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(310px,1fr));
-  gap:30px;max-width:1280px;margin:auto;
-}
-.blog-card{
-  background:#fff;overflow:hidden;
-  box-shadow:0 4px 24px rgba(2,8,106,.07);
-  transition:.4s;
-}
-.blog-card:hover{transform:translateY(-10px);box-shadow:0 24px 60px rgba(2,8,106,.16);}
-.blog-img-wrap{position:relative;overflow:hidden;}
-.blog-img{width:100%;height:215px;object-fit:cover;display:block;transition:.55s;}
-.blog-card:hover .blog-img{transform:scale(1.07);}
-.blog-cat{
-  position:absolute;top:16px;left:16px;
-  background:var(--cyan);color:var(--navy);
-  padding:5px 16px;font-size:12px;font-weight:700;letter-spacing:1px;
-}
-.blog-body{padding:28px 24px;}
-.blog-meta{display:flex;gap:16px;margin-bottom:14px;}
-.blog-meta span{color:#a0aec0;font-size:13px;display:flex;align-items:center;gap:5px;}
-.blog-body h3{font-family:var(--font-head);font-size:18px;color:var(--navy);line-height:1.4;margin-bottom:12px;}
-.blog-body p{color:#718096;font-size:14.5px;line-height:1.75;margin-bottom:20px;}
-.blog-more{
-  display:inline-flex;align-items:center;gap:7px;
-  font-size:13px;font-weight:700;color:var(--navy);
-  text-decoration:none;text-transform:uppercase;letter-spacing:1px;
-  border-bottom:2px solid var(--cyan);padding-bottom:3px;transition:.3s;
-}
-.blog-more:hover{color:var(--cyan);}
- 
-/* ══════════════════════════════════
+  #blog {
+    padding: 110px 6vw;
+    background: #fff;
+  }
+
+  .blog-head {
+    text-align: center;
+    margin-bottom: 70px;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 30px;
+    max-width: 1280px;
+    margin: auto;
+  }
+
+  .blog-card {
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(2, 8, 106, .07);
+    transition: .4s;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 24px 60px rgba(2, 8, 106, .16);
+  }
+
+  .blog-img-wrap {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .blog-img {
+    width: 100%;
+    height: 215px;
+    object-fit: cover;
+    display: block;
+    transition: .55s;
+  }
+
+  .blog-card:hover .blog-img {
+    transform: scale(1.07);
+  }
+
+  .blog-cat {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: var(--cyan);
+    color: var(--navy);
+    padding: 5px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .blog-body {
+    padding: 28px 24px;
+  }
+
+  .blog-meta {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 14px;
+  }
+
+  .blog-meta span {
+    color: #a0aec0;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .blog-body h3 {
+    font-family: var(--font-head);
+    font-size: 18px;
+    color: var(--navy);
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+
+  .blog-body p {
+    color: #718096;
+    font-size: 14.5px;
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+
+  .blog-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid var(--cyan);
+    padding-bottom: 3px;
+    transition: .3s;
+  }
+
+  .blog-more:hover {
+    color: var(--cyan);
+  }
+
+  /* ══════════════════════════════════
    SECTION 7 — CONTACT
 ══════════════════════════════════ */
-#contact{
-  padding:0;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  min-height:640px;
+  #contact {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 640px;
+  }
+
+  .contact-map-side {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-map-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(.65);
+  }
+
+  .contact-map-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(2, 8, 106, .85), rgba(5, 201, 245, .25));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 70px 55px;
+  }
+
+  .contact-map-overlay .sec-label {
+    color: var(--cyan);
+  }
+
+  .contact-map-overlay .sec-title {
+    color: #fff;
+    margin-bottom: 30px;
+  }
+
+  .c-info-item {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    margin-bottom: 28px;
+  }
+
+  .c-icon {
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    background: rgba(5, 201, 245, .2);
+    border: 1px solid var(--cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .c-icon i {
+    color: var(--cyan);
+    font-size: 18px;
+  }
+
+  .c-info-item h4 {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+
+  .c-info-item p {
+    color: rgba(255, 255, 255, .7);
+    font-size: 14px;
+  }
+
+  .contact-form-side {
+    padding: 70px 55px;
+    background: var(--light);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .contact-form-side .sec-title {
+    margin-bottom: 10px;
+  }
+
+  .contact-form-side>p {
+    color: #718096;
+    margin-bottom: 35px;
+    font-size: 15px;
+  }
+
+  .c-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .c-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .c-form input,
+  .c-form textarea,
+  .c-form select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1.5px solid #dde3f0;
+    background: #fff;
+    outline: none;
+    font-size: 14.5px;
+    font-family: var(--font-body);
+    color: #2d3748;
+    transition: .3s;
+  }
+
+  .c-form input:focus,
+  .c-form textarea:focus {
+    border-color: var(--cyan);
+  }
+
+  .c-form textarea {
+    height: 130px;
+    resize: none;
+  }
+
+  .c-submit {
+    padding: 15px 0;
+    background: var(--navy);
+    color: #fff;
+    border: 2px solid var(--navy);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .35s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .c-submit:hover {
+    background: var(--cyan);
+    color: var(--navy);
+    border-color: var(--cyan);
+  }
+
+  .c-submit i {
+    transition: .3s;
+  }
+
+  .c-submit:hover i {
+    transform: translateX(5px);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media(max-width:1024px) {
+    #about {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    #contact {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media(max-width:768px) {
+
+    #about,
+    #services,
+    #research,
+    #team,
+    #testimonials,
+    #blog {
+      padding: 70px 5vw;
+    }
+
+    .contact-map-side {
+      min-height: 580px;
+    }
+
+    .contact-map-overlay,
+    .contact-form-side {
+      padding: 50px 6vw;
+    }
+
+    .c-row {
+      grid-template-columns: 1fr;
+    }
+
+    .about-badge {
+      right: 0;
+      bottom: 20px;
+    }
+
+    .about-stats {
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+  }
+
+  /* ─── FLOATING LINE ANIMATION ─── */
+  @keyframes lineGrow {
+    from {
+      width: 0;
+    }
+
+    to {
+      width: 60px;
+    }
+  }
+
+  .sec-label::before {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 2px;
+    background: var(--cyan);
+    margin-right: 10px;
+    vertical-align: middle;
+    animation: lineGrow 1.2s ease forwards;
+  }
+
+  /* ─── COUNTER ANIMATION ─── */
+  .counter {
+    display: inline-block;
+  }
+
+  /* ─── PARTICLE DOTS (research bg) ─── */
+  .dot-grid {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(5, 201, 245, .15) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* ─── PROGRESS BARS (about) ─── */
+  .skill-bar {
+    margin-top: 25px;
+  }
+
+  .skill-row {
+    margin-bottom: 14px;
+  }
+
+  .skill-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 13px;
+    color: #4a5568;
+    font-weight: 500;
+  }
+
+  .bar-track {
+    height: 6px;
+    background: #e2e8f0;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--navy), var(--cyan));
+    border-radius: 3px;
+    width: 0;
+    transition: width 1.5s ease;
+  }
+
+  /* added scetions */
+
+  :root {
+    --cyan: #05C9F5;
+    --navy: #02086A;
+    --dark: #0a0e2e;
+    --card-bg: rgba(255, 255, 255, 0.04);
+  }
+
+  .page-wrapper {
+    font-family: 'Inter', sans-serif;
+    background: #04071c;
+    color: #fff;
+    overflow: hidden
+  }
+
+
+
+  /* ── SECTION 2: RESEARCH AREAS ── */
+  .research-section {
+    padding: 90px 20px;
+    background: rgb(255, 255, 255);
+    position: relative;
+  }
+
+  .research-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(5, 201, 245, 0.4), transparent);
+  }
+  .research-section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(5, 201, 245, 0.4), transparent);
+  }
+
+  .research-inner {
+    max-width: 1100px;
+    margin: 0 auto
+  }
+
+  .research-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 60px
+  }
+
+  .research-text .section-tag {
+    margin-bottom: 20px;
+    color: #010540;
+  }
+
+  .research-text h2 {
+    font-size: clamp(24px, 3.5vw, 42px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px
+  }
+
+  .research-text p {
+    color: rgba(5, 0, 0, 0.6);
+    line-height: 1.8;
+    font-size: 15px
+  }
+
+  .research-img-wrap {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden
+  }
+
+  .research-img-wrap img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+    filter: brightness(0.85)
+  }
+
+  .research-img-badge {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(2, 8, 106, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(5, 201, 245, 0.3);
+    border-radius: 12px;
+    padding: 12px 20px;
+  }
+
+  .research-img-badge p {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 4px
+  }
+
+  .research-img-badge strong {
+    font-size: 20px;
+    color: #05C9F5;
+    font-weight: 700
+  }
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  align-items: stretch;
 }
-.contact-map-side{position:relative;overflow:hidden;}
-.contact-map-img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.65);}
-.contact-map-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(2,8,106,.85),rgba(5,201,245,.25));
-  display:flex;flex-direction:column;
-  justify-content:center;padding:70px 55px;
+
+.r-card {
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform .4s, border-color .4s;
+  cursor: pointer;
+  border: 1px solid rgba(128, 128, 128, 0.349);
+  background: #fff;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
-.contact-map-overlay .sec-label{color:var(--cyan);}
-.contact-map-overlay .sec-title{color:#fff;margin-bottom:30px;}
-.c-info-item{display:flex;gap:18px;align-items:flex-start;margin-bottom:28px;}
-.c-icon{
-  width:46px;height:46px;min-width:46px;
-  background:rgba(5,201,245,.2);border:1px solid var(--cyan);
-  display:flex;align-items:center;justify-content:center;
+
+.r-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(5, 201, 245, .35);
+  box-shadow: 0 4px 24px rgba(2, 8, 106, .4);
 }
-.c-icon i{color:var(--cyan);font-size:18px;}
-.c-info-item h4{color:#fff;font-size:15px;font-weight:600;margin-bottom:3px;}
-.c-info-item p{color:rgba(255,255,255,.7);font-size:14px;}
-.contact-form-side{
-  padding:70px 55px;
-  background:var(--light);
-  display:flex;flex-direction:column;justify-content:center;
+
+.r-card-img {
+  height: 160px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
 }
-.contact-form-side .sec-title{margin-bottom:10px;}
-.contact-form-side > p{color:#718096;margin-bottom:35px;font-size:15px;}
-.c-form{display:flex;flex-direction:column;gap:16px;}
-.c-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.c-form input,
-.c-form textarea,
-.c-form select{
-  width:100%;padding:14px 16px;
-  border:1.5px solid #dde3f0;
-  background:#fff;outline:none;
-  font-size:14.5px;font-family:var(--font-body);
-  color:#2d3748;transition:.3s;
+
+.r-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s;
 }
-.c-form input:focus,
-.c-form textarea:focus{border-color:var(--cyan);}
-.c-form textarea{height:130px;resize:none;}
-.c-submit{
-  padding:15px 0;
-  background:var(--navy);color:#fff;
-  border:2px solid var(--navy);
-  font-size:16px;font-weight:700;
-  cursor:pointer;transition:.35s;
-  display:flex;align-items:center;justify-content:center;gap:10px;
+
+.r-card:hover .r-card-img img {
+  transform: scale(1.08);
 }
-.c-submit:hover{background:var(--cyan);color:var(--navy);border-color:var(--cyan);}
-.c-submit i{transition:.3s;}
-.c-submit:hover i{transform:translateX(5px);}
- 
-/* ─── RESPONSIVE ─── */
-@media(max-width:1024px){
-  #about{grid-template-columns:1fr;gap:40px;}
-  #contact{grid-template-columns:1fr;}
+
+.r-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+      rgba(2, 8, 106, .7),
+      transparent);
 }
-@media(max-width:768px){
-  #about,#services,#research,#team,#testimonials,#blog{padding:70px 5vw;}
-  .contact-map-side{min-height:380px;}
-  .contact-map-overlay,.contact-form-side{padding:50px 6vw;}
-  .c-row{grid-template-columns:1fr;}
-  .about-badge{right:0;bottom:20px;}
-  .about-stats{flex-wrap:wrap;gap:20px;}
+
+.r-card-body {
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
- 
-/* ─── FLOATING LINE ANIMATION ─── */
-@keyframes lineGrow{from{width:0;}to{width:60px;}}
-.sec-label::before{
-  content:'';display:inline-block;
-  width:30px;height:2px;background:var(--cyan);
-  margin-right:10px;vertical-align:middle;
-  animation:lineGrow 1.2s ease forwards;
+
+.r-card-tag {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #02086A;
+  margin-bottom: 8px;
+  display: block;
 }
- 
-/* ─── COUNTER ANIMATION ─── */
-.counter{display:inline-block;}
- 
-/* ─── PARTICLE DOTS (research bg) ─── */
-.dot-grid{
-  position:absolute;inset:0;
-  background-image:radial-gradient(rgba(5,201,245,.15) 1px,transparent 1px);
-  background-size:32px 32px;
-  pointer-events:none;z-index:1;
+
+.r-card-body h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #000;
+  line-height: 1.4;
 }
- 
-/* ─── PROGRESS BARS (about) ─── */
-.skill-bar{margin-top:25px;}
-.skill-row{margin-bottom:14px;}
-.skill-label{display:flex;justify-content:space-between;margin-bottom:6px;font-size:13px;color:#4a5568;font-weight:500;}
-.bar-track{height:6px;background:#e2e8f0;border-radius:3px;overflow:hidden;}
-.bar-fill{height:100%;background:linear-gradient(90deg,var(--navy),var(--cyan));border-radius:3px;width:0;transition:width 1.5s ease;}
+
+.r-card-body p {
+  font-size: 13px;
+  color: gray;
+  line-height: 1.8;
+
+  flex-grow: 1; /* important */
+}
+
+.r-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: auto; /* important */
+  padding-top: 18px;
+}
+
+.r-card-footer span {
+  font-size: 12px;
+  color: #000;
+}
+
+.r-card-arrow {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(5, 201, 245, .1);
+  border: 1px solid rgba(5, 201, 245, .3);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #05C9F5;
+  font-size: 14px;
+  transition: .3s;
+}
+
+.r-card:hover .r-card-arrow {
+  background: #05C9F5;
+  color: #02086A;
+}
+
+@media (max-width:580px) {
+
+  .research-top {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 60px;
+  }
+
+}
 </style>
 
 <body>
@@ -1143,10 +1877,10 @@ html{scroll-behavior:smooth;}
     <nav class="menubar">
       <ul class="menus">
         <li><a href="index.html">Home</a></li>
-        <li><a href="index.html">about</a></li>
-        <li><a href="index.html">Pages</a></li>
-        <li><a href="index.html">Blog</a></li>
-        <li><a href="index.html">Contact Us</a></li>
+        <li><a href="about.html">about</a></li>
+        <li><a href="pages.html">Pages</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
 
         <a href="login.html"><button class="sublogin">Login</button></a>
       </ul>
@@ -1205,445 +1939,406 @@ html{scroll-behavior:smooth;}
     </div>
   </section>
 
-   
-<!-- ══ SECTION 1 — ABOUT ══ -->
-<section id="about">
-  <div class="about-img-wrap reveal-left">
-    <img
-      class="about-img-main"
-      src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=700&q=80&auto=format&fit=crop"
-      alt="Scientists in Laboratory"
-      loading="lazy"
-    >
-    <div class="about-badge">
-      <strong class="counter" data-target="20">0</strong><strong>+</strong>
-      <span>Years of Research</span>
-    </div>
-  </div>
- 
-  <div class="about-text reveal-right">
-    <span class="sec-label">Who We Are</span>
-    <h2 class="sec-title">Pioneering the Future of Medical Science</h2>
-    <div class="about-line"></div>
-    <p>We are a globally recognized scientific research institute dedicated to advancing human health through cutting-edge pharmaceutical research, clinical trials, and breakthrough laboratory innovations.</p>
-    <p>Our team bridges the gap between discovery and patient care — turning complex science into real-world solutions that save and improve lives worldwide.</p>
- 
-    <div class="skill-bar">
-      <div class="skill-row">
-        <div class="skill-label"><span>Drug Discovery</span><span>92%</span></div>
-        <div class="bar-track"><div class="bar-fill" data-width="92"></div></div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-label"><span>Clinical Trials</span><span>87%</span></div>
-        <div class="bar-track"><div class="bar-fill" data-width="87"></div></div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-label"><span>Genomic Research</span><span>78%</span></div>
-        <div class="bar-track"><div class="bar-fill" data-width="78"></div></div>
+
+  <!-- ══ SECTION 1 — ABOUT ══ -->
+  <section id="about">
+    <div class="about-img-wrap reveal-left">
+      <img class="about-img-main"
+        src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=700&q=80&auto=format&fit=crop"
+        alt="Scientists in Laboratory" loading="lazy">
+      <div class="about-badge">
+        <strong class="counter" data-target="20">0</strong><strong>+</strong>
+        <span>Years of Research</span>
       </div>
     </div>
- 
-    <div class="about-stats">
-      <div class="astat">
-        <h3><span class="counter" data-target="500">0</span>+</h3>
-        <p>Projects Done</p>
+
+    <div class="about-text reveal-right">
+      <span class="sec-label">Who We Are</span>
+      <h2 class="sec-title">Pioneering the Future of Medical Science</h2>
+      <div class="about-line"></div>
+      <p>We are a globally recognized scientific research institute dedicated to advancing human health through
+        cutting-edge pharmaceutical research, clinical trials, and breakthrough laboratory innovations.</p>
+      <p>Our team bridges the gap between discovery and patient care — turning complex science into real-world solutions
+        that save and improve lives worldwide.</p>
+
+      <div class="skill-bar">
+        <div class="skill-row">
+          <div class="skill-label"><span>Drug Discovery</span><span>92%</span></div>
+          <div class="bar-track">
+            <div class="bar-fill" data-width="92"></div>
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label"><span>Clinical Trials</span><span>87%</span></div>
+          <div class="bar-track">
+            <div class="bar-fill" data-width="87"></div>
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label"><span>Genomic Research</span><span>78%</span></div>
+          <div class="bar-track">
+            <div class="bar-fill" data-width="78"></div>
+          </div>
+        </div>
       </div>
-      <div class="astat">
-        <h3><span class="counter" data-target="48">0</span></h3>
-        <p>Global Awards</p>
+
+      <div class="about-stats">
+        <div class="astat">
+          <h3><span class="counter" data-target="500">0</span>+</h3>
+          <p>Projects Done</p>
+        </div>
+        <div class="astat">
+          <h3><span class="counter" data-target="48">0</span></h3>
+          <p>Global Awards</p>
+        </div>
+        <div class="astat">
+          <h3><span class="counter" data-target="120">0</span>+</h3>
+          <p>Expert Scientists</p>
+        </div>
       </div>
-      <div class="astat">
-        <h3><span class="counter" data-target="120">0</span>+</h3>
-        <p>Expert Scientists</p>
-      </div>
+
+      <a href="#" class="about-cta">Our Full Story <i class="fa-solid fa-arrow-right"></i></a>
     </div>
- 
-    <a href="#" class="about-cta">Our Full Story <i class="fa-solid fa-arrow-right"></i></a>
-  </div>
-</section>
- 
- 
-<!-- ══ SECTION 2 — SERVICES ══ -->
-<section id="services">
-  <div class="services-head reveal">
-    <span class="sec-label">What We Offer</span>
-    <h2 class="sec-title">Core Research Services</h2>
-  </div>
-  <div class="services-grid">
- 
-    <div class="srv-card reveal delay-1">
-      <div class="srv-img-wrap">
-        <img class="srv-img" src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=600&q=75&auto=format&fit=crop" alt="Lab Analysis" loading="lazy">
-      </div>
-      <div class="srv-body">
-        <div class="srv-icon"><i class="fa-solid fa-flask"></i></div>
-        <h3>Laboratory Analysis</h3>
-        <p>State-of-the-art diagnostic and analytical testing with the highest standards of accuracy and global compliance.</p>
-        <a href="#" class="srv-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
-      </div>
+  </section>
+
+
+  <!-- ══ SECTION 2 — SERVICES ══ -->
+  <section id="services">
+    <div class="services-head reveal">
+      <span class="sec-label">What We Offer</span>
+      <h2 class="sec-title">Core Research Services</h2>
     </div>
- 
-    <div class="srv-card reveal delay-2">
-      <div class="srv-img-wrap">
-        <img class="srv-img" src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&q=75&auto=format&fit=crop" alt="Pharmaceutical R&D" loading="lazy">
+    <div class="services-grid">
+
+      <div class="srv-card reveal delay-1">
+        <div class="srv-img-wrap">
+          <img class="srv-img"
+            src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=600&q=75&auto=format&fit=crop"
+            alt="Lab Analysis" loading="lazy">
+        </div>
+        <div class="srv-body">
+          <div class="srv-icon"><i class="fa-solid fa-flask"></i></div>
+          <h3>Laboratory Analysis</h3>
+          <p>State-of-the-art diagnostic and analytical testing with the highest standards of accuracy and global
+            compliance.</p>
+          <a href="#" class="srv-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
       </div>
-      <div class="srv-body">
-        <div class="srv-icon"><i class="fa-solid fa-pills"></i></div>
-        <h3>Pharmaceutical R&D</h3>
-        <p>Developing next-generation drug compounds through rigorous scientific methodology and advanced synthesis.</p>
-        <a href="#" class="srv-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+
+      <div class="srv-card reveal delay-2">
+        <div class="srv-img-wrap">
+          <img class="srv-img"
+            src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&q=75&auto=format&fit=crop"
+            alt="Pharmaceutical R&D" loading="lazy">
+        </div>
+        <div class="srv-body">
+          <div class="srv-icon"><i class="fa-solid fa-pills"></i></div>
+          <h3>Pharmaceutical R&D</h3>
+          <p>Developing next-generation drug compounds through rigorous scientific methodology and advanced synthesis.
+          </p>
+          <a href="#" class="srv-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
       </div>
+
+      <div class="srv-card reveal delay-3">
+        <div class="srv-img-wrap">
+          <img class="srv-img"
+            src="https://images.unsplash.com/photo-1614935151651-0bea6508db6b?w=600&q=75&auto=format&fit=crop"
+            alt="Genomics" loading="lazy">
+        </div>
+        <div class="srv-body">
+          <div class="srv-icon"><i class="fa-solid fa-dna"></i></div>
+          <h3>Genomics Research</h3>
+          <p>Unlocking the human genome to identify disease markers, hereditary patterns, and targeted gene therapies.
+          </p>
+          <a href="#" class="srv-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="srv-card reveal delay-4">
+        <div class="srv-img-wrap">
+          <img class="srv-img"
+            src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=75&auto=format&fit=crop"
+            alt="Clinical Trials" loading="lazy">
+        </div>
+        <div class="srv-body">
+          <div class="srv-icon"><i class="fa-solid fa-microscope"></i></div>
+          <h3>Clinical Trials</h3>
+          <p>Conducting Phase I–IV trials with rigorous protocols ensuring patient safety, ethics, and data integrity.
+          </p>
+          <a href="#" class="srv-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
     </div>
- 
-    <div class="srv-card reveal delay-3">
-      <div class="srv-img-wrap">
-        <img class="srv-img" src="https://images.unsplash.com/photo-1614935151651-0bea6508db6b?w=600&q=75&auto=format&fit=crop" alt="Genomics" loading="lazy">
+  </section>
+
+    <!-- SECTION 6: RESEARCH AREAS -->
+  <section class="research-section">
+    <div class="research-inner">
+      <div class="research-top">
+        <div class="research-text">
+          <div class="section-tag"><span class="sec-label">Research Areas</span></div>
+          <h2>Exploring the frontiers of <span style="color:#02086A">Modern Science</span></h2>
+          <p>Our multidisciplinary teams work across cutting-edge fields — from genomics and oncology to neuroscience
+            and biotech — delivering breakthroughs that reshape medicine.</p>
+        </div>
+        <div class="research-img-wrap">
+          <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=700&q=80" alt="Lab research">
+          <div class="research-img-badge">
+            <p>Active since</p>
+            <strong>2004</strong>
+          </div>
+        </div>
       </div>
-      <div class="srv-body">
-        <div class="srv-icon"><i class="fa-solid fa-dna"></i></div>
-        <h3>Genomics Research</h3>
-        <p>Unlocking the human genome to identify disease markers, hereditary patterns, and targeted gene therapies.</p>
-        <a href="#" class="srv-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
-      </div>
-    </div>
- 
-    <div class="srv-card reveal delay-4">
-      <div class="srv-img-wrap">
-        <img class="srv-img" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=75&auto=format&fit=crop" alt="Clinical Trials" loading="lazy">
-      </div>
-      <div class="srv-body">
-        <div class="srv-icon"><i class="fa-solid fa-microscope"></i></div>
-        <h3>Clinical Trials</h3>
-        <p>Conducting Phase I–IV trials with rigorous protocols ensuring patient safety, ethics, and data integrity.</p>
-        <a href="#" class="srv-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
-      </div>
-    </div>
- 
-  </div>
-</section>
- 
- 
-<!-- ══ SECTION 3 — RESEARCH AREAS ══ -->
-<section id="research">
-  <div class="dot-grid"></div>
-  <div class="research-head reveal">
-    <span class="sec-label">Our Focus</span>
-    <h2 class="sec-title sec-title--white">Research Areas</h2>
-    <p>Six domains where our scientists push the boundaries of what medicine can achieve.</p>
-  </div>
-  <div class="research-grid">
- 
-    <div class="res-card reveal delay-1">
-      <div class="res-img-wrap">
-        <img class="res-img" src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=600&q=70&auto=format&fit=crop" alt="Cancer Research" loading="lazy">
-        <span class="res-num">01</span>
-      </div>
-      <div class="res-body">
-        <h3>Cancer Research</h3>
-        <p>Pioneering targeted therapy and immunotherapy for multiple cancer types with significantly improved patient outcomes.</p>
-        <span class="res-tag">Oncology</span>
-      </div>
-    </div>
- 
-    <div class="res-card reveal delay-2">
-      <div class="res-img-wrap">
-        <img class="res-img" src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=70&auto=format&fit=crop" alt="Neuroscience" loading="lazy">
-        <span class="res-num">02</span>
-      </div>
-      <div class="res-body">
-        <h3>Neurodegenerative Diseases</h3>
-        <p>Exploring early biomarkers and neuroprotective compounds for Alzheimer's, Parkinson's and related disorders.</p>
-        <span class="res-tag">Neurology</span>
-      </div>
-    </div>
- 
-    <div class="res-card reveal delay-3">
-      <div class="res-img-wrap">
-        <img class="res-img" src="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=600&q=70&auto=format&fit=crop" alt="Infectious Disease" loading="lazy">
-        <span class="res-num">03</span>
-      </div>
-      <div class="res-body">
-        <h3>Infectious Disease</h3>
-        <p>Rapid vaccine and antiviral development to combat emerging and re-emerging global health threats.</p>
-        <span class="res-tag">Virology</span>
-      </div>
-    </div>
- 
-    <div class="res-card reveal delay-1">
-      <div class="res-img-wrap">
-        <img class="res-img" src="https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=600&q=70&auto=format&fit=crop" alt="Cardiovascular" loading="lazy">
-        <span class="res-num">04</span>
-      </div>
-      <div class="res-body">
-        <h3>Cardiovascular Science</h3>
-        <p>Investigating novel pathways to prevent and treat heart disease, stroke, and metabolic disorders.</p>
-        <span class="res-tag">Cardiology</span>
-      </div>
-    </div>
- 
-    <div class="res-card reveal delay-2">
-      <div class="res-img-wrap">
-        <img class="res-img" src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600&q=70&auto=format&fit=crop" alt="Regenerative Medicine" loading="lazy">
-        <span class="res-num">05</span>
-      </div>
-      <div class="res-body">
-        <h3>Regenerative Medicine</h3>
-        <p>Harnessing stem cell biology and tissue engineering to restore damaged organs and accelerate healing.</p>
-        <span class="res-tag">Bioengineering</span>
-      </div>
-    </div>
- 
-    <div class="res-card reveal delay-3">
-      <div class="res-img-wrap">
-        <img class="res-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=70&auto=format&fit=crop" alt="AI Bioinformatics" loading="lazy">
-        <span class="res-num">06</span>
-      </div>
-      <div class="res-body">
-        <h3>Bioinformatics & AI</h3>
-        <p>Integrating machine learning with biological data to radically accelerate drug discovery and precision medicine.</p>
-        <span class="res-tag">AI / Data Science</span>
-      </div>
-    </div>
- 
-  </div>
-</section>
- 
- 
-<!-- ══ SECTION 4 — TEAM ══ -->
-<section id="team">
-  <div class="team-head reveal">
-    <span class="sec-label">The Experts</span>
-    <h2 class="sec-title">Meet Our Scientists</h2>
-  </div>
-  <div class="team-grid">
- 
-    <div class="team-card reveal delay-1">
-      <img class="team-photo" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&q=75&auto=format&fit=crop&face" alt="Dr. Ananya Krishnan" loading="lazy">
-      <div class="team-overlay">
-        <h3>Dr. Ananya Krishnan</h3>
-        <span>Lead Oncologist</span>
-        <div class="team-socials">
-          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-          <a href="#"><i class="fa-solid fa-envelope"></i></a>
+
+      <div class="cards-grid">
+        <div class="r-card">
+          <div class="r-card-img">
+            <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=500&q=80" alt="Genomics">
+            <div class="r-card-overlay"></div>
+          </div>
+          <div class="r-card-body">
+            <span class="r-card-tag">Genomics</span>
+            <h3>Gene Mapping & Sequencing</h3>
+            <p>Decoding the human genome to uncover disease markers and personalised therapies.</p>
+            <div class="r-card-footer">
+              <span>14 active studies</span>
+              <div class="r-card-arrow">→</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="r-card">
+          <div class="r-card-img">
+            <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=500&q=80" alt="Neuroscience">
+            <div class="r-card-overlay"></div>
+          </div>
+          <div class="r-card-body">
+            <span class="r-card-tag">Neuroscience</span>
+            <h3>Brain & Neural Pathways</h3>
+            <p>Understanding cognitive disorders through advanced neuroimaging and biomarkers.</p>
+            <div class="r-card-footer">
+              <span>9 active studies</span>
+              <div class="r-card-arrow">→</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="r-card">
+          <div class="r-card-img">
+            <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=500&q=80" alt="Oncology">
+            <div class="r-card-overlay"></div>
+          </div>
+          <div class="r-card-body">
+            <span class="r-card-tag">Oncology</span>
+            <h3>Cancer Immunotherapy</h3>
+            <p>Harnessing the immune system to target and eliminate cancer cells with precision.</p>
+            <div class="r-card-footer">
+              <span>21 active studies</span>
+              <div class="r-card-arrow">→</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
- 
-    <div class="team-card reveal delay-2">
-      <img class="team-photo" src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=500&q=75&auto=format&fit=crop&face" alt="Dr. Rajan Mehta" loading="lazy">
-      <div class="team-overlay">
-        <h3>Dr. Rajan Mehta</h3>
-        <span>Head of Genomics</span>
-        <div class="team-socials">
-          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-          <a href="#"><i class="fa-solid fa-envelope"></i></a>
+  </section>
+
+
+  <!-- ══ SECTION 4 — TEAM ══ -->
+  <section id="team">
+    <div class="team-head reveal">
+      <span class="sec-label">The Experts</span>
+      <h2 class="sec-title">Meet Our Scientists</h2>
+    </div>
+    <div class="team-grid">
+
+      <div class="team-card reveal delay-1">
+        <img class="team-photo"
+          src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&q=75&auto=format&fit=crop&face"
+          alt="Dr. Ananya Krishnan" loading="lazy">
+        <div class="team-overlay">
+          <h3>Dr. Ananya Krishnan</h3>
+          <span>Lead Oncologist</span>
+          <div class="team-socials">
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card reveal delay-2">
+        <img class="team-photo"
+          src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=500&q=75&auto=format&fit=crop&face"
+          alt="Dr. Rajan Mehta" loading="lazy">
+        <div class="team-overlay">
+          <h3>Dr. Rajan Mehta</h3>
+          <span>Head of Genomics</span>
+          <div class="team-socials">
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card reveal delay-3">
+        <img class="team-photo"
+          src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=500&q=75&auto=format&fit=crop&face"
+          alt="Dr. Priya Nair" loading="lazy">
+        <div class="team-overlay">
+          <h3>Dr. Priya Nair</h3>
+          <span>Clinical Trial Director</span>
+          <div class="team-socials">
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card reveal delay-4">
+        <img class="team-photo"
+          src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=500&q=75&auto=format&fit=crop&face"
+          alt="Dr. Vikram Shetty" loading="lazy">
+        <div class="team-overlay">
+          <h3>Dr. Vikram Shetty</h3>
+          <span>Neuroscience Researcher</span>
+          <div class="team-socials">
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══ SECTION 5 — TESTIMONIALS ══ -->
+  <section id="testimonials">
+    <div class="testi-head reveal">
+      <span class="sec-label">Partner Voices</span>
+      <h2 class="sec-title">What They Say</h2>
+    </div>
+    <div class="testi-grid">
+
+      <div class="testi-card reveal delay-1">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p>Their genomics team identified key biomarkers that transformed our drug's target efficacy by over 40%. Truly
+          world-class research capability that we trust completely.</p>
+        <div class="testi-author">
+          <img class="testi-avatar"
+            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&q=80&auto=format&fit=crop&face"
+            alt="Dr. Sarah Mitchell">
+          <div>
+            <h4>Dr. Sarah</h4>
+            <span>VP Research, BioNova Labs</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal delay-2">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p>The clinical trial team managed our Phase III study with exceptional precision. Patient safety and data
+          accuracy were uncompromised throughout the entire process.</p>
+        <div class="testi-author">
+          <img class="testi-avatar"
+            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80&auto=format&fit=crop&face"
+            alt="James Kaur">
+          <div>
+            <h4>James Kaur</h4>
+            <span>CMO, MedPharm Global</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal delay-3">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p>We partnered on an AI-driven drug discovery project and received insights that would have taken our team 3
+          years to uncover. An extraordinary research partner.</p>
+        <div class="testi-author">
+          <img class="testi-avatar"
+            src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&q=80&auto=format&fit=crop&face"
+            alt="Lisa Rao">
+          <div>
+            <h4>Lisa Rao</h4>
+            <span>Director, Helix Therapeutics</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+  <!-- ══ SECTION 8 — CONTACT ══ -->
+  <section id="contact">
+
+    <div class="contact-map-side reveal-left">
+      <img class="contact-map-img"
+        src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80&auto=format&fit=crop"
+        alt="Research Institute" loading="lazy">
+      <div class="contact-map-overlay">
+        <span class="sec-label">Get In Touch</span>
+        <h2 class="sec-title sec-title--white">Let's Build the Future of Science Together</h2>
+
+        <div class="c-info-item">
+          <div class="c-icon"><i class="fa-solid fa-phone"></i></div>
+          <div>
+            <h4>Phone</h4>
+            <p>+91 1234567890</p>
+          </div>
+        </div>
+        <div class="c-info-item">
+          <div class="c-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div>
+            <h4>Email</h4>
+            <p>research@gmail.com</p>
+          </div>
+        </div>
+        <div class="c-info-item">
+          <div class="c-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <h4>Address</h4>
+            <p>Chennai, Tamil Nadu, India</p>
+          </div>
         </div>
       </div>
     </div>
- 
-    <div class="team-card reveal delay-3">
-      <img class="team-photo" src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=500&q=75&auto=format&fit=crop&face" alt="Dr. Priya Nair" loading="lazy">
-      <div class="team-overlay">
-        <h3>Dr. Priya Nair</h3>
-        <span>Clinical Trial Director</span>
-        <div class="team-socials">
-          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-          <a href="#"><i class="fa-solid fa-envelope"></i></a>
+
+    <div class="contact-form-side reveal-right">
+      <span class="sec-label">Send a Message</span>
+      <h2 class="sec-title">Contact Us</h2>
+      <p>Our team responds within 24 hours. Partnership inquiries are welcome.</p>
+      <form class="c-form" onsubmit="return false;">
+        <div class="c-row">
+          <input type="text" placeholder="Your Name">
+          <input type="email" placeholder="Email Address">
         </div>
-      </div>
+        <input type="text" placeholder="Organization / Institute">
+        <input type="text" placeholder="Subject">
+        <textarea placeholder="Your message..."></textarea>
+        <button class="c-submit" type="submit">
+          Send Message <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </form>
     </div>
- 
-    <div class="team-card reveal delay-4">
-      <img class="team-photo" src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=500&q=75&auto=format&fit=crop&face" alt="Dr. Vikram Shetty" loading="lazy">
-      <div class="team-overlay">
-        <h3>Dr. Vikram Shetty</h3>
-        <span>Neuroscience Researcher</span>
-        <div class="team-socials">
-          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-          <a href="#"><i class="fa-solid fa-envelope"></i></a>
-        </div>
-      </div>
-    </div>
- 
-  </div>
-</section>
- 
- 
-<!-- ══ SECTION 5 — TESTIMONIALS ══ -->
-<section id="testimonials">
-  <div class="testi-head reveal">
-    <span class="sec-label">Partner Voices</span>
-    <h2 class="sec-title">What They Say</h2>
-  </div>
-  <div class="testi-grid">
- 
-    <div class="testi-card reveal delay-1">
-      <div class="testi-quote">"</div>
-      <div class="testi-stars">★★★★★</div>
-      <p>Their genomics team identified key biomarkers that transformed our drug's target efficacy by over 40%. Truly world-class research capability that we trust completely.</p>
-      <div class="testi-author">
-        <img class="testi-avatar" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&q=80&auto=format&fit=crop&face" alt="Dr. Sarah Mitchell">
-        <div>
-          <h4>Dr. Sarah Mitchell</h4>
-          <span>VP Research, BioNova Labs</span>
-        </div>
-      </div>
-    </div>
- 
-    <div class="testi-card reveal delay-2">
-      <div class="testi-quote">"</div>
-      <div class="testi-stars">★★★★★</div>
-      <p>The clinical trial team managed our Phase III study with exceptional precision. Patient safety and data accuracy were uncompromised throughout the entire process.</p>
-      <div class="testi-author">
-        <img class="testi-avatar" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80&auto=format&fit=crop&face" alt="James Kaur">
-        <div>
-          <h4>James Kaur</h4>
-          <span>CMO, MedPharm Global</span>
-        </div>
-      </div>
-    </div>
- 
-    <div class="testi-card reveal delay-3">
-      <div class="testi-quote">"</div>
-      <div class="testi-stars">★★★★★</div>
-      <p>We partnered on an AI-driven drug discovery project and received insights that would have taken our team 3 years to uncover. An extraordinary research partner.</p>
-      <div class="testi-author">
-        <img class="testi-avatar" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&q=80&auto=format&fit=crop&face" alt="Lisa Rao">
-        <div>
-          <h4>Lisa Rao</h4>
-          <span>Director, Helix Therapeutics</span>
-        </div>
-      </div>
-    </div>
- 
-  </div>
-</section>
- 
- 
-<!-- ══ SECTION 6 — BLOG ══ -->
-<section id="blog">
-  <div class="blog-head reveal">
-    <span class="sec-label">Stay Updated</span>
-    <h2 class="sec-title">Latest Research Articles</h2>
-  </div>
-  <div class="blog-grid">
- 
-    <div class="blog-card reveal delay-1">
-      <div class="blog-img-wrap">
-        <img class="blog-img" src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=700&q=75&auto=format&fit=crop" alt="CRISPR Gene Editing" loading="lazy">
-        <span class="blog-cat">Genomics</span>
-      </div>
-      <div class="blog-body">
-        <div class="blog-meta">
-          <span><i class="fa-regular fa-calendar"></i> June 10, 2026</span>
-          <span><i class="fa-regular fa-clock"></i> 5 min read</span>
-        </div>
-        <h3>CRISPR Gene Editing Achieves New Milestone in Sickle Cell Treatment</h3>
-        <p>Researchers report 90% symptom reduction in patients using next-generation CRISPR-Cas9 gene correction protocols...</p>
-        <a href="#" class="blog-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
-      </div>
-    </div>
- 
-    <div class="blog-card reveal delay-2">
-      <div class="blog-img-wrap">
-        <img class="blog-img" src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=700&q=75&auto=format&fit=crop" alt="Alzheimers AI Detection" loading="lazy">
-        <span class="blog-cat">Neuroscience</span>
-      </div>
-      <div class="blog-body">
-        <div class="blog-meta">
-          <span><i class="fa-regular fa-calendar"></i> May 28, 2026</span>
-          <span><i class="fa-regular fa-clock"></i> 7 min read</span>
-        </div>
-        <h3>AI Detects Early Alzheimer's Biomarkers 6 Years Before Symptoms Appear</h3>
-        <p>A neural network trained on 50,000 MRI scans now predicts Alzheimer's risk with 94% accuracy in blind tests...</p>
-        <a href="#" class="blog-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
-      </div>
-    </div>
- 
-    <div class="blog-card reveal delay-3">
-      <div class="blog-img-wrap">
-        <img class="blog-img" src="https://images.unsplash.com/photo-1584384840470-de51b7e8d85a?w=700&q=75&auto=format&fit=crop" alt="mRNA Vaccine" loading="lazy">
-        <span class="blog-cat">Immunology</span>
-      </div>
-      <div class="blog-body">
-        <div class="blog-meta">
-          <span><i class="fa-regular fa-calendar"></i> May 15, 2026</span>
-          <span><i class="fa-regular fa-clock"></i> 4 min read</span>
-        </div>
-        <h3>mRNA Vaccine Platform Expands to Target 12 Respiratory Viruses</h3>
-        <p>Building on COVID-19 success, scientists now deploy multi-antigen mRNA vaccines against common viral threats...</p>
-        <a href="#" class="blog-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
-      </div>
-    </div>
- 
-  </div>
-</section>
- 
- 
-<!-- ══ SECTION 7 — CONTACT ══ -->
-<section id="contact">
- 
-  <div class="contact-map-side reveal-left">
-    <img class="contact-map-img"
-      src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80&auto=format&fit=crop"
-      alt="Research Institute" loading="lazy">
-    <div class="contact-map-overlay">
-      <span class="sec-label">Get In Touch</span>
-      <h2 class="sec-title sec-title--white">Let's Build the Future of Science Together</h2>
- 
-      <div class="c-info-item">
-        <div class="c-icon"><i class="fa-solid fa-phone"></i></div>
-        <div>
-          <h4>Phone</h4>
-          <p>+91 1234567890</p>
-        </div>
-      </div>
-      <div class="c-info-item">
-        <div class="c-icon"><i class="fa-solid fa-envelope"></i></div>
-        <div>
-          <h4>Email</h4>
-          <p>research@gmail.com</p>
-        </div>
-      </div>
-      <div class="c-info-item">
-        <div class="c-icon"><i class="fa-solid fa-location-dot"></i></div>
-        <div>
-          <h4>Address</h4>
-          <p>Chennai, Tamil Nadu, India</p>
-        </div>
-      </div>
-    </div>
-  </div>
- 
-  <div class="contact-form-side reveal-right">
-    <span class="sec-label">Send a Message</span>
-    <h2 class="sec-title">Contact Us</h2>
-    <p>Our team responds within 24 hours. Partnership inquiries are welcome.</p>
-    <form class="c-form" onsubmit="return false;">
-      <div class="c-row">
-        <input type="text" placeholder="Your Name">
-        <input type="email" placeholder="Email Address">
-      </div>
-      <input type="text" placeholder="Organization / Institute">
-      <input type="text" placeholder="Subject">
-      <textarea placeholder="Your message..."></textarea>
-      <button class="c-submit" type="submit">
-        Send Message <i class="fa-solid fa-paper-plane"></i>
-      </button>
-    </form>
-  </div>
- 
-</section>
+
+  </section>
 
   <footer class="footer">
     <div class="footer-container">
 
       <div class="footer-col">
-        <img src="./src/logo.webp" alt="Logo" class="footer-logo">
+        <a href="index.html"> <img src="./src/logo.webp" alt="Logo" class="footer-logo"></a>
 
         <p>
           Advancing healthcare through innovative research,
@@ -1652,10 +2347,10 @@ html{scroll-behavior:smooth;}
         </p>
 
         <div class="footer-social">
-          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="404.html"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="404.html"><i class="fa-brands fa-instagram"></i></a>
+          <a href="404.html"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="404.html"><i class="fa-brands fa-linkedin-in"></i></a>
         </div>
       </div>
 
@@ -1663,11 +2358,10 @@ html{scroll-behavior:smooth;}
         <h3>Quick Links</h3>
 
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Research</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="page.html">Page</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
 
@@ -1675,13 +2369,13 @@ html{scroll-behavior:smooth;}
         <h3>Services</h3>
 
         <ul>
-          <li><a href="#"><span class="material-symbols-outlined">
+          <li><a href="404.html"><span class="material-symbols-outlined">
                 call
               </span>+91 1234567890</a></li>
-          <li><a href="#"><span class="material-symbols-outlined">
+          <li><a href="404.html"><span class="material-symbols-outlined">
                 mail
               </span>research@gmai.com</a></li>
-          <li><a href="#"><span class="material-symbols-outlined">
+          <li><a href="404.html"><span class="material-symbols-outlined">
                 location_on
               </span>chennai,Tamilnadu</a></li>
 
@@ -1709,10 +2403,10 @@ html{scroll-behavior:smooth;}
         © 2026 Stackly. All Rights Reserved.
       </p>
 
-        <div>
-          <a href="">Privacy Policy</a>
-          <a href="">Terms @ Conditons</a>
-        </div>
+      <div>
+        <a href="404.html">Privacy Policy</a>
+        <a href="404.html">Terms @ Conditons</a>
+      </div>
     </div>
   </footer>
 
@@ -1747,72 +2441,86 @@ html{scroll-behavior:smooth;}
       }
     }));
 
+        //scroll
+    const navbar = document.querySelector(".navigation")
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled")
+      }
 
-    //window.addEventListener("scroll", () => {
-    //  const nav = document.querySelector(".navigation");
-    //  if (window.scrollY > 50) {
-    //    nav.style.background = "white";
-    //    nav.style.backdropFilter = "blur(15px)";
-    //    nav.style.boxShadow = "0 5px 20px rgba(0,0,0,.25)";
-    //  } else {
-    //    nav.style.background = "transparent";
-    //    nav.style.boxShadow = "none";
-    //  }
-    //});
+      else {
+        navbar.classList.remove("scrolled")
+      }
+    })
 
 
     // ─── SCROLL REVEAL ───
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('active');
-      // progress bars
-      e.target.querySelectorAll && e.target.querySelectorAll('.bar-fill').forEach(bar => {
-        bar.style.width = bar.dataset.width + '%';
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('active');
+          // progress bars
+          e.target.querySelectorAll && e.target.querySelectorAll('.bar-fill').forEach(bar => {
+            bar.style.width = bar.dataset.width + '%';
+          });
+        }
       });
+    }, { threshold: 0.12 });
+
+
+    // ─── COUNTER ANIMATION ───
+    function animateCounter(el) {
+      const target = parseInt(el.dataset.target);
+      const duration = 1800;
+      const start = performance.now();
+      const update = (now) => {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(ease * target);
+        if (progress < 1) requestAnimationFrame(update);
+        else el.textContent = target;
+      };
+      requestAnimationFrame(update);
     }
-  });
-}, { threshold: 0.12 });
- 
-document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
- 
-// also trigger bars when about section enters
-const aboutObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.querySelectorAll('.bar-fill').forEach(bar => {
-        bar.style.width = bar.dataset.width + '%';
+
+    const counterObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.counter').forEach(animateCounter);
+          counterObs.unobserve(e.target);
+        }
       });
-    }
-  });
-}, { threshold: 0.2 });
-document.querySelectorAll('#about').forEach(el => aboutObs.observe(el));
- 
-// ─── COUNTER ANIMATION ───
-function animateCounter(el) {
-  const target = parseInt(el.dataset.target);
-  const duration = 1800;
-  const start = performance.now();
-  const update = (now) => {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const ease = 1 - Math.pow(1 - progress, 3);
-    el.textContent = Math.floor(ease * target);
-    if (progress < 1) requestAnimationFrame(update);
-    else el.textContent = target;
-  };
-  requestAnimationFrame(update);
-}
- 
-const counterObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.querySelectorAll('.counter').forEach(animateCounter);
-      counterObs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.3 });
-document.querySelectorAll('#about').forEach(el => counterObs.observe(el));
+    }, { threshold: 0.3 });
+    document.querySelectorAll('#about').forEach(el => counterObs.observe(el));
+
+
+
+
+    /* new added section*/
+
+    const counters = document.querySelectorAll('.counter');
+    const bars = document.querySelectorAll('.stat-bar-fill');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          counters.forEach(c => {
+            const target = +c.dataset.target, dur = 2000, step = dur / 60;
+            let current = 0;
+            const t = setInterval(() => {
+              current += target / 60;
+              if (current >= target) { current = target; clearInterval(t) }
+              c.textContent = Math.floor(current);
+            }, step);
+          });
+          bars.forEach(b => {
+            setTimeout(() => { b.style.width = b.dataset.width + '%' }, 300);
+          });
+          obs.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    obs.observe(document.querySelector('.stats-section'));
   </script>
 </body>
 
