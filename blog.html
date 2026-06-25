@@ -630,7 +630,7 @@
     .about-hero {
       min-height: 70vh;
   background: linear-gradient(135deg, rgba(1, 21, 31, 0.88) 0%, rgba(2, 8, 106, 0.60) 60%, rgba(5, 201, 245, 0.30) 100%),
-        url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1600&q=80') center/cover no-repeat;
+        url('./src/blog-bg.webp') center/cover no-repeat;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -812,39 +812,62 @@
       transform: translateX(5px);
     }
 
-      .author-row {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        margin-bottom: 24px;
-        padding-bottom: 24px;
-        border-bottom: 1px solid rgba(2, 8, 106, 0.1);
-      }
+    .author-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
 
-      .author-row div{
-        display: flex;
-        align-content: center;
-        justify-content: center;
-        flex-direction: column;
-      }
-      .author-row img {
-        width: 46px;
-        height: 46px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 2px solid #05C9F5;
-      }
+    margin-bottom:24px;
+    padding-bottom:24px;
 
-      .author-row div h4 {
-        font-size: 14px;
-        color: #02086A;
-        font-weight: 700;
-      }
+    border-bottom:1px solid rgba(2,8,106,.1);
+}
 
-      .author-row div p {
-        font-size: 12px;
-        color: #888;
-      }
+.author-row img{
+    width:46px;
+    height:46px;
+
+    border-radius:50%;
+    object-fit:cover;
+
+    border:2px solid #05C9F5;
+
+    flex-shrink:0;
+}
+
+.author-row div{
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:flex-start;
+
+    gap:3px;
+}
+
+.author-row h4{
+
+    margin:0;
+
+    font-size:15px;
+    font-weight:700;
+
+    color:#02086A;
+
+    line-height:1.2;
+}
+
+.author-row p{
+
+    margin:0;
+
+    font-size:13px;
+
+    color:#7a7a7a;
+
+    line-height:1.4;
+}
 
 
     /* ══════════════════════════════════════════
@@ -1485,7 +1508,7 @@
 
       <div class="featured-grid">
         <div class="featured-img-wrap reveal-l">
-          <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=900&q=80"
+           <img src="./src/bl1.webp" 
             alt="CRISPR gene editing research">
           <div class="featured-badge">Featured</div>
           <div class="featured-read-time">
@@ -1497,7 +1520,7 @@
         <div class="featured-content reveal-r">
           <div class="tag" style="margin-bottom:18px;">Genomics</div>
           <div class="author-row">
-            <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=100&q=80" alt="Dr. Arjun Mehta">
+            <img src="./src/person1.webp" alt="Dr. Arjun Mehta">
             <div>
               <h4>Dr. Arjun Mehta</h4>
               <p>Chief Science Officer · June 12, 2026</p>
@@ -1550,7 +1573,7 @@
 
         <div class="article-card reveal">
           <div class="article-card-img">
-            <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=600&q=80"
+            <img src="./src/bl3.webp"
               alt="mRNA vaccine research">
             <span class="tag">Pharma</span>
           </div>
@@ -1564,7 +1587,7 @@
               personalised immunotherapy.</p>
             <div class="article-footer">
               <div class="article-author">
-                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&q=80" alt="Dr. Priya Nair">
+                <img src="./src/person2.webp" alt="Dr. Priya Nair">
                 <span>Dr. Priya Nair</span>
               </div>
               <a href="404.html" class="article-link">Read <i class="fa-solid fa-arrow-right"></i></a>
@@ -1574,7 +1597,7 @@
 
         <div class="article-card reveal" style="transition-delay:.1s">
           <div class="article-card-img">
-            <img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?w=600&q=80" alt="AI drug discovery">
+            <img src="./src/bl4.webp"alt="AI drug discovery">
             <span class="tag">AI & Data</span>
           </div>
           <div class="article-card-body">
@@ -1587,7 +1610,7 @@
               60% without sacrificing specificity.</p>
             <div class="article-footer">
               <div class="article-author">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80"
+                <img src="./src/person3.webp"
                   alt="Dr. Samuel Okafor">
                 <span>Dr. Samuel Okafor</span>
               </div>
@@ -1598,7 +1621,7 @@
 
         <div class="article-card reveal" style="transition-delay:.2s">
           <div class="article-card-img">
-            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80" alt="clinical trial lab">
+            <img src="./src/bl2.webp" alt="clinical trial lab">
             <span class="tag">Clinical</span>
           </div>
           <div class="article-card-body">
@@ -1611,7 +1634,7 @@
               TNBC patients receiving our lead candidate.</p>
             <div class="article-footer">
               <div class="article-author">
-                <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=100&q=80" alt="Dr. Mei Lin">
+                <img src="./src/person1.webp" alt="Dr. Mei Lin">
                 <span>Dr. Mei Lin</span>
               </div>
               <a href="404.html" class="article-link">Read <i class="fa-solid fa-arrow-right"></i></a>
@@ -1621,7 +1644,7 @@
 
         <div class="article-card reveal" style="transition-delay:.1s">
           <div class="article-card-img">
-            <img src="https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=600&q=80"
+            <img src="./src/bl5.webp"
               alt="microbiome research">
             <span class="tag">Genomics</span>
           </div>
@@ -1635,7 +1658,7 @@
               with depression and anxiety disorders.</p>
             <div class="article-footer">
               <div class="article-author">
-                <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=100&q=80"
+                <img src="./src/person5.webp"
                   alt="Dr. Arjun Mehta">
                 <span>Dr. Arjun Mehta</span>
               </div>
@@ -1646,7 +1669,7 @@
 
         <div class="article-card reveal" style="transition-delay:.2s">
           <div class="article-card-img">
-            <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80" alt="lab microscope">
+            <img src="./src/bl6.webp" alt="lab microscope">
             <span class="tag">Pharma</span>
           </div>
           <div class="article-card-body">
@@ -1659,7 +1682,7 @@
               critical-priority resistant pathogens in vitro.</p>
             <div class="article-footer">
               <div class="article-author">
-                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&q=80" alt="Dr. Priya Nair">
+                <img src="./src/person4.webp" alt="Dr. Priya Nair">
                 <span>Dr. Priya Nair</span>
               </div>
               <a href="404.html" class="article-link">Read <i class="fa-solid fa-arrow-right"></i></a>
@@ -1669,7 +1692,7 @@
 
         <div class="article-card reveal" style="transition-delay:.3s">
           <div class="article-card-img">
-            <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=600&q=80" alt="blood sample analysis">
+            <img src="./src/bl8.webp" alt="blood sample analysis">
             <span class="tag">Clinical</span>
           </div>
           <div class="article-card-body">
@@ -1682,8 +1705,8 @@
               colorectal cancer — a potential game-changer for screening programmes.</p>
             <div class="article-footer">
               <div class="article-author">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80"
-                  alt="Dr. Samuel Okafor">
+                <img src="./src/person6.webp"
+                  alt="Dr. Samiya Okafor">
                 <span>Dr. Samuel Okafor</span>
               </div>
               <a href="404.html" class="article-link">Read <i class="fa-solid fa-arrow-right"></i></a>
@@ -1800,14 +1823,14 @@
               style="font-size:13px;color: #02086A;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">
               Recent Posts</p>
             <div class="recent-post">
-              <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=200&q=80" alt="CRISPR article">
+              <img src="./src/bl9.webp" alt="CRISPR article">
               <div class="recent-post-info">
                 <h4>CRISPR-Cas9 Breakthroughs in Genetic Disease Treatment</h4>
                 <span>June 12, 2026</span>
               </div>
             </div>
             <div class="recent-post">
-              <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=200&q=80" alt="mRNA article">
+              <img src="./src/bl1.webp" alt="mRNA article">
               <div class="recent-post-info">
                 <h4>Next-Generation mRNA Platforms Beyond COVID-19</h4>
                 <span>June 18, 2026</span>
