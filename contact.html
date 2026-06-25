@@ -146,6 +146,7 @@
       font-weight: 600;
       color: #02086A;
       background: #05C9F5;
+      border-radius: 10px;
     }
 
 
@@ -416,6 +417,7 @@
       border: 1px solid rgba(5, 201, 245, 0.25);
       background: rgba(255, 255, 255, 0.9);
       color: #02086A;
+      border-radius: 7px;
     }
 
     .footer-form input:focus {
@@ -438,7 +440,7 @@
     .footer-form button {
       padding: 15px;
       border: none;
-
+  border-radius: 7px;
       background: #05C9F5;
       color: #02086A;
 
@@ -619,13 +621,13 @@
     .about-hero {
       min-height: 70vh;
       background: linear-gradient(135deg, rgba(1, 21, 31, 0.88) 0%, rgba(2, 8, 106, 0.60) 60%, rgba(5, 201, 245, 0.30) 100%),
-        url('./src/con-bg.webp') center/cover no-repeat;
+        url('./src/foot1.webp') center/cover no-repeat;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-end;
       position: relative;
       overflow: hidden;
-      text-align: center;
+      padding-top: 50px;
     }
 
 
@@ -634,7 +636,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: flex-end;
       margin: auto;
+      text-align: center;
       padding: 20px;
     }
 
@@ -661,10 +665,12 @@
 
     .about-hero h1 {
       font-family: "Roboto Slab", serif;
-      font-size: clamp(36px, 6vw, 72px);
+      font-size: clamp(30px, 4vw, 48px);
       color: white;
       line-height: 1.1;
-      margin-bottom: 24px;
+      margin-top: 50px;
+      margin-bottom: 20px;
+   
     }
 
     .about-hero h1 span {
@@ -677,9 +683,8 @@
       line-height: 1.8;
       max-width: 600px;
       text-align: center;
-      margin-bottom: 36px;
+      margin-bottom: 20px;
     }
-
     /* ══════════════════════════════════════════
        SECTION 2 — CONTACT CARDS (Info)
     ══════════════════════════════════════════ */
@@ -943,6 +948,7 @@
       background: white;
       transition: .3s;
       -webkit-appearance: none;
+      border-radius: 7px;
     }
 
     .form-group input:focus,
@@ -974,6 +980,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      border-radius: 7px;
       width: fit-content;
     }
 
@@ -1224,6 +1231,7 @@
       cursor: pointer;
       font-family: "Inter", sans-serif;
       transition: .4s;
+        border-radius: 10px;
     }
 
     .cta-btn-primary:hover {
@@ -1241,6 +1249,7 @@
       cursor: pointer;
       font-family: "Inter", sans-serif;
       transition: .4s;
+       border-radius: 10px;
     }
 
     .cta-btn-outline:hover {
@@ -1390,6 +1399,7 @@
     align-items:center;
     cursor:pointer;
     transition:.3s;
+    border-radius: 7px;
 }
 
 .select-btn span{
@@ -1856,6 +1866,7 @@
         <h3>Quick Links</h3>
 
         <ul>
+            <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="page.html">Page</a></li>
           <li><a href="blog.html">Blog</a></li>
@@ -1971,13 +1982,13 @@
 
       if (email === "") {
         emailMsg.textContent = "Please enter your email address";
-        emailMsg.style.color = "red";
+        emailMsg.style.color = "white";
         return;
       }
 
       if (!emailPattern.test(email)) {
         emailMsg.textContent = "Please enter a valid email address";
-        emailMsg.style.color = "red";
+        emailMsg.style.color = "white";
         return;
       }
 
@@ -2048,103 +2059,108 @@ document.addEventListener("click", (e) => {
 
 
     //
-    const firstName = document.getElementById("firstName");
-    const lastName = document.getElementById("lastName");
-    const email = document.getElementById("email");
-    const phone = document.getElementById("phone");
-    const organisation = document.getElementById("organisation");
-    const category = document.getElementById("category");
-    const message = document.getElementById("message");
-    const submitBtn = document.getElementById("submitBtn");
+      const firstName = document.getElementById("firstName");
+const lastName = document.getElementById("lastName");
+const email = document.getElementById("email");
+const phone = document.getElementById("phone");
+const organisation = document.getElementById("organisation");
+const category = document.getElementById("category");
+const categoryText1 = document.getElementById("selectedCategory");
+const message = document.getElementById("message");
+const submitBtn = document.getElementById("submitBtn");
 
-    // First Name - Letters only
-    firstName.addEventListener("input", function () {
-      this.value = this.value.replace(/[^A-Za-z\s]/g, "");
-    });
+// First Name - Letters only
+firstName.addEventListener("input", function () {
+    this.value = this.value.replace(/[^A-Za-z\s]/g, "");
+});
 
-    // Last Name - Letters only
-    lastName.addEventListener("input", function () {
-      this.value = this.value.replace(/[^A-Za-z\s]/g, "");
-    });
+// Last Name - Letters only
+lastName.addEventListener("input", function () {
+    this.value = this.value.replace(/[^A-Za-z\s]/g, "");
+});
 
-    // Organisation - Letters only
-    organisation.addEventListener("input", function () {
-      this.value = this.value.replace(/[^A-Za-z\s]/g, "");
-    });
+// Organisation - Letters only
+organisation.addEventListener("input", function () {
+    this.value = this.value.replace(/[^A-Za-z\s]/g, "");
+});
 
-    // Phone - Numbers only (max 10 digits)
-    phone.addEventListener("input", function () {
-      this.value = this.value.replace(/\D/g, "").slice(0, 10);
-    });
+// Phone - Numbers only (10 digits)
+phone.addEventListener("input", function () {
+    this.value = this.value.replace(/\D/g, "").slice(0, 10);
+});
 
-    submitBtn.addEventListener("click", function () {
+submitBtn.addEventListener("click", function () {
 
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-      if (firstName.value.trim() === "") {
+    if (firstName.value.trim() === "") {
         alert("Please enter your first name.");
         firstName.focus();
         return;
-      }
+    }
 
-      if (lastName.value.trim() === "") {
+    if (lastName.value.trim() === "") {
         alert("Please enter your last name.");
         lastName.focus();
         return;
-      }
+    }
 
-      if (email.value.trim() === "") {
+    if (email.value.trim() === "") {
         alert("Please enter your email address.");
         email.focus();
         return;
-      }
+    }
 
-      if (!emailPattern.test(email.value.trim())) {
+    if (!emailPattern.test(email.value.trim())) {
         alert("Please enter a valid email address.");
         email.focus();
         return;
-      }
+    }
 
-      if (phone.value.length !== 10) {
+    if (phone.value.length !== 10) {
         alert("Please enter a valid 10-digit phone number.");
         phone.focus();
         return;
-      }
+    }
 
-      if (organisation.value.trim() === "") {
+    if (organisation.value.trim() === "") {
         alert("Please enter your organisation.");
         organisation.focus();
         return;
-      }
+    }
 
+    if (categoryText1.textContent.trim() === "Select a category") {
+        alert("Please select the nature of enquiry.");
+        return;
+    }
 
-            if (categoryText.textContent === "Select a category") {
-    alert("Please select the nature of enquiry.");
-    return;
-}
-
-
-      if (message.value.trim() === "") {
+    if (message.value.trim() === "") {
         alert("Please enter your message.");
         message.focus();
         return;
-      }
+    }
 
-      alert("Message sent successfully!");
+    alert("Message sent successfully!");
 
-      firstName.value = "";
-      lastName.value = "";
-      email.value = "";
-      phone.value = "";
-      organisation.value = "";
-      category.selectedIndex = 0;
-      message.value = "";
-    });
+    // Clear Form
+    firstName.value = "";
+    lastName.value = "";
+    email.value = "";
+    phone.value = "";
+    organisation.value = "";
+    message.value = "";
+
+    // Reset Custom Dropdown
+    categoryText1.textContent = "Select a category";
+});
+
       // nav img
   let navimg=document.querySelector('.navimg');
   navimg.addEventListener("click",()=>{
     window.location.href="index.html"
   }) 
+
+  
   </script>
 </body>
 

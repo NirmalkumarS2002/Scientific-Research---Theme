@@ -1482,11 +1482,13 @@
         padding:18px;
     }
 
-    .settings-row{
+    .first-card .settings-row{
         flex-direction:column;
         align-items:flex-start;
         gap:12px;
     }
+
+         
 
     .settings-input{
         width:100%;
@@ -1776,6 +1778,10 @@
         }
         }
 
+        .outline{
+
+        }
+
       
 
     
@@ -1879,10 +1885,10 @@
                     <p>Here's a summary of your active trials and research progress for June 2026.</p>
                 </div>
                 <div class="welcome-actions">
-                    <button class="hdr-btn gold errorpage"><span
+                    <button class="hdr-btn gold errorpage" style="z-index:1" ><span
                             class="material-symbols-outlined">download</span> Download Report</button>
-                    <button class="hdr-btn outline errorpage"
-                        style="background:rgba(255,255,255,0.12);color:white;border-color:rgba(255,255,255,0.2)"><span class="material-symbols-outlined">support_agent</span>
+                    <button class="hdr-btn welcomebtn errorpage"
+                        style="background:rgba(255,255,255,0.12);color:white;border-color:rgba(255,255,255,0.2);z-index:1"><span class="material-symbols-outlined">support_agent</span>
                         Contact Team</button>
                 </div>
             </div>
@@ -2189,18 +2195,15 @@
                         <span class="material-symbols-outlined">search</span>
                         <input type="text" placeholder="Search trials...">
                     </div>
-                    <select class="filter-select">
-                        <option>All Phases</option>
-                        <option>Phase I</option>
-                        <option>Phase II</option>
-                        <option>Phase III</option>
-                    </select>
-                    <select class="filter-select">
-                        <option>All Status</option>
-                        <option>Active</option>
-                        <option>In Review</option>
-                        <option>Planning</option>
-                    </select>
+                    <button class="filter-select errorpage">
+                            Phase I
+                    </button >
+                    <button  class="filter-select errorpage">
+                    Phase II
+                    </button >
+                     <button  class="filter-select errorpage">
+                    Phase III
+                    </button >
                 </div>
 
                 <div class="full-table-wrap">
@@ -2409,16 +2412,15 @@
                         <span class="material-symbols-outlined">search</span>
                         <input type="text" placeholder="Search by title, author, journal...">
                     </div>
-                    <select class="filter-select">
-                        <option>All Status</option>
-                        <option>Published</option>
-                        <option>Under Review</option>
-                    </select>
-                    <select class="filter-select">
-                        <option>All Years</option>
-                        <option>2026</option>
-                        <option>2025</option>
-                    </select>
+                    <button class="filter-select errorpage">
+                            Genomics
+                    </button >
+                    <button  class="filter-select errorpage">
+                       Pharma
+                    </button >
+                     <button  class="filter-select errorpage">
+                      AI & Data
+                    </button >
                 </div>
 
                 <div style="display:flex;flex-direction:column;gap:16px;">
@@ -2582,7 +2584,7 @@
             </div>
 
             <div class="support-grid">
-                <div class="settings-card">
+                <div class="settings-card  first-card">
                     <h3>Account Details</h3>
                     <div class="settings-row">
                         <div class="settings-row-left">
@@ -2712,17 +2714,19 @@
                             <div class="toggle-thumb"></div>
                         </label>
                     </div>
-                    <div class="settings-row">
-                        <div class="settings-row-left">
-                            <h4>Session Timeout</h4>
-                            <p>Auto logout after inactivity</p>
-                        </div>
-                        <select class="settings-input">
-                            <option>30 minutes</option>
-                            <option selected>1 hour</option>
-                            <option>4 hours</option>
-                        </select>
-                    </div>
+
+               <div class="settings-row">
+    <div class="settings-row-left">
+        <h4>Biometric Authentication</h4>
+        <p>Allow fingerprint or Face ID for secure login</p>
+    </div>
+    <label class="toggle-switch">
+        <input type="checkbox" checked>
+        <div class="toggle-track"></div>
+        <div class="toggle-thumb"></div>
+    </label>
+</div>
+              
                     <div class="settings-row">
                         <div class="settings-row-left">
                             <h4>Login Activity Alerts</h4>

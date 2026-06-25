@@ -25,10 +25,13 @@
     box-sizing: border-box;
   }
 
+
   html,
   body {
-    overflow-x: hidden;
+      overflow-x:hidden;
+    overflow-y:auto;
   }
+  
 
   .navigation {
     display: flex;
@@ -148,6 +151,7 @@
     font-weight: 600;
     color: #02086A;
     background: #05C9F5;
+    border-radius: 10px;
   }
 
 
@@ -226,16 +230,48 @@
 
   /*hero section*/
 
-  .hero-section {
-    overflow-x: hidden;
-    background: url("./src/home-bg1.webp");
+.hero-section {
+    position: relative;
+    overflow: hidden;
     font-family: "Inter", sans-serif;
-    background-position: top center;
+    background: linear-gradient(rgba(2,8,60,.65), rgba(2,8,60,.65)),
+                url("./src/home-bg1.webp");
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
-  }
+}
 
+.hero-section::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:url("./src/home-bg1.webp");
+    background-size:cover;
+    background-position:center;
+    animation:heroZoom 18s ease-in-out infinite alternate;
+    z-index:-2;
+}
+
+.hero-section::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        rgba(2,8,60,.55),
+        rgba(0,0,0,.45)
+    );
+    z-index:-1;
+}
+
+@keyframes heroZoom{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.08);
+    }
+}
   .hero-content {
     display: flex;
     flex-direction: column;
@@ -245,11 +281,11 @@
     width: fit-content;
     position: absolute;
     left: 50px;
-    top: -50px;
+    top: -35px;
   }
 
   .hero-content h1 {
-    font-size: clamp(30px, 6vw, 80px);
+    font-size: clamp(30px, 6vw, 70px);
     line-height: 1.1;
     color: white;
   }
@@ -271,6 +307,7 @@
     width: fit-content;
     color: #02086A;
     background: #05C9F5;
+    border-radius: 5px;
   }
 
   .hero-count {
@@ -316,6 +353,13 @@
   .side-btn div span {
     font-size: clamp(15px, 2vw, 25px);
     color: #02086A;
+  }
+
+  @media (max-width:500px) {
+    .hero-section::before{
+          background: linear-gradient(rgba(1, 5, 43, 0.65), rgba(2,8,60,.65)),
+                url("./src/home-bg1.webp");
+    }
   }
 
   @media (max-width:900px) {
@@ -659,6 +703,7 @@
     border: 1px solid rgba(5, 201, 245, 0.25);
     background: rgba(255, 255, 255, 0.9);
     color: #02086A;
+      border-radius: 7px;
   }
 
   .footer-form input:focus {
@@ -681,7 +726,7 @@
   .footer-form button {
     padding: 15px;
     border: none;
-
+     border-radius: 7px;
     background: #05C9F5;
     color: #02086A;
 
@@ -802,8 +847,8 @@
 
   /* ─── SCROLL REVEAL BASE ─── */
   .reveal {
-    opacity: 0;
-    transform: translateY(50px);
+   opacity: 0;
+    transform: translateX(-60px);
     transition: opacity 0.8s ease, transform 0.8s ease;
   }
 
@@ -973,6 +1018,7 @@
     cursor: pointer;
     transition: .35s;
     text-decoration: none;
+    border-radius: 10px;
   }
 
   .about-cta:hover {
@@ -1533,6 +1579,7 @@
     font-family: var(--font-body);
     color: #2d3748;
     transition: .3s;
+    border-radius: 7px;
   }
 
   .c-form input:focus,
@@ -1558,6 +1605,7 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
+    border-radius: 10px;
   }
 
   .c-submit:hover {
@@ -2553,6 +2601,7 @@
         <h3>Quick Links</h3>
 
         <ul>
+               <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="page.html">Page</a></li>
           <li><a href="blog.html">Blog</a></li>
@@ -2654,13 +2703,13 @@
 
       if (email === "") {
         emailMsg.textContent = "Please enter your email address";
-        emailMsg.style.color = "red";
+        emailMsg.style.color = "white";
         return;
       }
 
       if (!emailPattern.test(email)) {
         emailMsg.textContent = "Please enter a valid email address";
-        emailMsg.style.color = "red";
+        emailMsg.style.color = "white";
         return;
       }
 

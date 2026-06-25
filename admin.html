@@ -1134,7 +1134,7 @@
 
     .researcher-card-img img {
       width: 100%;
-      height: 180px;
+      height: clamp(200px,30vw,380px);
       object-fit: cover;
       display: block;
       filter: brightness(.9);
@@ -1441,6 +1441,7 @@
       .researchers-grid {
         grid-template-columns: 1fr;
       }
+      
 
     }
 
@@ -1456,6 +1457,31 @@
       .main {
         padding: 20px 20px;
       }
+
+      .settings-row{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .settings-input{
+        width: 100%;
+      }
+
+    .settings-row-left {
+        width: 100%;
+    }
+
+    .custom-select {
+          width: 100%;
+        min-width: 100%;
+    }
+
+    
+.custom-dropdown{
+        width: 100%;
+        min-width: 100%;
+}
     }
 
     @media (max-width:850px) {
@@ -1488,73 +1514,254 @@
       margin-left: 400px;
     }
 
-   .topbar-profile {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    cursor: pointer;
-}
-
-.profile-avatar {
-    width: clamp(35px,4vw,48px);
-    height: clamp(35px,4vw,48px);
-    border-radius: 50%;
-    background: linear-gradient(135deg, #001ec8, #00dee6);
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    font-weight: 700;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    flex-shrink: 0;
-}
-
-.topbar-profile div {
-    display: flex;
-    flex-direction: column;
-}
-
-.name {
-    font-size: 16px;
-    font-weight: 600;
-    color: #1b4332;
-    line-height: 1.2;
-}
-
-.adminrole {
-    font-size: 13px;
-    font-weight: 500;
-    color: #6c757d;
-    margin-top: 2px;
-    letter-spacing: 0.4px;
-}
-
-/* Responsive */
-
-@media (max-width:768px) {
+    .topbar-profile {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+    }
 
     .profile-avatar {
-        width: 42px;
-        height: 42px;
-        font-size: 18px;
+      width: clamp(35px, 4vw, 48px);
+      height: clamp(35px, 4vw, 48px);
+      border-radius: 50%;
+      background: linear-gradient(135deg, #001ec8, #00dee6);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .topbar-profile div {
+      display: flex;
+      flex-direction: column;
     }
 
     .name {
-        font-size: 15px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #1b4332;
+      line-height: 1.2;
     }
 
     .adminrole {
-        font-size: 12px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #6c757d;
+      margin-top: 2px;
+      letter-spacing: 0.4px;
     }
 
-}
+    /* Responsive */
+
+    @media (max-width:768px) {
+
+      .profile-avatar {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+      }
+
+      .name {
+        font-size: 15px;
+      }
+
+      .adminrole {
+        font-size: 12px;
+      }
+
+    }
+
     @media (max-width:600px) {
-      .topbar-profile span{
+      .topbar-profile span {
         display: none;
       }
     }
+
+    /* ===== Custom Select ===== */
+
+    .custom-select {
+      position: relative;
+      width: 180px;  
+    }
+
+    .select-box {
+      height: 35px;
+      padding: 0 14px;
+      background: #fff;
+      border: 1px solid #d8e2ff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: .25s;
+    }
+
+    .select-box:hover {
+      border-color: #1b237e;
+    }
+
+    .custom-select.active .select-box {
+      border-color: #1b237e;
+      box-shadow: 0 0 0 3px rgba(27, 35, 126, .12);
+    }
+
+    .selected {
+      color: #1d254d;
+      font-size: 13px;
+    }
+
+    .arrow {
+      color: #1b237e;
+      transition: .3s;
+      font-size: 22px;
+    }
+
+    .custom-select.active .arrow {
+      transform: rotate(180deg);
+    }
+
+    .options {
+      position: absolute;
+      top: 110%;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border: 1px solid #d8e2ff;
+      border-radius: 10px;
+      list-style: none;
+      padding: 6px;
+      margin: 0;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, .08);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: .25s;
+      z-index: 100;
+    }
+
+    .custom-select.active .options {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .options li {
+      padding: 11px 14px;
+      border-radius: 7px;
+      cursor: pointer;
+      color: #374151;
+      font-size: 14px;
+      transition: .25s;
+    }
+
+    .options li:hover {
+      background: #eef3ff;
+      color: #1b237e;
+    }
+
+    .options li.active {
+      background: #1b237e;
+      color: #fff;
+    }
+
+    .options li.active:hover {
+      background: #1b237e;
+    }
+
+
+    /* ===== Custom Dropdown ===== */
+
+.custom-dropdown{
+    position:relative;
+    min-width:180px;
+    user-select:none;
+    font-family:inherit;
+}
+
+.dropdown-selected{
+    height:35px;
+    background:#fff;
+    border:1px solid #d7dffd;
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 14px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.dropdown-selected:hover{
+    border-color:#17227b;
+    box-shadow:0 0 0 3px rgba(23,34,123,.08);
+}
+
+.dropdown-selected span:first-child{
+    color:#17224d;
+    font-size:11px;
+    font-weight:500;
+}
+
+.dropdown-selected .material-symbols-outlined{
+    color:#17227b;
+    font-size:22px;
+    transition:.3s;
+}
+
+.custom-dropdown.active .material-symbols-outlined{
+    transform:rotate(180deg);
+}
+
+.dropdown-list{
+    position:absolute;
+    top:calc(100% + 8px);
+    left:0;
+    right:0;
+    background:#fff;
+    border:1px solid #d7dffd;
+    border-radius:10px;
+    padding:6px;
+    margin:0;
+    list-style:none;
+    box-shadow:0 12px 25px rgba(0,0,0,.12);
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(10px);
+    transition:.3s;
+    z-index:999;
+}
+
+.custom-dropdown.active .dropdown-list{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+
+.dropdown-list li{
+    padding:10px 14px;
+    border-radius:7px;
+    cursor:pointer;
+    transition:.25s;
+    font-size:11px;
+    color:#2b3557;
+}
+
+.dropdown-list li:hover{
+    background:#eef2ff;
+    color:#17227b;
+}
+
+.dropdown-list li.active{
+    background:#17227b;
+    color:#fff;
+}
   </style>
 </head>
 
@@ -1654,12 +1861,12 @@
           R
         </div>
         <div>
-          
-        <span class="name" id="userName"></span>
-        <span class="adminrole">Research Admin</span>
+
+          <span class="name" id="userName"></span>
+          <span class="adminrole">Research Admin</span>
         </div>
 
-      </div>  
+      </div>
     </div>
   </header>
 
@@ -1678,7 +1885,8 @@
           <p>Overview for June 2026 — All active programmes</p>
         </div>
         <div class="page-header-right">
-          <button class="hdr-btn outline errorpage"><span class="material-symbols-outlined">download</span> Export</button>
+          <button class="hdr-btn outline errorpage"><span class="material-symbols-outlined">download</span>
+            Export</button>
           <button class="hdr-btn solid errorpage"><span class="material-symbols-outlined">add</span> New Trial</button>
         </div>
       </div>
@@ -1742,7 +1950,8 @@
               <h3>Trial Enrolment vs Target</h3>
               <p>Monthly participant intake across all active studies</p>
             </div>
-            <a href="404.html" class="card-action">Full report <span class="material-symbols-outlined">arrow_forward</span></a>
+            <a href="404.html" class="card-action">Full report <span
+                class="material-symbols-outlined">arrow_forward</span></a>
           </div>
           <div class="chart-legend">
             <div class="legend-item">
@@ -1949,7 +2158,7 @@
           </div>
           <div class="team-list">
             <div class="team-row">
-              <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=100&q=80" alt="Dr. Arjun Mehta">
+              <img src="./src/person1.webp" alt="Dr. Arjun Mehta">
               <div class="team-row-info">
                 <h4>Dr. Arjun Mehta</h4>
                 <p>Chief Science Officer</p>
@@ -1957,7 +2166,7 @@
               <div class="team-row-status online"></div>
             </div>
             <div class="team-row">
-              <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&q=80" alt="Dr. Priya Nair">
+              <img src="./src/person2.webp"alt="Dr. Priya Nair">
               <div class="team-row-info">
                 <h4>Dr. Priya Nair</h4>
                 <p>Head of Clinical Trials</p>
@@ -1965,7 +2174,7 @@
               <div class="team-row-status online"></div>
             </div>
             <div class="team-row">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80"
+              <img src="./src/person3.webp"
                 alt="Dr. Samuel Okafor">
               <div class="team-row-info">
                 <h4>Dr. Samuel Okafor</h4>
@@ -1974,7 +2183,7 @@
               <div class="team-row-status away"></div>
             </div>
             <div class="team-row">
-              <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=100&q=80" alt="Dr. Mei Lin">
+              <img src="./src/person4.webp" alt="Dr. Mei Lin">
               <div class="team-row-info">
                 <h4>Dr. Mei Lin</h4>
                 <p>Pharmaceutical Innovation</p>
@@ -1982,7 +2191,7 @@
               <div class="team-row-status online"></div>
             </div>
             <div class="team-row">
-              <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=100&q=80" alt="Dr. Ravi Kumar">
+              <img src="./src/person5.webp"alt="Dr. Ravi Kumar">
               <div class="team-row-info">
                 <h4>Dr. Ravi Kumar</h4>
                 <p>Data & AI Research</p>
@@ -2003,8 +2212,10 @@
           <p>All registered studies — 24 active, 6 completed, 4 planning</p>
         </div>
         <div class="page-header-right">
-          <button class="hdr-btn outline errorpage"><span class="material-symbols-outlined">filter_list</span> Filter</button>
-          <button class="hdr-btn solid errorpage"><span class="material-symbols-outlined">add</span> Register Trial</button>
+          <button class="hdr-btn outline errorpage"><span class="material-symbols-outlined">filter_list</span>
+            Filter</button>
+          <button class="hdr-btn solid errorpage"><span class="material-symbols-outlined">add</span> Register
+            Trial</button>
         </div>
       </div>
 
@@ -2014,26 +2225,15 @@
             <span class="material-symbols-outlined">search</span>
             <input type="text" placeholder="Search by trial ID or name...">
           </div>
-          <select class="filter-select">
-            <option>All Phases</option>
-            <option>Phase I</option>
-            <option>Phase II</option>
-            <option>Phase III</option>
-          </select>
-          <select class="filter-select">
-            <option>All Status</option>
-            <option>Active</option>
-            <option>In Review</option>
-            <option>Planning</option>
-            <option>Paused</option>
-          </select>
-          <select class="filter-select">
-            <option>All Departments</option>
-            <option>Genomics</option>
-            <option>Pharma</option>
-            <option>Clinical</option>
-            <option>AI & Data</option>
-          </select>
+          <button class="filter-select errorpage">
+            Phase I
+          </button>
+          <button class="filter-select errorpage">
+            Phase II
+          </button>
+          <button class="filter-select errorpage">
+            Phase III
+          </button>
         </div>
 
         <div class="full-table-wrap">
@@ -2069,9 +2269,9 @@
                 <td><span class="status-badge active">Active</span></td>
                 <td>
                   <div class="row-actions"><button class="row-btn"><span
-                        class="material-symbols-outlined errorpage">visibility</span></button><button class="row-btn"><span
-                        class="material-symbols-outlined errorpage">edit</span></button><button class="row-btn"><span
-                        class="material-symbols-outlined errorpage">more_vert</span></button></div>
+                        class="material-symbols-outlined errorpage">visibility</span></button><button
+                      class="row-btn"><span class="material-symbols-outlined errorpage">edit</span></button><button
+                      class="row-btn"><span class="material-symbols-outlined errorpage">more_vert</span></button></div>
                 </td> errorpage
               </tr>
               <tr>
@@ -2091,9 +2291,9 @@
                 <td><span class="status-badge active">Active</span></td>
                 <td>
                   <div class="row-actions"><button class="row-btn"><span
-                        class="material-symbols-outlined errorpage">visibility</span></button><button class="row-btn"><span
-                        class="material-symbols-outlined errorpage">edit</span></button><button class="row-btn"><span
-                        class="material-symbols-outlined errorpage">more_vert</span></button></div>
+                        class="material-symbols-outlined errorpage">visibility</span></button><button
+                      class="row-btn"><span class="material-symbols-outlined errorpage">edit</span></button><button
+                      class="row-btn"><span class="material-symbols-outlined errorpage">more_vert</span></button></div>
                 </td>
               </tr>
               <tr>
@@ -2113,9 +2313,9 @@
                 <td><span class="status-badge review">In Review</span></td>
                 <td>
                   <div class="row-actions"><button class="row-btn"><span
-                        class="material-symbols-outlined errorpage">visibility</span></button><button class="row-btn"><span
-                        class="material-symbols-outlined errorpage">edit</span></button><button class="row-btn"><span
-                        class="material-symbols-outlined errorpage">more_vert</span></button></div>
+                        class="material-symbols-outlined errorpage">visibility</span></button><button
+                      class="row-btn"><span class="material-symbols-outlined errorpage">edit</span></button><button
+                      class="row-btn"><span class="material-symbols-outlined errorpage">more_vert</span></button></div>
                 </td>
               </tr>
               <tr>
@@ -2135,9 +2335,9 @@
                 <td><span class="status-badge planning">Planning</span></td>
                 <td>
                   <div class="row-actions"><button class="row-btn"><span
-                        class="material-symbols-outlined errorpage">visibility</span></button><button class="row-btn"><span
-                        class="material-symbols-outlined errorpage">edit</span></button><button class="row-btn"><span
-                        class="material-symbols-outlined errorpage">more_vert</span></button></div>
+                        class="material-symbols-outlined errorpage">visibility</span></button><button
+                      class="row-btn"><span class="material-symbols-outlined errorpage">edit</span></button><button
+                      class="row-btn"><span class="material-symbols-outlined errorpage">more_vert</span></button></div>
                 </td>
               </tr>
               <tr>
@@ -2157,9 +2357,9 @@
                 <td><span class="status-badge active">Active</span></td>
                 <td>
                   <div class="row-actions"><button class="row-btn"><span
-                        class="material-symbols-outlined errorpage">visibility</span></button><button class="row-btn"><span
-                        class="material-symbols-outlined errorpage">edit</span></button><button class="row-btn"><span
-                        class="material-symbols-outlined errorpage">more_vert</span></button></div>
+                        class="material-symbols-outlined errorpage">visibility</span></button><button
+                      class="row-btn"><span class="material-symbols-outlined errorpage">edit</span></button><button
+                      class="row-btn"><span class="material-symbols-outlined errorpage">more_vert</span></button></div>
                 </td>
               </tr>
               <tr>
@@ -2179,9 +2379,9 @@
                 <td><span class="status-badge review">In Review</span></td>
                 <td>
                   <div class="row-actions"><button class="row-btn"><span
-                        class="material-symbols-outlined errorpage">visibility</span></button><button class="row-btn"><span
-                        class="material-symbols-outlined errorpage">edit</span></button><button class="row-btn"><span
-                        class="material-symbols-outlined errorpage">more_vert</span></button></div>
+                        class="material-symbols-outlined errorpage">visibility</span></button><button
+                      class="row-btn"><span class="material-symbols-outlined errorpage">edit</span></button><button
+                      class="row-btn"><span class="material-symbols-outlined errorpage">more_vert</span></button></div>
                 </td>
               </tr>
             </tbody>
@@ -2199,8 +2399,9 @@
           <p>280 scientists, clinicians, and data specialists across 3 campuses</p>
         </div>
         <div class="page-header-right">
-          <button class="hdr-btn outline"><span class="material-symbols-outlined">download</span> Export</button>
-          <button class="hdr-btn solid"><span class="material-symbols-outlined">person_add</span> Add
+          <button class="hdr-btn outline errorpage"><span class="material-symbols-outlined">download</span>
+            Export</button>
+          <button class="hdr-btn solid errorpage"><span class="material-symbols-outlined">person_add</span> Add
             Researcher</button>
         </div>
       </div>
@@ -2208,7 +2409,7 @@
       <div class="researchers-grid">
         <div class="researcher-card">
           <div class="researcher-card-img">
-            <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=600&q=80" alt="Dr. Arjun Mehta">
+            <img src="./src/person1.webp" alt="Dr. Arjun Mehta">
             <span class="dept-badge">Genomics</span>
           </div>
           <div class="researcher-card-body">
@@ -2223,7 +2424,7 @@
         </div>
         <div class="researcher-card">
           <div class="researcher-card-img">
-            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80" alt="Dr. Priya Nair">
+            <img src="./src/person2.webp" alt="Dr. Priya Nair">
             <span class="dept-badge">Clinical</span>
           </div>
           <div class="researcher-card-body">
@@ -2238,7 +2439,7 @@
         </div>
         <div class="researcher-card">
           <div class="researcher-card-img">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Dr. Samuel Okafor">
+            <img src="./src/person3.webp" alt="Dr. Samuel Okafor">
             <span class="dept-badge">Genomics</span>
           </div>
           <div class="researcher-card-body">
@@ -2253,7 +2454,7 @@
         </div>
         <div class="researcher-card">
           <div class="researcher-card-img">
-            <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=600&q=80" alt="Dr. Mei Lin">
+            <img src="./src/person4.webp" alt="Dr. Mei Lin">
             <span class="dept-badge">Pharma</span>
           </div>
           <div class="researcher-card-body">
@@ -2268,7 +2469,7 @@
         </div>
         <div class="researcher-card">
           <div class="researcher-card-img">
-            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80" alt="Dr. Ravi Kumar">
+            <img src="./src/person5.webp" alt="Dr. Ravi Kumar">
             <span class="dept-badge">AI & Data</span>
           </div>
           <div class="researcher-card-body">
@@ -2283,7 +2484,7 @@
         </div>
         <div class="researcher-card">
           <div class="researcher-card-img">
-            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80" alt="Dr. Anita Sharma">
+            <img src="./src/person6.webp" alt="Dr. Anita Sharma">
             <span class="dept-badge">Clinical</span>
           </div>
           <div class="researcher-card-body">
@@ -2308,8 +2509,10 @@
           <p>340 published, 3 under peer review, 8 in preparation</p>
         </div>
         <div class="page-header-right">
-          <button class="hdr-btn outline errorpage"><span class="material-symbols-outlined">download</span> Export List</button>
-          <button class="hdr-btn solid errorpage"><span class="material-symbols-outlined">add</span> Add Publication</button>
+          <button class="hdr-btn outline errorpage"><span class="material-symbols-outlined">download</span> Export
+            List</button>
+          <button class="hdr-btn solid errorpage"><span class="material-symbols-outlined">add</span> Add
+            Publication</button>
         </div>
       </div>
 
@@ -2319,25 +2522,15 @@
             <span class="material-symbols-outlined">search</span>
             <input type="text" placeholder="Search by title, author, journal...">
           </div>
-          <select class="filter-select">
-            <option>All Journals</option>
-            <option>Nature Medicine</option>
-            <option>The Lancet</option>
-            <option>NEJM</option>
-            <option>Cell</option>
-          </select>
-          <select class="filter-select">
-            <option>All Years</option>
-            <option>2026</option>
-            <option>2025</option>
-            <option>2024</option>
-          </select>
-          <select class="filter-select">
-            <option>All Status</option>
-            <option>Published</option>
-            <option>Under Review</option>
-            <option>In Preparation</option>
-          </select>
+          <button class="filter-select errorpage">
+            Genomics
+          </button>
+          <button class="filter-select errorpage">
+            Pharma
+          </button>
+          <button class="filter-select errorpage">
+            Clinical
+          </button>
         </div>
 
         <div class="pub-list">
@@ -2393,7 +2586,7 @@
                 Prospective Analysis</h3>
               <p>Kumar R, Lin M et al. — Nature Computational Science · Submitted June 2026</p>
               <div class="pub-meta">
-                <span class="pub-tag">AI & Data</span>
+                <span class="pub-tag">Pharma</span>
                 <span class="pub-date"><span class="material-symbols-outlined"
                     style="font-size:13px">calendar_today</span> Submitted Jun 2026</span>
                 <span class="status-badge review" style="font-size:11px">Under Review</span>
@@ -2426,7 +2619,8 @@
           <p>Manage your account, notifications, and system preferences</p>
         </div>
         <div class="page-header-right">
-          <button class="hdr-btn solid errorpage"><span class="material-symbols-outlined">save</span> Export Data</button>
+          <button class="hdr-btn solid errorpage"><span class="material-symbols-outlined">save</span> Export
+            Data</button>
         </div>
       </div>
 
@@ -2438,7 +2632,7 @@
               <h4>Full Name</h4>
               <p>Your profile name</p>
             </div>
-           <input id="fullName" class="settings-input" type="text" value="Arjun Mehta">
+            <input id="fullName" class="settings-input" type="text" value="Arjun Mehta">
           </div>
           <div class="settings-row">
             <div class="settings-row-left">
@@ -2452,7 +2646,7 @@
               <h4>Role</h4>
               <p>Your role</p>
             </div>
-<input id="role" class="settings-input" type="text" value="Chief Science Officer">
+            <input id="role" class="settings-input" type="text" value="Chief Science Officer">
 
           </div>
           <div class="settings-row">
@@ -2460,13 +2654,22 @@
               <h4>Department</h4>
               <p>Primary department</p>
             </div>
-<select id="department" class="settings-input">
-  <option value="">Select Department</option>
-  <option selected>Genomics</option>
-  <option>Pharma</option>
-  <option>Clinical</option>
-  <option>AI & Data</option>
-</select>
+            <div class="custom-select" id="departmentSelect">
+              <div class="select-box">
+                <span class="selected">Genomics</span>
+                <span class="material-symbols-outlined arrow">expand_more</span>
+              </div>
+
+              <ul class="options">
+                <li data-value="">Select Department</li>
+                <li class="active" data-value="Genomics">Genomics</li>
+                <li data-value="Pharma">Pharma</li>
+                <li data-value="Clinical">Clinical</li>
+                <li data-value="AI & Data">AI & Data</li>
+              </ul>
+
+              <input type="hidden" id="department" value="Genomics">
+            </div>
           </div>
           <button class="save-btn">Save Account Details</button>
         </div>
@@ -2542,11 +2745,20 @@
               <h4>Session Timeout</h4>
               <p>Auto logout after inactivity</p>
             </div>
-            <select class="settings-input">
-              <option>30 minutes</option>
-              <option selected>1 hour</option>
-              <option>4 hours</option>
-            </select>
+                 <div class="custom-dropdown">
+              <div class="dropdown-selected">
+                <span>1 Hour</span>
+                <span class="material-symbols-outlined">expand_more</span>
+              </div>
+
+              <ul class="dropdown-list">
+                <li class="active" data-value="1 Hour">1 Hour</li>
+                <li data-value="2 Hour">2 Hour</li>
+                <li data-value="3 Hour">3 Hour</li>
+              </ul>
+
+              <input type="hidden" name="exportFormat" value="CSV">
+            </div>
           </div>
           <div class="settings-row">
             <div class="settings-row-left">
@@ -2563,38 +2775,68 @@
 
         <div class="settings-card">
           <h3>System Preferences</h3>
+
           <div class="settings-row">
             <div class="settings-row-left">
               <h4>Data Export Format</h4>
               <p>Default format for exported reports</p>
             </div>
-            <select class="settings-input">
-              <option selected>CSV</option>
-              <option>Excel</option>
-              <option>PDF</option>
-            </select>
+            <div class="custom-dropdown">
+              <div class="dropdown-selected">
+                <span>CSV</span>
+                <span class="material-symbols-outlined">expand_more</span>
+              </div>
+
+              <ul class="dropdown-list">
+                <li class="active" data-value="CSV">CSV</li>
+                <li data-value="Excel">Excel</li>
+                <li data-value="PDF">PDF</li>
+              </ul>
+
+              <input type="hidden" name="exportFormat" value="CSV">
+            </div>
+
           </div>
-    <div class="settings-row">
-  <div class="settings-row-left">
-    <h4>Experiment Priority</h4>
-    <p>Default priority for new experiments</p>
-  </div>
-  <select class="settings-input">
-    <option selected>High</option>
-    <option>Medium</option>
-    <option>Low</option>
-  </select>
-</div>
+
+          <div class="settings-row">
+            <div class="settings-row-left">
+              <h4>Experiment Priority</h4>
+              <p>Default priority for new experiments</p>
+            </div>
+                 <div class="custom-dropdown">
+              <div class="dropdown-selected">
+                <span>High</span>
+                <span class="material-symbols-outlined">expand_more</span>
+              </div>
+
+              <ul class="dropdown-list">
+                <li class="active" data-value="High">High</li>
+                <li data-value="Medium">Medium</li>
+                <li data-value="Low">Low</li>
+              </ul>
+
+              <input type="hidden" name="exportFormat" value="CSV">
+            </div>
+          </div>
           <div class="settings-row">
             <div class="settings-row-left">
               <h4>Dashboard Refresh Rate</h4>
               <p>How often live data auto-refreshes</p>
             </div>
-            <select class="settings-input">
-              <option>30 seconds</option>
-              <option selected>1 minute</option>
-              <option>5 minutes</option>
-            </select>
+               <div class="custom-dropdown">
+              <div class="dropdown-selected">
+                <span>20 sec</span>
+                <span class="material-symbols-outlined">expand_more</span>
+              </div>
+
+              <ul class="dropdown-list">
+                <li class="active" data-value="20 Sec">20 Sec</li>
+                <li data-value="30 Sec">30 Sec</li>
+                <li data-value="1 Sec">1 Sec</li>
+              </ul>
+
+              <input type="hidden" name="exportFormat" value="CSV">
+            </div>
           </div>
           <div class="settings-row">
             <div class="settings-row-left">
@@ -2647,16 +2889,29 @@
     })
 
     // ── Page switching ──
+    // ── Page switching ──
     function switchPage(page) {
       document.querySelectorAll('.page-panel').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+
       document.getElementById('page-' + page).classList.add('active');
       document.querySelector('[data-page="' + page + '"]').classList.add('active');
+
+      // Mobile la menu item select panna sidebar close agum
+      if (window.innerWidth <= 850) {
+        sidebar.style.display = "none";
+        closebtn.style.display = "none";
+        toggleBtn.style.display = "block";
+      }
     }
 
     document.querySelectorAll('.nav-item[data-page]').forEach(item => {
-      item.addEventListener('click', () => switchPage(item.dataset.page));
+      item.addEventListener('click', () => {
+        switchPage(item.dataset.page);
+      });
     });
+
+
 
     // ── Toggle switches ──
     document.querySelectorAll('.toggle-switch').forEach(sw => {
@@ -2681,91 +2936,173 @@
 
     //setting validation
 
-  const saveBtn = document.querySelector(".save-btn");
+    const saveBtn = document.querySelector(".save-btn");
 
-const fullName = document.getElementById("fullName");
-const email = document.getElementById("email");
-const role = document.getElementById("role");
-const department = document.getElementById("department");
+    const fullName = document.getElementById("fullName");
+    const email = document.getElementById("email");
+    const role = document.getElementById("role");
+    const department = document.getElementById("department");
 
-// Allow only letters and spaces
-function lettersOnly(input) {
-  input.addEventListener("input", function () {
-    this.value = this.value.replace(/[^A-Za-z\s]/g, "");
-  });
-}
+    // Allow only letters and spaces
+    function lettersOnly(input) {
+      input.addEventListener("input", function () {
+        this.value = this.value.replace(/[^A-Za-z\s]/g, "");
+      });
+    }
 
-lettersOnly(fullName);
-lettersOnly(role);
+    lettersOnly(fullName);
+    lettersOnly(role);
 
-saveBtn.addEventListener("click", function (e) {
-  e.preventDefault();
+    saveBtn.addEventListener("click", function (e) {
+      e.preventDefault();
 
-  if (fullName.value.trim() === "") {
-    alert("Please enter your full name.");
-    fullName.focus();
-    return;
-  }
+      if (fullName.value.trim() === "") {
+        alert("Please enter your full name.");
+        fullName.focus();
+        return;
+      }
 
-  if (!/^[A-Za-z\s]+$/.test(fullName.value.trim())) {
-    alert("Full name should contain only letters.");
-    fullName.focus();
-    return;
-  }
+      if (!/^[A-Za-z\s]+$/.test(fullName.value.trim())) {
+        alert("Full name should contain only letters.");
+        fullName.focus();
+        return;
+      }
 
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  if (email.value.trim() === "") {
-    alert("Please enter your email.");
-    email.focus();
-    return;
-  }
+      if (email.value.trim() === "") {
+        alert("Please enter your email.");
+        email.focus();
+        return;
+      }
 
-  if (!emailPattern.test(email.value.trim())) {
-    alert("Please enter a valid email.");
-    email.focus();
-    return;
-  }
+      if (!emailPattern.test(email.value.trim())) {
+        alert("Please enter a valid email.");
+        email.focus();
+        return;
+      }
 
-  if (role.value.trim() === "") {
-    alert("Please enter your role.");
-    role.focus();
-    return;
-  }
+      if (role.value.trim() === "") {
+        alert("Please enter your role.");
+        role.focus();
+        return;
+      }
 
-  if (!/^[A-Za-z\s]+$/.test(role.value.trim())) {
-    alert("Role should contain only letters.");
-    role.focus();
-    return;
-  }
+      if (!/^[A-Za-z\s]+$/.test(role.value.trim())) {
+        alert("Role should contain only letters.");
+        role.focus();
+        return;
+      }
 
-  if (department.value === "") {
-    alert("Please select a department.");
-    department.focus();
-    return;
-  }
+      if (department.value === "") {
+        alert("Please select a department.");
+        department.focus();
+        return;
+      }
 
-  alert("Account Details Saved Successfully!");
-});
+      alert("Account Details Saved Successfully!");
+    });
 
-//setting save
+    //setting save
 
-const settingsave=document.querySelectorAll('.setting-save')
-settingsave.forEach((item)=>{
-   item.addEventListener("click",()=>{
-    alert("Saved Successfully")
-   })
-})
-
-//errorpage
-
-
-    let errorpage=document.querySelectorAll(".errorpage")
-    errorpage.forEach((item)=>{
-      item.addEventListener("click",()=>{
-        window.location.href="404.html"
+    const settingsave = document.querySelectorAll('.setting-save')
+    settingsave.forEach((item) => {
+      item.addEventListener("click", () => {
+        alert("Saved Successfully")
       })
     })
+
+    //errorpage
+
+
+    let errorpage = document.querySelectorAll(".errorpage")
+    errorpage.forEach((item) => {
+      item.addEventListener("click", () => {
+        window.location.href = "404.html"
+      })
+    })
+
+
+    //
+    const customSelect = document.getElementById("departmentSelect");
+    const selectBox = customSelect.querySelector(".select-box");
+    const selected = customSelect.querySelector(".selected");
+    const hiddenInput = document.getElementById("department");
+    const options = customSelect.querySelectorAll(".options li");
+
+    selectBox.addEventListener("click", () => {
+      customSelect.classList.toggle("active");
+    });
+
+    options.forEach(option => {
+
+      option.addEventListener("click", () => {
+
+        options.forEach(item => item.classList.remove("active"));
+        option.classList.add("active");
+
+        selected.textContent = option.textContent;
+        hiddenInput.value = option.dataset.value;
+
+        customSelect.classList.remove("active");
+      });
+
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!customSelect.contains(e.target)) {
+        customSelect.classList.remove("active");
+      }
+    });
+
+    //
+
+    document.querySelectorAll(".custom-dropdown").forEach(dropdown=>{
+
+    const selected = dropdown.querySelector(".dropdown-selected");
+    const text = selected.querySelector("span");
+    const hidden = dropdown.querySelector("input");
+    const options = dropdown.querySelectorAll(".dropdown-list li");
+
+    selected.onclick=()=>{
+
+        document.querySelectorAll(".custom-dropdown").forEach(item=>{
+            if(item!==dropdown) item.classList.remove("active");
+        });
+
+        dropdown.classList.toggle("active");
+    };
+
+    options.forEach(option=>{
+
+        option.onclick=()=>{
+
+            options.forEach(li=>li.classList.remove("active"));
+
+            option.classList.add("active");
+
+            text.textContent=option.dataset.value;
+
+            hidden.value=option.dataset.value;
+
+            dropdown.classList.remove("active");
+        };
+
+    });
+
+});
+
+document.onclick=(e)=>{
+
+    if(!e.target.closest(".custom-dropdown")){
+
+        document.querySelectorAll(".custom-dropdown").forEach(item=>{
+            item.classList.remove("active");
+        });
+
+    }
+
+};
   </script>
 </body>
 
