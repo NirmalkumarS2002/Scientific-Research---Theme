@@ -1453,31 +1453,31 @@
           <div class="info-icon"><span class="material-symbols-outlined">call</span></div>
           <h3>Phone</h3>
           <p>Our team is available during business hours for immediate assistance.</p>
-          <a href="tel:+911234567890">+91 1234 567 890</a>
-          <a href="tel:+911234567891" style="margin-top:4px;">+91 1234 567 891</a>
+          <a href="404.html">+91 1234 567 890</a>
+          <a href="404.html" style="margin-top:4px;">+91 1234 567 891</a>
         </div>
 
         <div class="info-card reveal" style="transition-delay:.1s">
           <div class="info-icon"><span class="material-symbols-outlined">mail</span></div>
           <h3>Email</h3>
           <p>Send us your enquiry and we will connect you with the right department.</p>
-          <a href="mailto:research@pharmalab.com">research@pharmalab.com</a>
-          <a href="mailto:partnerships@pharmalab.com" style="margin-top:4px;">partnerships@pharmalab.com</a>
+          <a href="404.html">research@pharmalab.com</a>
+          <a href="404.html" style="margin-top:4px;">partnerships@pharmalab.com</a>
         </div>
 
         <div class="info-card reveal" style="transition-delay:.2s">
           <div class="info-icon"><span class="material-symbols-outlined">location_on</span></div>
           <h3>Head Office</h3>
           <p>Visit our primary research campus for meetings, tours, and collaboration discussions.</p>
-          <a href="#">14, Life Sciences Park,<br>Chennai, Tamil Nadu — 600 001</a>
+          <a href="404.html">14, Life Sciences Park,<br>Chennai, Tamil Nadu — 600 001</a>
         </div>
 
         <div class="info-card reveal" style="transition-delay:.3s">
           <div class="info-icon"><span class="material-symbols-outlined">schedule</span></div>
           <h3>Working Hours</h3>
           <p>Our laboratories operate extended hours to support global research partnerships.</p>
-          <a href="#" style="color:#02086A; cursor:default;">Mon – Fri: 8 AM – 7 PM IST</a>
-          <a href="#" style="color:#888; font-weight:400; cursor:default; margin-top:4px;">Saturday: 9 AM – 2 PM IST</a>
+          <a href="404.html" style="color:#02086A; cursor:default;">Mon – Fri: 8 AM – 7 PM IST</a>
+          <a href="404.html" style="color:#888; font-weight:400; cursor:default; margin-top:4px;">Saturday: 9 AM – 2 PM IST</a>
         </div>
       </div>
     </div>
@@ -1517,33 +1517,33 @@
             <div class="form-row">
               <div class="form-group">
                 <label>First Name</label>
-                <input type="text" placeholder="Dr. Arjun">
+                <input type="text" id="firstName" placeholder="Dr. Arjun">
               </div>
               <div class="form-group">
                 <label>Last Name</label>
-                <input type="text" placeholder="Mehta">
+                <input type="text" id="lastName" placeholder="Mehta">
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
                 <label>Email Address</label>
-                <input type="email" placeholder="arjun@hospital.com">
+           <input type="email" id="email" placeholder="arjun@hospital.com">
               </div>
               <div class="form-group">
                 <label>Phone Number</label>
-                <input type="tel" placeholder="+91 98765 43210">
+               <input type="tel" id="phone" placeholder="+91 98765 43210">
               </div>
             </div>
 
             <div class="form-group">
               <label>Organisation / Institution</label>
-              <input type="text" placeholder="Apollo Hospitals, IIT Madras...">
+              <input type="text" id="organisation" placeholder="Apollo Hospitals, IIT Madras...">
             </div>
 
             <div class="form-group">
               <label>Nature of Enquiry</label>
-              <select>
+             <select id="category">
                 <option value="" disabled selected>Select a category</option>
                 <option>Research Partnership</option>
                 <option>Clinical Trial Participation</option>
@@ -1556,11 +1556,11 @@
 
             <div class="form-group">
               <label>Your Message</label>
-              <textarea
+             <textarea id="message"
                 placeholder="Please describe your enquiry in detail — the more context you provide, the better we can direct your message..."></textarea>
             </div>
 
-            <button class="submit-btn" type="button">
+            <button class="submit-btn" type="button" id="submitBtn">
               Send Message
               <span class="material-symbols-outlined">send</span>
             </button>
@@ -1592,13 +1592,13 @@
             <span class="location-tag">Head Office</span>
             <h3>Chennai, Tamil Nadu</h3>
             <p>14, Life Sciences Park, Taramani<br>Chennai — 600 113</p>
-            <div class="location-detail">
+            <div class="location-detail errorpage">
               <span class="material-symbols-outlined">directions</span>
               Get Directions
             </div>
           </div>
         </div>
-
+ 
         <div class="location-card reveal" style="transition-delay:.1s">
           <img src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=700&q=80"
             alt="Bangalore research centre">
@@ -1606,7 +1606,7 @@
             <span class="location-tag">Research Centre</span>
             <h3>Bengaluru, Karnataka</h3>
             <p>Plot 22, Electronic City Phase 1<br>Bengaluru — 560 100</p>
-            <div class="location-detail">
+            <div class="location-detail errorpage">
               <span class="material-symbols-outlined">directions</span>
               Get Directions
             </div>
@@ -1619,7 +1619,7 @@
             <span class="location-tag">Clinical Lab</span>
             <h3>Mumbai, Maharashtra</h3>
             <p>BKC, Bandra Kurla Complex<br>Mumbai — 400 051</p>
-            <div class="location-detail">
+            <div class="location-detail errorpage">
               <span class="material-symbols-outlined">directions</span>
               Get Directions
             </div>
@@ -1660,8 +1660,8 @@
             <p>Our research liaison team handles complex enquiries daily. Send us a detailed message and we will connect
               you with the right expert within 24 hours.</p>
             <div class="faq-cta-actions">
-              <button class="cta-btn-primary">Email Us Directly</button>
-              <button class="cta-btn-outline">Call Our Office</button>
+              <button class="cta-btn-primary errorpage">Email Us Directly</button>
+              <button class="cta-btn-outline errorpage">Call Our Office</button>
             </div>
           </div>
         </div>
@@ -1916,6 +1916,110 @@
         if (!isOpen) item.classList.add('open');
       });
     });
+
+     //errorpage
+
+    let errorpage=document.querySelectorAll(".errorpage")
+    errorpage.forEach((item)=>{
+      item.addEventListener("click",()=>{
+        window.location.href="404.html"
+      })
+    })
+
+
+    //
+    const firstName = document.getElementById("firstName");
+const lastName = document.getElementById("lastName");
+const email = document.getElementById("email");
+const phone = document.getElementById("phone");
+const organisation = document.getElementById("organisation");
+const category = document.getElementById("category");
+const message = document.getElementById("message");
+const submitBtn = document.getElementById("submitBtn");
+
+// First Name - Letters only
+firstName.addEventListener("input", function () {
+    this.value = this.value.replace(/[^A-Za-z\s]/g, "");
+});
+
+// Last Name - Letters only
+lastName.addEventListener("input", function () {
+    this.value = this.value.replace(/[^A-Za-z\s]/g, "");
+});
+
+// Organisation - Letters only
+organisation.addEventListener("input", function () {
+    this.value = this.value.replace(/[^A-Za-z\s]/g, "");
+});
+
+// Phone - Numbers only (max 10 digits)
+phone.addEventListener("input", function () {
+    this.value = this.value.replace(/\D/g, "").slice(0, 10);
+});
+
+submitBtn.addEventListener("click", function () {
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (firstName.value.trim() === "") {
+        alert("Please enter your first name.");
+        firstName.focus();
+        return;
+    }
+
+    if (lastName.value.trim() === "") {
+        alert("Please enter your last name.");
+        lastName.focus();
+        return;
+    }
+
+    if (email.value.trim() === "") {
+        alert("Please enter your email address.");
+        email.focus();
+        return;
+    }
+
+    if (!emailPattern.test(email.value.trim())) {
+        alert("Please enter a valid email address.");
+        email.focus();
+        return;
+    }
+
+    if (phone.value.length !== 10) {
+        alert("Please enter a valid 10-digit phone number.");
+        phone.focus();
+        return;
+    }
+
+    if (organisation.value.trim() === "") {
+        alert("Please enter your organisation.");
+        organisation.focus();
+        return;
+    }
+
+    if (category.value === "") {
+        alert("Please select the nature of enquiry.");
+        category.focus();
+        return;
+    }
+
+    if (message.value.trim() === "") {
+        alert("Please enter your message.");
+        message.focus();
+        return;
+    }
+
+    alert("Message sent successfully!");
+
+    firstName.value = "";
+    lastName.value = "";
+    email.value = "";
+    phone.value = "";
+    organisation.value = "";
+    category.selectedIndex = 0;
+    message.value = "";
+});
+
   </script>
 </body>
 

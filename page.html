@@ -1576,7 +1576,7 @@
             <h3>Genomics & Gene Therapy</h3>
             <p>CRISPR-based editing, whole-genome sequencing, and rare disease diagnostics delivered through
               ISO-certified pipelines.</p>
-            <a href="#" class="service-link">Explore Programme <span
+            <a href="404.html" class="service-link">Explore Programme <span
                 class="material-symbols-outlined">arrow_forward</span></a>
           </div>
         </div>
@@ -1590,7 +1590,7 @@
             <h3>Pharmaceutical Development</h3>
             <p>End-to-end drug discovery from candidate screening through formulation, stability testing, and regulatory
               dossier preparation.</p>
-            <a href="#" class="service-link">Explore Programme <span
+            <a href="404.html" class="service-link">Explore Programme <span
                 class="material-symbols-outlined">arrow_forward</span></a>
           </div>
         </div>
@@ -1604,7 +1604,7 @@
             <h3>Clinical Trials Management</h3>
             <p>Phase I–IV trial design, multi-site coordination, patient recruitment, and GCP-compliant data management
               for global sponsors.</p>
-            <a href="#" class="service-link">Explore Programme <span
+            <a href="404.html" class="service-link">Explore Programme <span
                 class="material-symbols-outlined">arrow_forward</span></a>
           </div>
         </div>
@@ -1618,7 +1618,7 @@
             <h3>AI & Computational Biology</h3>
             <p>Machine learning pipelines for biomarker discovery, patient stratification, protein structure prediction,
               and real-world evidence analysis.</p>
-            <a href="#" class="service-link">Explore Programme <span
+            <a href="404.html" class="service-link">Explore Programme <span
                 class="material-symbols-outlined">arrow_forward</span></a>
           </div>
         </div>
@@ -1632,7 +1632,7 @@
             <h3>Diagnostic Laboratory Services</h3>
             <p>High-throughput analytical services including proteomics, metabolomics, mass spectrometry, ELISA, and
               PCR-based assays for external clients.</p>
-            <a href="#" class="service-link">Explore Programme <span
+            <a href="404.html" class="service-link">Explore Programme <span
                 class="material-symbols-outlined">arrow_forward</span></a>
           </div>
         </div>
@@ -1646,7 +1646,7 @@
             <h3>Research Fellowships & Education</h3>
             <p>Fully funded post-doctoral fellowships, structured internship programmes, and online certificate courses
               in biomedical research methodology.</p>
-            <a href="#" class="service-link">Explore Programme <span
+            <a href="404.html" class="service-link">Explore Programme <span
                 class="material-symbols-outlined">arrow_forward</span></a>
           </div>
         </div>
@@ -1772,7 +1772,7 @@
           <p class="section-desc">A selection of landmark programmes from our portfolio — each one a story of
             collaboration, scientific rigour, and patient benefit.</p>
         </div>
-        <button class="view-all-btn reveal">
+        <button class="view-all-btn reveal errorpage">
           View All Studies <span class="material-symbols-outlined">arrow_forward</span>
         </button>
       </div>
@@ -1851,8 +1851,8 @@
           <p class="section-desc">We partner with academic institutions, hospital networks, government bodies, and
             pharmaceutical companies who share our commitment to evidence-based healthcare innovation.</p>
           <div class="cta-actions">
-            <a href="contact.html" class="btn-primary">Become a Partner</a>
-            <a href="#" class="btn-outline">Download Partnership Guide</a>
+            <a href="404.html" class="btn-primary">Become a Partner</a>
+            <a href="404.html" class="btn-outline">Download Partnership Guide</a>
           </div>
         </div>
         <div class="partners-img reveal-r">
@@ -2103,6 +2103,16 @@
         if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
       });
     });
+
+     //errorpage
+
+    let errorpage=document.querySelectorAll(".errorpage")
+    errorpage.forEach((item)=>{
+      item.addEventListener("click",()=>{
+        window.location.href="404.html"
+      })
+    })
+
   </script>
 </body>
 

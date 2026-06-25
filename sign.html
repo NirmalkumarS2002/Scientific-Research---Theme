@@ -1,517 +1,593 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scientifc-Research SignUp page</title>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <style>
-    *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: "Inter", sans-serif;
+        overflow-x: hidden;
+    }
+
+    .signup-section {
+
+        min-height: 100vh;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 60px;
+
+        padding: 40px;
+
+        background:
+            linear-gradient(rgba(2, 8, 106, .88),
+                rgba(2, 8, 106, .78)),
+            url("./src/home-bg1.webp");
+
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* LEFT */
+
+    .signup-info {
+
+        width: 100%;
+        max-width: 550px;
+    }
+
+    .research-badge {
+
+        display: inline-block;
+        font-size: 14px;
+        padding: 7px 18px;
+
+        border-radius: 50px;
+
+        color: #12C7F5;
+
+        border: 1px solid rgba(18, 199, 245, .25);
+
+        background: rgba(18, 199, 245, .08);
+
+        margin-bottom: 25px;
+    }
+
+    .signup-info h1 {
+
+        color: white;
+
+        font-size: 58px;
+
+        line-height: 1.2;
+
+        margin-bottom: 20px;
+    }
+
+    .signup-info h1 span {
+        color: #12C7F5;
+    }
+
+    .signup-info p {
+
+        color: rgba(255, 255, 255, .8);
+
+        line-height: 1.8;
+
+        font-size: 17px;
+
+        margin-bottom: 35px;
+    }
+
+    /* STATS */
+
+    .stats-grid {
+
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 18px;
+    }
+
+    .stat-card {
+
+        text-align: center;
+
+        padding: 22px;
+
+        border-radius: 18px;
+
+        background: rgba(255, 255, 255, .08);
+
+        border: 1px solid rgba(18, 199, 245, .15);
+
+        backdrop-filter: blur(12px);
+    }
+
+    .stat-card h3 {
+
+        color: #12C7F5;
+
+        font-size: 28px;
+
+        margin-bottom: 8px;
+    }
+
+    .stat-card span {
+
+        color: white;
+
+        font-size: 14px;
+    }
+
+    /* RIGHT FORM */
+
+    .signup-box {
+
+        width: 100%;
+        max-width: 520px;
+
+        padding: 35px;
+
+        border-radius: 25px;
+
+        background: rgba(255, 255, 255, .08);
+
+        backdrop-filter: blur(14px);
+
+        border: 1px solid rgba(18, 199, 245, .25);
+
+        box-shadow:
+            0 0 30px rgba(0, 0, 0, .3);
+    }
+
+    .form-header {
+
+        text-align: center;
+
+        margin-bottom: 25px;
+    }
+
+    .form-header img {
+
+        width: 200px;
+
+        margin-bottom: 15px;
+    }
+
+    .form-header h2 {
+
+        color: white;
+
+        font-size: 32px;
+
+        margin-bottom: 10px;
+    }
+
+    .form-header p {
+        font-size: 14px;
+        line-height: 1.9;
+        color: rgba(255, 255, 255, .75);
+    }
+
+    /* INPUT */
+
+    .input-box {
+        margin-bottom: 16px;
+    }
+
+    .input-box label {
+
+        display: block;
+
+        color: #12C7F5;
+
+        margin-bottom: 8px;
+
+        font-size: 14px;
+
+        font-weight: 600;
+    }
+
+    .input-field {
+
+        position: relative;
+    }
+
+    .left-icon {
+
+        position: absolute;
+
+        left: 16px;
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        color: #12C7F5;
+    }
+
+    .input-field input{
+
+        width: 100%;
+
+        height: 48px;
+
+        border-radius: 12px;
+
+        border: 1px solid rgba(18, 199, 245, .25);
+
+        background: rgba(255, 255, 255, .08);
+
+        color: white;
+
+        outline: none;
+
+        padding-left: 45px;
+        padding-right: 15px;
+    }
+
+    .input-field select {
+
+        appearance: none;
+    }
+
+    .input-field input::placeholder {
+        color: rgba(255, 255, 255, .55);
+    }
+
+    .input-field input:focus{
+
+        border-color: #12C7F5;
+
+        box-shadow:
+            0 0 12px rgba(18, 199, 245, .25);
+    }
+
+    .input-field option {
+
+        background: #02086A;
+        color: white;
+    }
+
+    .eye-btn {
+
+        position: absolute;
+
+        right: 16px;
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        color: #12C7F5;
+
+        cursor: pointer;
+
+        font-size: 15px;
+
+        transition: .3s;
+    }
+
+    .eye-btn:hover {
+        color: #5BE4FF;
+    }
+
+    /* BUTTON */
+
+    .signup-btn {
+
+        width: 100%;
+
+        height: 48px;
+
+        border: none;
+
+        border-radius: 12px;
+
+        margin-top: 10px;
+
+        cursor: pointer;
+
+        background:
+            linear-gradient(135deg,
+                #12C7F5,
+                #05A9D6);
+
+        color: #02086A;
+
+        font-weight: 700;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        gap: 10px;
+
+        transition: .3s;
+    }
+
+    .signup-btn:hover {
+
+        transform: translateY(-3px);
+
+        box-shadow:
+            0 15px 30px rgba(18, 199, 245, .3);
+    }
+
+    /* LOGIN LINK */
+
+    .login-link {
+
+        text-align: center;
+
+        margin-top: 22px;
+        font-size: 14px;
+        color: white;
+    }
+
+    .login-link a {
+
+        color: #12C7F5;
+
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    /* TABLET */
+
+    @media(max-width:1100px) {
+
+        .signup-section {
+
+            flex-direction: column;
+
+
+        }
+
+        .signup-info {
+            max-width: 800px;
+        }
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px) {
+
+        .signup-section {
+
+            padding: 25px;
+        }
+
+        .signup-info h1 {
+
+            font-size: 42px;
+        }
+
+        .stats-grid {
+
+            grid-template-columns: 1fr;
+        }
+
+        .signup-box {
+
+            padding: 25px;
+        }
+    }
+
+    @media(max-width:576px) {
+
+        .signup-info h1 {
+
+            font-size: 34px;
+        }
+
+        .signup-info p {
+
+            font-size: 15px;
+        }
+
+        .form-header h2 {
+
+            font-size: 26px;
+        }
+
+        .signup-box {
+
+            padding: 20px;
+        }
+    }
+
+    .custom-select{
+    width:100%;
+    position:relative;
+    user-select:none;
 }
 
-body{
-    font-family:"Inter",sans-serif;
-    overflow-x:hidden;
-}
-
-.signup-section{
-
-    min-height:100vh;
-
+.select-btn{
+    height:46px;
+    border:1px solid rgba(0,183,255,.25);
+    background:rgba(255,255,255,.08);
+    border-radius:12px;
     display:flex;
     align-items:center;
-    justify-content:center;
-    gap:60px;
-
-    padding:40px;
-
-    background:
-    linear-gradient(
-    rgba(2,8,106,.88),
-    rgba(2,8,106,.78)
-    ),
-    url("./src/home-bg1.webp");
-
-    background-size:cover;
-    background-position:center;
-}
-
-/* LEFT */
-
-.signup-info{
-
-    width:100%;
-    max-width:550px;
-}
-
-.research-badge{
-
-    display:inline-block;
-    font-size: 14px;
-    padding:7px 18px;
-
-    border-radius:50px;
-
-    color:#12C7F5;
-
-    border:1px solid rgba(18,199,245,.25);
-
-    background:rgba(18,199,245,.08);
-
-    margin-bottom:25px;
-}
-
-.signup-info h1{
-
-    color:white;
-
-    font-size:58px;
-
-    line-height:1.2;
-
-    margin-bottom:20px;
-}
-
-.signup-info h1 span{
-    color:#12C7F5;
-}
-
-.signup-info p{
-
-    color:rgba(255,255,255,.8);
-
-    line-height:1.8;
-
-    font-size:17px;
-
-    margin-bottom:35px;
-}
-
-/* STATS */
-
-.stats-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:18px;
-}
-
-.stat-card{
-
-    text-align:center;
-
-    padding:22px;
-
-    border-radius:18px;
-
-    background:rgba(255,255,255,.08);
-
-    border:1px solid rgba(18,199,245,.15);
-
+    justify-content:space-between;
+    padding:0 18px 0 44px;
+    color:#fff;
+    cursor:pointer;
+    transition:.3s;
     backdrop-filter:blur(12px);
 }
 
-.stat-card h3{
-
-    color:#12C7F5;
-
-    font-size:28px;
-
-    margin-bottom:8px;
+.select-btn:hover{
+    border-color:#16d6ff;
+    box-shadow:0 0 15px rgba(22,214,255,.2);
 }
 
-.stat-card span{
-
-    color:white;
-
-    font-size:14px;
+.select-btn span{
+    color:#fff;
+    font-size:13px;
 }
 
-/* RIGHT FORM */
+.arrow{
+    color:#16d6ff;
+    transition:.3s;
+}
 
-.signup-box{
+.custom-select.active .arrow{
+    transform:rotate(180deg);
+}
 
+.options{
+    position:absolute;
+    top:55px;
+    left:0;
     width:100%;
-    max-width:520px;
-
-    padding:35px;
-
-    border-radius:25px;
-
-    background:rgba(255,255,255,.08);
-
-    backdrop-filter:blur(14px);
-
-    border:1px solid rgba(18,199,245,.25);
-
-    box-shadow:
-    0 0 30px rgba(0,0,0,.3);
+    background:#252d82;
+    border:1px solid rgba(22,214,255,.25);
+    border-radius:12px;
+    overflow:hidden;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(10px);
+    transition:.3s;
+    z-index:999;
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
 }
 
-.form-header{
-
-    text-align:center;
-
-    margin-bottom:25px;
+.custom-select.active .options{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
 }
 
-.form-header img{
-
-    width:200px;
-
-    margin-bottom:15px;
-}
-
-.form-header h2{
-
-    color:white;
-
-    font-size:32px;
-
-    margin-bottom:10px;
-}
-
-.form-header p{
-    font-size: 14px; 
-    line-height: 1.9;
-    color:rgba(255,255,255,.75);
-}
-
-/* INPUT */
-
-.input-box{
-    margin-bottom:16px;
-}
-
-.input-box label{
-
-    display:block;
-
-    color:#12C7F5;
-
-    margin-bottom:8px;
-
+.option{
+    padding:14px 18px;
+    color:#fff;
+    cursor:pointer;
+    transition:.25s;
     font-size:14px;
+}
 
+.option:hover{
+    background:#16d6ff;
+    color:#08134d;
     font-weight:600;
 }
-
-.input-field{
-
-    position:relative;
-}
-
-.left-icon{
-
-    position:absolute;
-
-    left:16px;
-    top:50%;
-
-    transform:translateY(-50%);
-
-    color:#12C7F5;
-}
-
-.input-field input,
-.input-field select{
-
-    width:100%;
-
-    height:48px;
-
-    border-radius:12px;
-
-    border:1px solid rgba(18,199,245,.25);
-
-    background:rgba(255,255,255,.08);
-
-    color:white;
-
-    outline:none;
-
-    padding-left:45px;
-    padding-right:15px;
-}
-
-.input-field select{
-
-    appearance:none;
-}
-
-.input-field input::placeholder{
-    color:rgba(255,255,255,.55);
-}
-
-.input-field input:focus,
-.input-field select:focus{
-
-    border-color:#12C7F5;
-
-    box-shadow:
-    0 0 12px rgba(18,199,245,.25);
-}
-
-.input-field option{
-
-    background:#02086A;
-    color:white;
-}
-
-.eye-btn{
-
-    position:absolute;
-
-    right:16px;
-    top:50%;
-
-    transform:translateY(-50%);
-
-    color:#12C7F5;
-
-    cursor:pointer;
-
-    font-size:15px;
-
-    transition:.3s;
-}
-
-.eye-btn:hover{
-    color:#5BE4FF;
-}
-
-/* BUTTON */
-
-.signup-btn{
-
-    width:100%;
-
-    height:48px;
-
-    border:none;
-
-    border-radius:12px;
-
-    margin-top:10px;
-
-    cursor:pointer;
-
-    background:
-    linear-gradient(
-    135deg,
-    #12C7F5,
-    #05A9D6
-    );
-
-    color:#02086A;
-
-    font-weight:700;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    gap:10px;
-
-    transition:.3s;
-}
-
-.signup-btn:hover{
-
-    transform:translateY(-3px);
-
-    box-shadow:
-    0 15px 30px rgba(18,199,245,.3);
-}
-
-/* LOGIN LINK */
-
-.login-link{
-
-    text-align:center;
-
-    margin-top:22px;
-    font-size: 14px;
-    color:white;
-}
-
-.login-link a{
-
-    color:#12C7F5;
-
-    text-decoration:none;
-  font-size: 14px;
-    font-weight:700;
-}
-
-/* TABLET */
-
-@media(max-width:1100px){
-
-    .signup-section{
-
-        flex-direction:column;
-
-       
-    }
-
-    .signup-info{
-        max-width:800px;
-    }
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-    .signup-section{
-
-        padding:25px;
-    }
-
-    .signup-info h1{
-
-        font-size:42px;
-    }
-
-    .stats-grid{
-
-        grid-template-columns:1fr;
-    }
-
-    .signup-box{
-
-        padding:25px;
-    }
-}
-
-@media(max-width:576px){
-
-    .signup-info h1{
-
-        font-size:34px;
-    }
-
-    .signup-info p{
-
-   font-size: 15px;
-    }
-
-    .form-header h2{
-
-        font-size:26px;
-    }
-
-    .signup-box{
-
-        padding:20px;
-    }
-}
 </style>
+
 <body>
     <section class="signup-section">
 
-    <!-- LEFT CONTENT -->
+        <!-- LEFT CONTENT -->
 
-    <div class="signup-info">
+        <div class="signup-info">
 
-        <span class="research-badge">
-            Research Network Access
-        </span>
+            <span class="research-badge">
+                Research Network Access
+            </span>
 
-        <h1>
-            Join The Future Of
-            <span>Scientific Discovery</span>
-        </h1>
-
-        <p>
-            Create your account to collaborate with researchers,
-            manage projects, access publications, and participate
-            in innovative scientific studies.
-        </p>
-
-        <div class="stats-grid">
-
-            <div class="stat-card">
-                <h3>150+</h3>
-                <span>Researchers</span>
-            </div>
-
-            <div class="stat-card">
-                <h3>50+</h3>
-                <span>Active Projects</span>
-            </div>
-
-            <div class="stat-card">
-                <h3>20+</h3>
-                <span>Research Labs</span>
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- RIGHT FORM -->
-
-    <div class="signup-box">
-
-        <div class="form-header">
-
-            <img src="./src/logo.webp" alt="Logo">
-
-            <h2>Create Account</h2>
+            <h1>
+                Join The Future Of
+                <span>Scientific Discovery</span>
+            </h1>
 
             <p>
-                Access research tools and <br>resources.
-Collaborate with scientists worldwide.
+                Create your account to collaborate with researchers,
+                manage projects, access publications, and participate
+                in innovative scientific studies.
             </p>
 
-        </div>
+            <div class="stats-grid">
 
-        <form>
+                <div class="stat-card">
+                    <h3>150+</h3>
+                    <span>Researchers</span>
+                </div>
 
-            <!-- ROLE -->
+                <div class="stat-card">
+                    <h3>50+</h3>
+                    <span>Active Projects</span>
+                </div>
 
-            <div class="input-box">
-
-                <label>Research Role</label>
-
-                <div class="input-field">
-
-                    <i class="fa-solid fa-user-group left-icon"></i>
-
-                    <select>
-
-                        <option>Select Research Role</option>
-
-                        <option>Research Admin</option>
-
-                        <option>Research Scientist</option>
-
-                        <option>Lab Technician</option>
-
-                        <option>Project Coordinator</option>
-
-                        <option>Research Partner</option>
-
-                    </select>
-
+                <div class="stat-card">
+                    <h3>20+</h3>
+                    <span>Research Labs</span>
                 </div>
 
             </div>
 
-            <!-- NAME -->
-<!-- 
+        </div>
+
+        <!-- RIGHT FORM -->
+
+        <div class="signup-box">
+
+            <div class="form-header">
+
+                <img src="./src/logo.webp" alt="Logo">
+
+                <h2>Create Account</h2>
+
+                <p>
+                    Access research tools and <br>resources.
+                    Collaborate with scientists worldwide.
+                </p>
+
+            </div>
+
+            <form>
+
+                <!-- ROLE -->
+
+                <div class="input-box">
+
+                    <label>Research Role</label>
+
+                    <div class="input-field">
+
+                        <i class="fa-solid fa-user-group left-icon"></i>
+
+                        <div class="custom-select" id="roleSelect">
+
+                            <div class="select-btn">
+
+                                <span id="selectedRole">Select Research Role</span>
+
+                                <i class="fa-solid fa-angle-down arrow"></i>
+
+                            </div>
+
+                            <div class="options">
+
+                                <div class="option">Research Admin</div>
+                                <div class="option">Research Client</div>
+                    
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- NAME -->
+                <!-- 
             <div class="input-box">
 
                 <label>Full Name</label>
@@ -528,27 +604,25 @@ Collaborate with scientists worldwide.
 
             </div> -->
 
-            <!-- EMAIL -->
+                <!-- EMAIL -->
 
-            <div class="input-box">
+                <div class="input-box">
 
-                <label>Email Address</label>
+                    <label>Email Address</label>
 
-                <div class="input-field">
+                    <div class="input-field">
 
-                    <i class="fa-solid fa-envelope left-icon"></i>
+                        <i class="fa-solid fa-envelope left-icon"></i>
 
-                    <input
-                    type="email"
-                    placeholder="Enter Email Address">
+                        <input type="email" placeholder="Enter Email Address">
+
+                    </div>
 
                 </div>
 
-            </div>
+                <!-- MOBILE -->
 
-            <!-- MOBILE -->
-
-            <!-- <div class="input-box">
+                <!-- <div class="input-box">
 
                 <label>Mobile Number</label>
 
@@ -564,127 +638,224 @@ Collaborate with scientists worldwide.
 
             </div> -->
 
-            <!-- RESEARCH AREA -->
+                <!-- RESEARCH AREA -->
 
-        
 
-            <!-- PASSWORD -->
 
-       <div class="input-box">
+                <!-- PASSWORD -->
 
-    <label>Password</label>
+                <div class="input-box">
 
-    <div class="input-field">
+                    <label>Password</label>
 
-        <i class="fa-solid fa-lock left-icon"></i>
+                    <div class="input-field">
 
-        <input
-            type="password"
-            id="password"
-            placeholder="Create Password">
+                        <i class="fa-solid fa-lock left-icon"></i>
 
-        <span class="eye-btn" id="togglePassword">
-            <i class="fa-solid fa-eye-slash"></i>
-        </span>
+                        <input type="password" id="password" placeholder="Create Password">
 
-    </div>
+                        <span class="eye-btn" id="togglePassword">
+                            <i class="fa-solid fa-eye-slash"></i>
+                        </span>
 
-</div>
+                    </div>
 
-            <!-- CONFIRM PASSWORD -->
+                </div>
 
-        <div class="input-box">
+                <!-- CONFIRM PASSWORD -->
 
-    <label>Confirm Password</label>
+                <div class="input-box">
 
-    <div class="input-field">
+                    <label>Confirm Password</label>
 
-        <i class="fa-solid fa-shield-halved left-icon"></i>
+                    <div class="input-field">
 
-        <input
-            type="password"
-            id="confirmPassword"
-            placeholder="Confirm Password">
+                        <i class="fa-solid fa-shield-halved left-icon"></i>
 
-        <span class="eye-btn" id="toggleConfirmPassword">
-            <i class="fa-solid fa-eye-slash"></i>
-        </span>
+                        <input type="password" id="confirmPassword" placeholder="Confirm Password">
 
-    </div>
+                        <span class="eye-btn" id="toggleConfirmPassword">
+                            <i class="fa-solid fa-eye-slash"></i>
+                        </span>
 
-</div>
+                    </div>
 
-            <button class="signup-btn">
+                </div>
 
-                <i class="fa-solid fa-microscope"></i>
+                <button class="signup-btn">
 
-                Create Research Account
+                    <i class="fa-solid fa-microscope"></i>
 
-            </button>
+                    Create Research Account
 
-        </form>
+                </button>
 
-        <div class="login-link">
+            </form>
 
-            Already have an account?
+            <div class="login-link">
 
-            <a href="login.html">
-                Login
-            </a>
+                Already have an account?
+
+                <a href="login.html">
+                    Login
+                </a>
+
+            </div>
 
         </div>
 
-    </div>
+    </section>
 
-</section>
+    <script>
+        const password = document.getElementById("password");
+        const togglePassword = document.getElementById("togglePassword");
 
-<script>
-    const password = document.getElementById("password");
-const togglePassword = document.getElementById("togglePassword");
+        togglePassword.addEventListener("click", () => {
 
-togglePassword.addEventListener("click", () => {
+            if (password.type === "password") {
 
-    if(password.type === "password"){
+                password.type = "text";
 
-        password.type = "text";
+                togglePassword.innerHTML =
+                    '<i class="fa-solid fa-eye"></i>';
 
-        togglePassword.innerHTML =
-        '<i class="fa-solid fa-eye"></i>';
+            } else {
 
-    }else{
+                password.type = "password";
 
-        password.type = "password";
+                togglePassword.innerHTML =
+                    '<i class="fa-solid fa-eye-slash"></i>';
+            }
 
-        togglePassword.innerHTML =
-        '<i class="fa-solid fa-eye-slash"></i>';
+        });
+
+        const confirmPassword =
+            document.getElementById("confirmPassword");
+
+        const toggleConfirmPassword =
+            document.getElementById("toggleConfirmPassword");
+
+        toggleConfirmPassword.addEventListener("click", () => {
+
+            if (confirmPassword.type === "password") {
+
+                confirmPassword.type = "text";
+
+                toggleConfirmPassword.innerHTML =
+                    '<i class="fa-solid fa-eye"></i>';
+
+            } else {
+
+                confirmPassword.type = "password";
+
+                toggleConfirmPassword.innerHTML =
+                    '<i class="fa-solid fa-eye-slash"></i>';
+            }
+
+        });
+
+        const customSelect = document.getElementById("roleSelect");
+const selectBtn = customSelect.querySelector(".select-btn");
+const selectedRole = document.getElementById("selectedRole");
+const options = customSelect.querySelectorAll(".option");
+
+selectBtn.addEventListener("click", () => {
+    customSelect.classList.toggle("active");
+});
+
+options.forEach(option => {
+
+    option.addEventListener("click", () => {
+
+        selectedRole.textContent = option.textContent;
+
+        customSelect.classList.remove("active");
+
+    });
+
+});
+
+document.addEventListener("click", (e) => {
+
+    if(!customSelect.contains(e.target)){
+
+        customSelect.classList.remove("active");
+
     }
 
 });
 
-const confirmPassword =
-document.getElementById("confirmPassword");
+const form = document.querySelector("form");
+const email = document.querySelector('input[type="email"]');
+const password1 = document.getElementById("password");
+const confirmPassword1 = document.getElementById("confirmPassword");
+const signupBtn = document.querySelector(".signup-btn");
 
-const toggleConfirmPassword =
-document.getElementById("toggleConfirmPassword");
+signupBtn.addEventListener("click", function (e) {
 
-toggleConfirmPassword.addEventListener("click", () => {
+    e.preventDefault();
 
-    if(confirmPassword.type === "password"){
+    const role = document.getElementById("selectedRole").textContent.trim();
 
-        confirmPassword.type = "text";
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        toggleConfirmPassword.innerHTML =
-        '<i class="fa-solid fa-eye"></i>';
-
-    }else{
-
-        confirmPassword.type = "password";
-
-        toggleConfirmPassword.innerHTML =
-        '<i class="fa-solid fa-eye-slash"></i>';
+    // Role
+    if (role === "Select Research Role") {
+        alert("Please select a research role.");
+        return;
     }
 
+    // Email
+    if (email.value.trim() === "") {
+        alert("Please enter your email address.");
+        email.focus();
+        return;
+    }
+
+    if (!emailPattern.test(email.value.trim())) {
+        alert("Please enter a valid email address.");
+        email.focus();
+        return;
+    }
+
+    // Password
+    if (password1.value.trim() === "") {
+        alert("Please enter your password.");
+        password1.focus();
+        return;
+    }
+
+    if (password1.value.length < 6) {
+        alert("Password must contain at least 6 characters.");
+        password1.focus();
+        return;
+    }
+
+    // Confirm Password
+    if (confirmPassword1.value.trim() === "") {
+        alert("Please confirm your password.");
+        confirmPassword1.focus();
+        return;
+    }
+
+    if (password1.value !== confirmPassword1.value) {
+        alert("Passwords do not match.");
+        confirmPassword1.focus();
+        return;
+    }
+
+    alert("Research account created successfully!");
+
+    // Reset Form
+  form.reset();
+
+// Reset Custom Dropdown
+document.getElementById("selectedRole").textContent = "Select Research Role";
+
+// Redirect to Login Page
+window.location.href = "login.html";
 });
-</script>
+    </script>
 </body>
+
 </html>

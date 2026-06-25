@@ -1469,7 +1469,7 @@
       <div class="breadcrumb">
         <a href="index.html">Home</a>
         <span>/</span>
-        <a href="about.html">blogs</a>
+        <a href="blog.html">blogs</a>
       </div>
     </div>
   </section>
@@ -1512,7 +1512,7 @@
           <p>Our latest Phase II trial demonstrates a 91% reduction in off-target edits using next-generation guide RNA
             design. This changes the safety calculus for therapeutic gene editing in ways the field has been
             anticipating for a decade.</p>
-          <a href="#" class="read-btn">
+          <a href="404.html" class="read-btn">
             Read Full Article
             <span class="material-symbols-outlined">arrow_forward</span>
           </a>
@@ -1537,11 +1537,11 @@
         </div>
         <div class="reveal">
           <div class="filter-tabs">
-            <button class="filter-tab active">All</button>
-            <button class="filter-tab">Genomics</button>
-            <button class="filter-tab">Clinical</button>
-            <button class="filter-tab">Pharma</button>
-            <button class="filter-tab">AI & Data</button>
+            <button class="filter-tab active errorpage">All</button>
+            <button class="filter-tab errorpage">Genomics</button>
+            <button class="filter-tab errorpage">Clinical</button>
+            <button class="filter-tab errorpage">Pharma</button>
+            <button class="filter-tab errorpage">AI & Data</button>
           </div>
         </div>
       </div>
@@ -1567,7 +1567,7 @@
                 <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&q=80" alt="Dr. Priya Nair">
                 <span>Dr. Priya Nair</span>
               </div>
-              <a href="#" class="article-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="404.html" class="article-link">Read <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -1591,7 +1591,7 @@
                   alt="Dr. Samuel Okafor">
                 <span>Dr. Samuel Okafor</span>
               </div>
-              <a href="#" class="article-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="404.html" class="article-link">Read <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -1614,7 +1614,7 @@
                 <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=100&q=80" alt="Dr. Mei Lin">
                 <span>Dr. Mei Lin</span>
               </div>
-              <a href="#" class="article-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="404.html" class="article-link">Read <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -1639,7 +1639,7 @@
                   alt="Dr. Arjun Mehta">
                 <span>Dr. Arjun Mehta</span>
               </div>
-              <a href="#" class="article-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="404.html" class="article-link">Read <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -1662,7 +1662,7 @@
                 <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&q=80" alt="Dr. Priya Nair">
                 <span>Dr. Priya Nair</span>
               </div>
-              <a href="#" class="article-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="404.html" class="article-link">Read <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -1686,7 +1686,7 @@
                   alt="Dr. Samuel Okafor">
                 <span>Dr. Samuel Okafor</span>
               </div>
-              <a href="#" class="article-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="404.html" class="article-link">Read <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -1820,12 +1820,12 @@
           <h3>Subscribe to our Research Digest</h3>
           <p>Free. Bi-weekly. Unsubscribe anytime.</p>
           <div class="nl-form">
-            <input type="text" placeholder="Your Full Name">
-            <input type="email" placeholder="Your Email Address">
-            <input type="text" placeholder="Organisation / Institution (optional)">
-            <button type="button">Subscribe Now</button>
-          </div>
-          <p class="nl-note" style="margin-top:14px;">By subscribing you agree to our Privacy Policy. We never share
+    <input type="text" id="nlName" placeholder="Your Full Name">
+    <input type="email" id="nlEmail" placeholder="Your Email Address">
+    <input type="text" id="nlOrg" placeholder="Organisation / Institution">
+    <button type="button" id="subscribeBtn">Subscribe Now</button>
+</div>
+          <p class="nl-note" style="margin-top:14px;">By subscribing our Privacy Policy. We never share
             your data.</p>
         </div>
 
@@ -2002,6 +2002,70 @@
         btn.classList.add('active');
       });
     });
+
+     //errorpage
+
+    let errorpage=document.querySelectorAll(".errorpage")
+    errorpage.forEach((item)=>{
+      item.addEventListener("click",()=>{
+        window.location.href="404.html"
+      })
+    })
+
+    const nlName = document.getElementById("nlName");
+const nlEmail = document.getElementById("nlEmail");
+const nlOrg = document.getElementById("nlOrg");
+const subscribeBtn = document.getElementById("subscribeBtn");
+
+// Name - Letters only
+nlName.addEventListener("input", function () {
+    this.value = this.value.replace(/[^A-Za-z\s]/g, "");
+});
+
+// Organisation - Letters only
+nlOrg.addEventListener("input", function () {
+    this.value = this.value.replace(/[^A-Za-z\s]/g, "");
+});
+
+subscribeBtn.addEventListener("click", function () {
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Name
+    if (nlName.value.trim() === "") {
+        alert("Please enter your full name.");
+        nlName.focus();
+        return;
+    }
+
+    // Email
+    if (nlEmail.value.trim() === "") {
+        alert("Please enter your email address.");
+        nlEmail.focus();
+        return;
+    }
+
+    if (!emailPattern.test(nlEmail.value.trim())) {
+        alert("Please enter a valid email address.");
+        nlEmail.focus();
+        return;
+    }
+
+    // Organisation
+    if (nlOrg.value.trim() === "") {
+        alert("Please enter your organisation.");
+        nlOrg.focus();
+        return;
+    }
+
+    alert("Subscribed successfully!");
+
+    // Clear fields
+    nlName.value = "";
+    nlEmail.value = "";
+    nlOrg.value = "";
+});
+
   </script>
 </body>
 
