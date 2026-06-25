@@ -1441,7 +1441,7 @@
 
 <body>
       <section class="navigation">
-        <a href="index.html"><img src="./src/logo.webp" alt="company Logo"></a>
+          <img src="./src/logo.webp" alt="company Logo" class="navimg">
 
         <nav class="menubar">
             <ul class="menus">
@@ -2088,6 +2088,12 @@ subscribeBtn.addEventListener("click", function () {
     nlEmail.value = "";
     nlOrg.value = "";
 });
+
+  // nav img
+  let navimg=document.querySelector('.navimg');
+  navimg.addEventListener("click",()=>{
+    window.location.href="index.html"
+  }) 
 
   </script>
 </body>

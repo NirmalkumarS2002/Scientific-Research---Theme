@@ -1708,242 +1708,360 @@
   }
 
 
+/* ===========================
+   RESEARCH SECTION
+=========================== */
 
-  /* ── SECTION 2: RESEARCH AREAS ── */
-  .research-section {
-    padding: 90px 20px;
-    background: rgb(255, 255, 255);
-    position: relative;
-  }
+.research-section{
+    padding:100px 20px;
+    background:#fff;
+}
 
-  .research-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(5, 201, 245, 0.4), transparent);
-  }
+.research-inner{
+    max-width:1250px;
+    margin:auto;
+}
 
-  .research-section::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(5, 201, 245, 0.4), transparent);
-  }
+/* TOP */
 
-  .research-inner {
-    max-width: 1100px;
-    margin: 0 auto
-  }
+.research-top{
 
-  .research-top {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-    margin-bottom: 60px
-  }
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:80px;
+}
 
-  .research-text .section-tag {
-    margin-bottom: 20px;
-    color: #010540;
-  }
+/* IMAGE */
 
-  .research-text h2 {
-    font-size: clamp(24px, 3.5vw, 42px);
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 20px
-  }
+.research-img-wrap{
 
-  .research-text p {
-    color: rgba(5, 0, 0, 0.6);
-    line-height: 1.8;
-    font-size: 15px
-  }
+    position:relative;
+}
 
-  .research-img-wrap {
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden
-  }
+.research-img-wrap img{
 
-  .research-img-wrap img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-    display: block;
-    border-radius: 20px;
-    filter: brightness(0.85)
-  }
+    width:100%;
+    height:380px;
 
-  .research-img-badge {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    background: rgba(2, 8, 106, 0.85);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(5, 201, 245, 0.3);
-    border-radius: 12px;
-    padding: 12px 20px;
-  }
+    object-fit:cover;
 
-  .research-img-badge p {
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.6);
-    margin-bottom: 4px
-  }
+    clip-path:polygon(
+        0 0,
+        92% 0,
+        100% 8%,
+        100% 100%,
+        8% 100%,
+        0 92%
+    );
+}
 
-  .research-img-badge strong {
-    font-size: 20px;
-    color: #05C9F5;
-    font-weight: 700
-  }
+.research-img-badge{
 
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 24px;
-    align-items: stretch;
-  }
+    position:absolute;
 
-  .r-card {
-    border-radius: 16px;
-    overflow: hidden;
-    transition: transform .4s, border-color .4s;
-    cursor: pointer;
-    border: 1px solid rgba(128, 128, 128, 0.349);
-    background: #fff;
+    right:-20px;
+    bottom:30px;
 
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
+    width:160px;
+    height:150px;
 
-  .r-card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(5, 201, 245, .35);
-    box-shadow: 0 4px 24px rgba(2, 8, 106, .4);
-  }
+    background:#02086A;
 
-  .r-card-img {
-    height: 160px;
-    overflow: hidden;
-    position: relative;
-    flex-shrink: 0;
-  }
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 
-  .r-card-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform .5s;
-  }
+    text-align:center;
+}
 
-  .r-card:hover .r-card-img img {
-    transform: scale(1.08);
-  }
+.research-img-badge strong{
 
-  .r-card-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top,
-        rgba(2, 8, 106, .7),
-        transparent);
-  }
+    font-size:52px;
 
-  .r-card-body {
-    padding: 20px;
+    color:#12C7F5;
 
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
+    line-height:1;
+}
 
-  .r-card-tag {
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #02086A;
-    margin-bottom: 8px;
-    display: block;
-  }
+.research-img-badge p{
 
-  .r-card-body h3 {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: #000;
-    line-height: 1.4;
-  }
+    color:#fff;
 
-  .r-card-body p {
-    font-size: 13px;
-    color: gray;
-    line-height: 1.8;
+    margin-top:8px;
 
-    flex-grow: 1;
-    /* important */
-  }
+    font-size:15px;
+}
 
-  .r-card-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+/* TEXT */
 
-    margin-top: auto;
-    /* important */
-    padding-top: 18px;
-  }
+.section-tag{
 
-  .r-card-footer span {
-    font-size: 12px;
-    color: #000;
-  }
+    display:flex;
+    align-items:center;
 
-  .r-card-arrow {
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    background: rgba(5, 201, 245, .1);
-    border: 1px solid rgba(5, 201, 245, .3);
+    gap:12px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-bottom:22px;
+}
 
-    color: #05C9F5;
-    font-size: 14px;
-    transition: .3s;
-  }
 
-  .r-card:hover .r-card-arrow {
-    background: #05C9F5;
-    color: #02086A;
-  }
 
-  @media (max-width:580px) {
+.sec-label{
 
-    .research-top {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 60px;
-      align-items: center;
-      margin-bottom: 60px;
+    color:#12C7F5;
+
+    letter-spacing:5px;
+
+    font-size:13px;
+
+    text-transform:uppercase;
+}
+
+.research-text h2{
+
+    font-size:58px;
+
+    line-height:1.15;
+
+    color:#02086A;
+
+    font-weight:800;
+
+    margin-bottom:25px;
+}
+
+.research-text p{
+
+    color:#555;
+
+    font-size:17px;
+
+    line-height:1.9;
+
+    margin-bottom:25px;
+}
+
+/* ===========================
+   CARDS
+=========================== */
+
+.cards-grid{
+
+    margin-top:80px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+}
+
+.r-card{
+
+    background:#fff;
+
+    border:none;
+
+    box-shadow:0 15px 40px rgba(2,8,106,.08);
+
+    transition:.35s;
+
+    overflow:hidden;
+}
+
+.r-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 45px rgba(2,8,106,.18);
+}
+
+.r-card-img{
+
+    height:220px;
+}
+
+.r-card-img img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.4s;
+}
+
+.r-card:hover img{
+
+    transform:scale(1.08);
+}
+
+.r-card-overlay{
+
+    position:absolute;
+    inset:0;
+
+    background:linear-gradient(
+        transparent,
+        rgba(2,8,106,.12)
+    );
+}
+
+.r-card-body{
+
+    padding:28px;
+}
+
+.r-card-tag{
+
+    display:inline-block;
+
+    color:#12C7F5;
+
+    font-size:12px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:12px;
+}
+
+.r-card-body h3{
+
+    font-size:22px;
+
+    color:#02086A;
+
+    margin-bottom:15px;
+}
+
+.r-card-body p{
+
+    color:#666;
+
+    line-height:1.8;
+
+    margin-bottom:25px;
+}
+
+.r-card-footer{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+.r-card-footer span{
+
+    color:#555;
+}
+
+.r-card-arrow{
+
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    background:#eef9fd;
+
+    color:#12C7F5;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index: 1 !important;
+    transition:.3s;
+}
+
+
+.r-card:hover .r-card-arrow{
+
+    background:#12C7F5;
+
+    color:#fff;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:992px){
+
+    .research-top{
+
+        grid-template-columns:1fr;
+
+        gap:50px;
     }
 
-  }
+    .cards-grid{
+
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .research-text h2{
+
+        font-size:42px;
+    }
+
+    .research-img-wrap img{
+
+        height:380px;
+    }
+}
+
+@media(max-width:768px){
+
+    .cards-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .research-text h2{
+
+        font-size:34px;
+    }
+
+    .research-text p{
+
+        font-size:15px;
+    }
+
+    .research-img-wrap img{
+
+        height:300px;
+    }
+
+    .research-img-badge{
+
+        width:120px;
+        height:110px;
+
+        right:15px;
+        bottom:15px;
+    }
+
+    .research-img-badge strong{
+
+        font-size:36px;
+    }
+
+    .research-img-badge p{
+
+        font-size:13px;
+    }
+}
 </style>
 
 <body>
   <section class="navigation">
-    <img src="./src/logo.webp" alt="company Logo">
+  <img src="./src/logo.webp" alt="company Logo" class="navimg"></a>
 
     <nav class="menubar">
       <ul class="menus">
@@ -2145,16 +2263,16 @@
   </section>
 
   <!-- SECTION 6: RESEARCH AREAS -->
-  <section class="research-section">
+  <section class="research-section reveal">
     <div class="research-inner">
       <div class="research-top">
-        <div class="research-text">
+        <div class="research-text reveal-left">
           <div class="section-tag"><span class="sec-label">Research Areas</span></div>
           <h2>Exploring the frontiers of <span style="color:#02086A">Modern Science</span></h2>
           <p>Our multidisciplinary teams work across cutting-edge fields — from genomics and oncology to neuroscience
             and biotech — delivering breakthroughs that reshape medicine.</p>
         </div>
-        <div class="research-img-wrap">
+        <div class="research-img-wrap reveal-right">
           <img src="./src/science1.webp"alt="Lab research">
           <div class="research-img-badge">
             <p>Active since</p>
@@ -2164,7 +2282,7 @@
       </div>
 
       <div class="cards-grid">
-        <div class="r-card">
+        <div class="r-card reveal delay-1">
           <div class="r-card-img">
             <img src="./src/science2.webp" alt="Genomics">
             <div class="r-card-overlay"></div>
@@ -2180,7 +2298,7 @@
           </div>
         </div>
 
-        <div class="r-card">
+        <div class="r-card reveal delay-2">
           <div class="r-card-img">
             <img src="./src/science3.webp" alt="Neuroscience">
             <div class="r-card-overlay"></div>
@@ -2196,7 +2314,7 @@
           </div>
         </div>
 
-        <div class="r-card">
+        <div class="r-card reveal delay-3">
           <div class="r-card-img">
             <img src="./src/science4.webp" alt="Oncology">
             <div class="r-card-overlay"></div>
@@ -2207,7 +2325,7 @@
             <p>Harnessing the immune system to target and eliminate cancer cells with precision.</p>
             <div class="r-card-footer">
               <span>21 active studies</span>
-              <div class="r-card-arrow">→</div>
+              <div class="r-card-arrow errorpage">→</div>
             </div>
           </div>
         </div>
@@ -2411,7 +2529,7 @@
 
   </section>
 
-  <footer class="footer">
+  <footer class="footer reveal">
     <div class="footer-container">
 
       <div class="footer-col">
@@ -2744,6 +2862,13 @@ form.addEventListener("submit", function (e) {
     form.reset();
 
 });
+
+//nav img
+
+  let navimg=document.querySelector('.navimg');
+  navimg.addEventListener("click",()=>{
+    window.location.href="index.html"
+  })  
   </script>
 </body>
 
