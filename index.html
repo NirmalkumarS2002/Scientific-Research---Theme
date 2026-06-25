@@ -2004,9 +2004,9 @@
     </div>
 
     <div class="side-btn">
-      <div><span class="material-symbols-outlined">add_shopping_cart</span></div>
-      <div><span class="material-symbols-outlined">image</span></div>
-      <div><span class="material-symbols-outlined">news</span></div>
+      <div><span class="material-symbols-outlined errorpage">add_shopping_cart</span></div>
+      <div><span class="material-symbols-outlined errorpage">image</span></div>
+      <div><span class="material-symbols-outlined errorpage">news</span></div>
     </div>
   </section>
 
@@ -2232,9 +2232,9 @@
           <h3>Dr. Ananya Krishnan</h3>
           <span>Lead Oncologist</span>
           <div class="team-socials">
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+            <a href="404.html"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html"><i class="fa-solid fa-envelope"></i></a>
           </div>
         </div>
       </div>
@@ -2247,9 +2247,9 @@
           <h3>Dr. Rajan Mehta</h3>
           <span>Head of Genomics</span>
           <div class="team-socials">
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+            <a href="404.html"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html"><i class="fa-solid fa-envelope"></i></a>
           </div>
         </div>
       </div>
@@ -2262,9 +2262,9 @@
           <h3>Dr. Priya Nair</h3>
           <span>Clinical Trial Director</span>
           <div class="team-socials">
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+            <a href="404.html"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html"><i class="fa-solid fa-envelope"></i></a>
           </div>
         </div>
       </div>
@@ -2277,9 +2277,9 @@
           <h3>Dr. Vikram Shetty</h3>
           <span>Neuroscience Researcher</span>
           <div class="team-socials">
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+            <a href="404.html"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html"><i class="fa-solid fa-envelope"></i></a>
           </div>
         </div>
       </div>
@@ -2389,18 +2389,24 @@
       <span class="sec-label">Send a Message</span>
       <h2 class="sec-title">Contact Us</h2>
       <p>Our team responds within 24 hours. Partnership inquiries are welcome.</p>
-      <form class="c-form" onsubmit="return false;">
-        <div class="c-row">
-          <input type="text" placeholder="Your Name">
-          <input type="email" placeholder="Email Address">
-        </div>
-        <input type="text" placeholder="Organization / Institute">
-        <input type="text" placeholder="Subject">
-        <textarea placeholder="Your message..."></textarea>
-        <button class="c-submit" type="submit">
-          Send Message <i class="fa-solid fa-paper-plane"></i>
-        </button>
-      </form>
+      <form class="c-form" id="contactForm">
+
+  <div class="c-row">
+    <input type="text" id="name" placeholder="Your Name">
+    <input type="email" id="email" placeholder="Email Address">
+  </div>
+
+  <input type="text" id="organization" placeholder="Organization / Institute">
+
+  <input type="text" id="subject" placeholder="Subject">
+
+  <textarea id="message" placeholder="Your message..."></textarea>
+
+  <button class="c-submit" type="submit">
+    Send Message <i class="fa-solid fa-paper-plane"></i>
+  </button>
+
+</form>
     </div>
 
   </section>
@@ -2646,6 +2652,98 @@
         window.location.href="404.html"
       })
     })
+
+
+    //form 
+
+    const form = document.getElementById("contactForm");
+
+const nameField = document.getElementById("name");
+const emailField = document.getElementById("email");
+const orgField = document.getElementById("organization");
+const subjectField = document.getElementById("subject");
+const messageField = document.getElementById("message");
+
+// Only letters & spaces for Name
+nameField.addEventListener("input", function () {
+    this.value = this.value.replace(/[^A-Za-z\s]/g, "");
+});
+
+// Only letters, spaces & . , & - for Organization
+orgField.addEventListener("input", function () {
+    this.value = this.value.replace(/[^A-Za-z\s.,&-]/g, "");
+});
+
+// Subject - no numbers or special characters
+subjectField.addEventListener("input", function () {
+    this.value = this.value.replace(/[^A-Za-z\s]/g, "");
+});
+
+form.addEventListener("submit", function (e) {
+
+    e.preventDefault();
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (nameField.value.trim() === "") {
+        alert("Please enter your name.");
+        nameField.focus();
+        return;
+    }
+
+    if (!/^[A-Za-z\s]+$/.test(nameField.value.trim())) {
+        alert("Name should contain only letters.");
+        nameField.focus();
+        return;
+    }
+
+    if (emailField.value.trim() === "") {
+        alert("Please enter your email.");
+        emailField.focus();
+        return;
+    }
+
+    if (!emailPattern.test(emailField.value.trim())) {
+        alert("Please enter a valid email address.");
+        emailField.focus();
+        return;
+    }
+
+    if (orgField.value.trim() === "") {
+        alert("Please enter your organization.");
+        orgField.focus();
+        return;
+    }
+
+    if (!/^[A-Za-z\s.,&-]+$/.test(orgField.value.trim())) {
+        alert("Organization name is invalid.");
+        orgField.focus();
+        return;
+    }
+
+    if (subjectField.value.trim() === "") {
+        alert("Please enter the subject.");
+        subjectField.focus();
+        return;
+    }
+
+    if (!/^[A-Za-z\s]+$/.test(subjectField.value.trim())) {
+        alert("Subject should contain only letters.");
+        subjectField.focus();
+        return;
+    }
+
+    if (messageField.value.trim() === "") {
+        alert("Please enter your message.");
+        messageField.focus();
+        return;
+    }
+
+    alert("Message sent successfully!");
+
+    form.reset();
+
+});
   </script>
 </body>
 
