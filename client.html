@@ -318,8 +318,8 @@
         }
 
         .profile-avatar {
-              width: clamp(35px,4vw,48px);
-    height: clamp(35px,4vw,48px);
+            width: clamp(35px, 4vw, 48px);
+            height: clamp(35px, 4vw, 48px);
             border-radius: 50%;
             background: linear-gradient(135deg, #001ec8, #00dee6);
             color: white;
@@ -332,10 +332,11 @@
             flex-shrink: 0;
         }
 
-        .topbar-profile div:last-child{
+        .topbar-profile div:last-child {
             display: flex;
             flex-direction: column;
         }
+
         .profile-text .name {
             font-size: 14px;
             font-weight: 600;
@@ -1179,10 +1180,10 @@
             flex-shrink: 0;
         }
 
-          .summary-grid{
-            display:grid;
-            grid-template-columns:repeat(3,1fr);
-            gap:16px;
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
         }
 
         .inv-icon.paid {
@@ -1267,286 +1268,287 @@
         }
 
         /* ── SUPPORT PAGE ── */
-      .support-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
-}
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
 
-.settings-card {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 22px 24px;
-    overflow: hidden;
-}
+        .settings-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px 24px;
+            overflow: hidden;
+        }
 
-.settings-card h3 {
-    font-family: "Roboto Slab", serif;
-    font-size: 16px;
-    color: var(--teal-dark);
-    margin-bottom: 20px;
-    padding-bottom: 14px;
-    border-bottom: 1px solid var(--border);
-}
+        .settings-card h3 {
+            font-family: "Roboto Slab", serif;
+            font-size: 16px;
+            color: var(--teal-dark);
+            margin-bottom: 20px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--border);
+        }
 
-.settings-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--border);
-}
+        .settings-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+        }
 
-.settings-row:last-child {
-    border-bottom: none;
-}
+        .settings-row:last-child {
+            border-bottom: none;
+        }
 
-.settings-row-left {
-    flex: 1;
-    min-width: 0;
-}
+        .settings-row-left {
+            flex: 1;
+            min-width: 0;
+        }
 
-.settings-row-left h4 {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text);
-    line-height: 1.4;
-}
+        .settings-row-left h4 {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.4;
+        }
 
-.settings-row-left p {
-    font-size: 12px;
-    color: var(--muted);
-    margin-top: 2px;
-    line-height: 1.5;
-}
+        .settings-row-left p {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 2px;
+            line-height: 1.5;
+        }
 
-.settings-input {
-    width: 180px;
-    max-width: 100%;
-    padding: 9px 12px;
-    border: 1.5px solid var(--border);
-    border-radius: 6px;
-    font-size: 13px;
-    font-family: "Inter", sans-serif;
-    color: var(--text);
-    outline: none;
-    transition: .25s;
-    flex-shrink: 0;
-}
+        .settings-input {
+            width: 180px;
+            max-width: 100%;
+            padding: 9px 12px;
+            border: 1.5px solid var(--border);
+            border-radius: 6px;
+            font-size: 13px;
+            font-family: "Inter", sans-serif;
+            color: var(--text);
+            outline: none;
+            transition: .25s;
+            flex-shrink: 0;
+        }
 
-.settings-input:focus {
-    border-color: var(--teal);
-}
+        .settings-input:focus {
+            border-color: var(--teal);
+        }
 
-.toggle-switch {
-    position: relative;
-    width: 44px;
-    height: 24px;
-    flex-shrink: 0;
-    cursor: pointer;
-}
+        .toggle-switch {
+            position: relative;
+            width: 44px;
+            height: 24px;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
 
-.toggle-switch input {
-    display: none;
-}
+        .toggle-switch input {
+            display: none;
+        }
 
-.toggle-track {
-    position: absolute;
-    inset: 0;
-    border-radius: 30px;
-    background: var(--border);
-    transition: .3s;
-}
+        .toggle-track {
+            position: absolute;
+            inset: 0;
+            border-radius: 30px;
+            background: var(--border);
+            transition: .3s;
+        }
 
-.toggle-switch input:checked+.toggle-track {
-    background: var(--teal);
-}
+        .toggle-switch input:checked+.toggle-track {
+            background: var(--teal);
+        }
 
-.toggle-thumb {
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: #fff;
-    transition: .3s;
-    box-shadow: 0 1px 4px rgba(0,0,0,.2);
-}
+        .toggle-thumb {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #fff;
+            transition: .3s;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+        }
 
-.toggle-switch input:checked~.toggle-thumb {
-    transform: translateX(20px);
-}
+        .toggle-switch input:checked~.toggle-thumb {
+            transform: translateX(20px);
+        }
 
-.save-btn {
-    margin-top: 20px;
-    padding: 11px 28px;
-    background: var(--teal);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: .3s;
-}
+        .save-btn {
+            margin-top: 20px;
+            padding: 11px 28px;
+            background: var(--teal);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .3s;
+        }
 
-.save-btn:hover {
-    background: var(--teal-mid);
-}
+        .save-btn:hover {
+            background: var(--teal-mid);
+        }
 
-.ticket-list {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
+        .ticket-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
 
-.ticket-item {
-    padding: 16px;
-    background: var(--bg);
-    border-radius: 8px;
-    border-left: 4px solid var(--teal);
-}
+        .ticket-item {
+            padding: 16px;
+            background: var(--bg);
+            border-radius: 8px;
+            border-left: 4px solid var(--teal);
+        }
 
-.ticket-item.urgent {
-    border-left-color: #ef4444;
-}
+        .ticket-item.urgent {
+            border-left-color: #ef4444;
+        }
 
-.ticket-item.resolved {
-    border-left-color: #10b981;
-}
+        .ticket-item.resolved {
+            border-left-color: #10b981;
+        }
 
-.ticket-item h4 {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--text);
-    line-height: 1.45;
-    margin-bottom: 6px;
-}
+        .ticket-item h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.45;
+            margin-bottom: 6px;
+        }
 
-.ticket-item p {
-    font-size: 12px;
-    color: var(--muted);
-    line-height: 1.5;
-}
+        .ticket-item p {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
 
-.ticket-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 10px;
-}
+        .ticket-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
 
-.ticket-tag {
-    font-size: 10px;
-    font-weight: 700;
-    padding: 3px 8px;
-    border-radius: 4px;
-    word-break: break-word;
-}
+        .ticket-tag {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            word-break: break-word;
+        }
 
-.ticket-tag.open {
-    background: var(--gold-soft);
-    color: #0284c7;
-}
+        .ticket-tag.open {
+            background: var(--gold-soft);
+            color: #0284c7;
+        }
 
-.ticket-tag.urgent {
-    background: rgba(239,68,68,.12);
-    color: #ef4444;
-}
+        .ticket-tag.urgent {
+            background: rgba(239, 68, 68, .12);
+            color: #ef4444;
+        }
 
-.ticket-tag.resolved {
-    background: rgba(16,185,129,.12);
-    color: #10b981;
-}
+        .ticket-tag.resolved {
+            background: rgba(16, 185, 129, .12);
+            color: #10b981;
+        }
 
-/* ---------- Tablet ---------- */
+        /* ---------- Tablet ---------- */
 
-@media (max-width:992px){
+        @media (max-width:992px) {
 
-    .support-grid{
-        grid-template-columns:1fr;
-    }
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
 
-}
+        }
 
-/* ---------- Mobile ---------- */
+        /* ---------- Mobile ---------- */
 
-@media (max-width:768px){
+        @media (max-width:768px) {
 
-    .settings-card{
-        padding:18px;
-    }
+            .settings-card {
+                padding: 18px;
+            }
 
-    .first-card .settings-row{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:12px;
-    }
+            .first-card .settings-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
 
-         
 
-    .settings-input{
-        width:100%;
-    }
 
-    .toggle-switch{
-        align-self:flex-end;
-    }
+            .settings-input {
+                width: 100%;
+            }
 
-    .ticket-meta{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:6px;
-    }
+            .toggle-switch {
+                align-self: flex-end;
+            }
 
-    .save-btn{
-        width:100%;
-    }
+            .ticket-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
 
-}
+            .save-btn {
+                width: 100%;
+            }
 
-/* ---------- Small Mobile ---------- */
+        }
 
-@media (max-width:480px){
+        /* ---------- Small Mobile ---------- */
 
-    .settings-card{
-        padding:16px;
-    }
+        @media (max-width:480px) {
 
-    .settings-card h3{
-        font-size:15px;
-    }
+            .settings-card {
+                padding: 16px;
+            }
 
-    .settings-row-left h4{
-        font-size:12px;
-    }
+            .settings-card h3 {
+                font-size: 15px;
+            }
 
-    .settings-row-left p{
-        font-size:11px;
-    }
+            .settings-row-left h4 {
+                font-size: 12px;
+            }
 
-    .ticket-item{
-        padding:14px;
-    }
+            .settings-row-left p {
+                font-size: 11px;
+            }
 
-    .ticket-item h4{
-        font-size:12px;
-    }
+            .ticket-item {
+                padding: 14px;
+            }
 
-    .ticket-item p{
-        font-size:11px;
-    }
+            .ticket-item h4 {
+                font-size: 12px;
+            }
 
-    .ticket-tag{
-        font-size:9px;
-    }
+            .ticket-item p {
+                font-size: 11px;
+            }
 
-}
+            .ticket-tag {
+                font-size: 9px;
+            }
+
+        }
+
         /* ── WELCOME BANNER ── */
         .welcome-banner {
             background: linear-gradient(135deg, #010550, #041a90);
@@ -1763,28 +1765,23 @@
             .close-btn {
                 display: block;
             }
-             .topbar-profile div:last-child{
-            display: none;
-        }
+
+            .topbar-profile div:last-child {
+                display: none;
+            }
         }
 
         @media (max-width:470px) {
-            .welcome-actions{
+            .welcome-actions {
                 flex-direction: column;
             }
 
-             .summary-grid{
-                 grid-template-columns: 1fr;
-        }
-        }
-
-        .outline{
-
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
-      
-
-    
+        .outline {}
     </style>
 </head>
 
@@ -1885,10 +1882,11 @@
                     <p>Here's a summary of your active trials and research progress for June 2026.</p>
                 </div>
                 <div class="welcome-actions">
-                    <button class="hdr-btn gold errorpage" style="z-index:1" ><span
+                    <button class="hdr-btn gold errorpage" style="z-index:1"><span
                             class="material-symbols-outlined">download</span> Download Report</button>
                     <button class="hdr-btn welcomebtn errorpage"
-                        style="background:rgba(255,255,255,0.12);color:white;border-color:rgba(255,255,255,0.2);z-index:1"><span class="material-symbols-outlined">support_agent</span>
+                        style="background:rgba(255,255,255,0.12);color:white;border-color:rgba(255,255,255,0.2);z-index:1"><span
+                            class="material-symbols-outlined">support_agent</span>
                         Contact Team</button>
                 </div>
             </div>
@@ -2184,7 +2182,8 @@
                 <div class="page-header-right">
                     <button class="hdr-btn outline errorpage"><span class="material-symbols-outlined">download</span>
                         Export</button>
-                    <button class="hdr-btn solid errorpage"><span class="material-symbols-outlined">support_agent</span> Request
+                    <button class="hdr-btn solid errorpage"><span class="material-symbols-outlined">support_agent</span>
+                        Request
                         Update</button>
                 </div>
             </div>
@@ -2196,14 +2195,14 @@
                         <input type="text" placeholder="Search trials...">
                     </div>
                     <button class="filter-select errorpage">
-                            Phase I
-                    </button >
-                    <button  class="filter-select errorpage">
-                    Phase II
-                    </button >
-                     <button  class="filter-select errorpage">
-                    Phase III
-                    </button >
+                        Phase I
+                    </button>
+                    <button class="filter-select errorpage">
+                        Phase II
+                    </button>
+                    <button class="filter-select errorpage">
+                        Phase III
+                    </button>
                 </div>
 
                 <div class="full-table-wrap">
@@ -2298,7 +2297,8 @@
                     <p>Downloadable reports and data exports for your trials</p>
                 </div>
                 <div class="page-header-right">
-                    <button class="hdr-btn solid errorpage"><span class="material-symbols-outlined">download</span> Download
+                    <button class="hdr-btn solid errorpage"><span class="material-symbols-outlined">download</span>
+                        Download
                         All</button>
                 </div>
             </div>
@@ -2401,7 +2401,8 @@
                     <p>Peer-reviewed research linked to your contracted trials</p>
                 </div>
                 <div class="page-header-right">
-                    <button class="hdr-btn outline errorpage"><span class="material-symbols-outlined">download</span> Export
+                    <button class="hdr-btn outline errorpage"><span class="material-symbols-outlined">download</span>
+                        Export
                         List</button>
                 </div>
             </div>
@@ -2413,14 +2414,14 @@
                         <input type="text" placeholder="Search by title, author, journal...">
                     </div>
                     <button class="filter-select errorpage">
-                            Genomics
-                    </button >
-                    <button  class="filter-select errorpage">
-                       Pharma
-                    </button >
-                     <button  class="filter-select errorpage">
-                      AI & Data
-                    </button >
+                        Genomics
+                    </button>
+                    <button class="filter-select errorpage">
+                        Pharma
+                    </button>
+                    <button class="filter-select errorpage">
+                        AI & Data
+                    </button>
                 </div>
 
                 <div style="display:flex;flex-direction:column;gap:16px;">
@@ -2429,7 +2430,8 @@
                         <div
                             style="width:56px;height:56px;border-radius:10px;background:var(--teal-dark);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
                             <span class="material-symbols-outlined"
-                                style="font-size:26px;color:var(--gold)">article</span></div>
+                                style="font-size:26px;color:var(--gold)">article</span>
+                        </div>
                         <div style="flex:1;">
                             <div
                                 style="font-size:14px;font-weight:700;color:var(--teal-dark);line-height:1.4;margin-bottom:6px;">
@@ -2451,7 +2453,8 @@
                         <div
                             style="width:56px;height:56px;border-radius:10px;background:var(--teal-dark);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
                             <span class="material-symbols-outlined"
-                                style="font-size:26px;color:var(--gold)">article</span></div>
+                                style="font-size:26px;color:var(--gold)">article</span>
+                        </div>
                         <div style="flex:1;">
                             <div
                                 style="font-size:14px;font-weight:700;color:var(--teal-dark);line-height:1.4;margin-bottom:6px;">
@@ -2473,7 +2476,8 @@
                         <div
                             style="width:56px;height:56px;border-radius:10px;background:var(--teal-dark);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
                             <span class="material-symbols-outlined"
-                                style="font-size:26px;color:var(--gold)">pending</span></div>
+                                style="font-size:26px;color:var(--gold)">pending</span>
+                        </div>
                         <div style="flex:1;">
                             <div
                                 style="font-size:14px;font-weight:700;color:var(--teal-dark);line-height:1.4;margin-bottom:6px;">
@@ -2502,7 +2506,8 @@
                     <p>Billing history and upcoming payments for your contract</p>
                 </div>
                 <div class="page-header-right err">
-                    <button class="hdr-btn outline errorpage"><span class="material-symbols-outlined">download</span> Export
+                    <button class="hdr-btn outline errorpage"><span class="material-symbols-outlined">download</span>
+                        Export
                         All</button>
                 </div>
             </div>
@@ -2579,7 +2584,8 @@
                     <p>Raise tickets, manage preferences, and update your profile</p>
                 </div>
                 <div class="page-header-right">
-                    <button class="hdr-btn solid errorpage"><span class="material-symbols-outlined">add</span> New Ticket</button>
+                    <button class="hdr-btn solid errorpage"><span class="material-symbols-outlined">add</span> New
+                        Ticket</button>
                 </div>
             </div>
 
@@ -2715,18 +2721,18 @@
                         </label>
                     </div>
 
-               <div class="settings-row">
-    <div class="settings-row-left">
-        <h4>Biometric Authentication</h4>
-        <p>Allow fingerprint or Face ID for secure login</p>
-    </div>
-    <label class="toggle-switch">
-        <input type="checkbox" checked>
-        <div class="toggle-track"></div>
-        <div class="toggle-thumb"></div>
-    </label>
-</div>
-              
+                    <div class="settings-row">
+                        <div class="settings-row-left">
+                            <h4>Biometric Authentication</h4>
+                            <p>Allow fingerprint or Face ID for secure login</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <div class="toggle-track"></div>
+                            <div class="toggle-thumb"></div>
+                        </label>
+                    </div>
+
                     <div class="settings-row">
                         <div class="settings-row-left">
                             <h4>Login Activity Alerts</h4>
@@ -2784,6 +2790,10 @@
             const bc = document.getElementById('breadcrumbCurrent');
             if (bc) bc.textContent = pageLabels[page] || page;
             if (window.innerWidth <= 850) sidebar.style.display = 'none';
+
+            window.scrollTo({
+                top: "0px"
+            })
         }
 
         document.querySelectorAll('.nav-item[data-page]').forEach(item => {
@@ -2838,10 +2848,10 @@
 
         //errorpage
 
-        const errorpage=document.querySelectorAll(".errorpage")
-        errorpage.forEach((items)=>{
-            items.addEventListener("click",()=>{
-                window.location.href="404.html" 
+        const errorpage = document.querySelectorAll(".errorpage")
+        errorpage.forEach((items) => {
+            items.addEventListener("click", () => {
+                window.location.href = "404.html"
             })
         })
     </script>
